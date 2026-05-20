@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Consciencia Creativa | Estrategia y Bienestar Humano</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-background": "#191c1e",
+                        "primary-fixed": "#d6e3ff",
+                        "secondary": "#436653",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-tint": "#515f78",
+                        "tertiary-fixed-dim": "#e7bf99",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "background": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "outline": "#75777e",
+                        "on-secondary-fixed-variant": "#2c4e3c",
+                        "surface": "#f7f9fb",
+                        "outline-variant": "#c5c6cd",
+                        "on-secondary-fixed": "#002113",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#c5ebd4",
+                        "on-tertiary-fixed": "#2b1701",
+                        "primary-container": "#0d1c32",
+                        "inverse-primary": "#b9c7e4",
+                        "secondary-fixed-dim": "#a9cfb8",
+                        "primary": "#0b1a30",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-container": "#76849f",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#476a57",
+                        "tertiary": "#e07a5f",
+                        "secondary-container": "#c2e9d1",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5d4124",
+                        "tertiary-fixed": "#ffdcbd",
+                        "tertiary-container": "#2b1701",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface-variant": "#44474d",
+                        "on-primary-fixed": "#0d1c32",
+                        "on-primary-fixed-variant": "#39475f",
+                        "on-tertiary-container": "#9f7d5b",
+                        "inverse-surface": "#2d3133"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Source Serif 4"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Source Serif 4"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Source Serif 4"],
+                        "label-sm": ["Inter"],
+                        "display-lg-mobile": ["Source Serif 4"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-mint-soft { background-color: rgba(67, 102, 83, 0.08); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container">
+
+<nav class="bg-surface-container-lowest dark:bg-surface-container-highest shadow-[0px_12px_32px_rgba(10,25,47,0.08)] full-width top-0 sticky z-50">
+    <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto py-4">
+        <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Consciencia Creativa</span>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="#servicios">Servicios</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="quienes-somos.html">Quiénes Somos</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="contacto.html">Contacto</a>
+            <a href="contacto.html" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200">
+                Agendar Diagnóstico
+            </a>
+        </div>
+        <button class="md:hidden text-primary">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+</nav>
+
+<main>
+    <section class="relative min-h-[800px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover" alt="Oficina moderna y serena que equilibra el diseño corporativo con elementos naturales" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChTmUGVK_FfR29wnNRkP5Q1F2pXt3F15g1DofOysYIHQordMFaOVOnXN0fin3PyelG2Je1Lo_7E2gg6LpNi0QE5r1dgcgMZOnew6RCAAFsLwLeHJ7ZR5IHGuLezfnsr3dcyLNT_IzH3Lz4kP_Ox43RxXfwshD8Pq_tHQaN7PDFhfXL8W6Tq25boQh7xMFSbZmPsTdxxXNDP5I51vma5ZsvbZYL7CyjsRfCrwpc5pSQYuSEIXrgk0v8GyQ9pEy7eULMX2mexpV50gI"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-container/95 via-primary-container/75 to-transparent"></div>
+        </div>
+        <div class="relative z-10 w-full px-margin-desktop max-w-container-max mx-auto py-24">
+            <div class="max-w-2xl">
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6">
+                    Donde la Estrategia se Encuentra con la Esencia Humana.
+                </h1>
+                <p class="font-body-lg text-body-lg text-white/90 mb-10 leading-relaxed">
+                    Transformamos organizaciones fusionando la rigurosidad corporativa con el bienestar profundo de tu equipo.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="contacto.html" class="bg-tertiary text-white px-8 py-4 rounded-xl font-body-md font-semibold hover:brightness-110 active:translate-y-[-2px] transition-all duration-300 text-center">
+                        Transforma tu organización
+                    </a>
+                    <a href="quienes-somos.html" class="border-2 border-white text-white px-8 py-4 rounded-xl font-body-md font-semibold hover:bg-white/10 transition-all duration-300 text-center">
+                        Conoce el método
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid md:grid-cols-2 gap-gutter items-center">
+                <div>
+                    <span class="text-secondary font-label-sm uppercase tracking-widest mb-4 block">Propósito Estratégico</span>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Equilibrio entre Resultados y Bienestar.</h2>
+                </div>
+                <div>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        En Consciencia Creativa, no elegimos entre datos y personas. Ayudamos a las empresas a alcanzar sus OKRs mediante el desarrollo del potencial humano, creando estructuras sostenibles y liderazgos conscientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-24 bg-surface-container-low">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-headline-lg text-headline-lg text-primary">Nuestros Pilares de Transformación</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                <div class="md:col-span-7 bg-white p-10 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-outline-variant hover:translate-y-[-4px] transition-transform duration-300">
+    <span class="material-symbols-outlined text-secondary text-4xl mb-6">insights</span>
+    <h3 class="font-headline-md text-headline-md text-primary mb-4">Planeación Estratégica</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-4">Estructura basada en OKRs y KPIs para un crecimiento medible. Alineamos la visión ejecutiva con la ejecución operativa para garantizar resultados de alto impacto.</p>
+    <a href="planeacion.html" class="text-secondary font-semibold inline-flex items-center gap-2 hover:underline">
+        Ver metodología y soluciones <span class="material-symbols-outlined text-sm">arrow_forward</span>
+    </a>
+</div>
+                <div class="md:col-span-5 bg-white p-10 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-outline-variant hover:translate-y-[-4px] transition-transform duration-300">
+    <span class="material-symbols-outlined text-secondary text-4xl mb-6">psychology</span>
+    <h3 class="font-headline-md text-headline-md text-primary mb-4">Talleres y Experiencias</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-4">Mentorías de liderazgo, pruebas DISC y programas de prevención de Burnout diseñados para construir equipos resilientes.</p>
+    <a href="talleres.html" class="text-secondary font-semibold inline-flex items-center gap-2 hover:underline">
+        Conocer experiencias <span class="material-symbols-outlined text-sm">arrow_forward</span>
+    </a>
+</div>
+                <div class="md:col-span-5 bg-white p-10 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-outline-variant hover:translate-y-[-4px] transition-transform duration-300">
+                    <span class="material-symbols-outlined text-secondary text-4xl mb-6">balance</span>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Competitividad y Equidad Salarial</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-4">Análisis de compensación inteligente y reducción de brechas salariales para una cultura organizacional justa, competitiva y atractiva.</p>
+                    <a href="equidad-salarial.html" class="text-secondary font-semibold inline-flex items-center gap-2 hover:underline">
+                        Ver análisis de compensación <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="md:col-span-7 bg-white p-10 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-outline-variant hover:translate-y-[-4px] transition-transform duration-300">
+                    <span class="material-symbols-outlined text-secondary text-4xl mb-6">groups</span>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Reclutamiento y Potencial Humano</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-4">Reclutamiento estratégico y preparación de talento para el futuro. Identificamos habilidades técnicas y la alineación cultural necesaria para el éxito mutuo.</p>
+                    <a href="reclutamiento.html" class="text-secondary font-semibold inline-flex items-center gap-2 hover:underline">
+                        Conocer el proceso de selección <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 overflow-hidden">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl">
+                <div class="relative bg-primary-container p-16 flex flex-col justify-center min-h-[400px]">
+                    <div class="absolute top-0 right-0 p-8 opacity-20">
+                        <span class="material-symbols-outlined text-[120px] text-white">corporate_fare</span>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm mb-6 inline-block">B2B</span>
+                        <h3 class="font-headline-lg text-headline-lg text-white mb-6">Para Empresas</h3>
+                        <p class="font-body-lg text-body-lg text-white/80 mb-8">Optimizamos el motor de tu negocio a través de sistemas de gestión, planeación y atracción de talento humano de vanguardia.</p>
+                        <a href="contacto.html" class="text-white border-b-2 border-secondary-fixed pb-1 font-label-md hover:text-secondary-fixed transition-colors">Solicitar propuesta empresarial →</a>
+                    </div>
+                </div>
+                <div class="relative bg-secondary-fixed p-16 flex flex-col justify-center min-h-[400px]">
+                    <div class="absolute top-0 right-0 p-8 opacity-20">
+                        <span class="material-symbols-outlined text-[120px] text-primary">person_celebrate</span>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="bg-primary-container text-white px-3 py-1 rounded-full text-label-sm font-label-sm mb-6 inline-block">B2C</span>
+                        <h3 class="font-headline-lg text-headline-lg text-primary mb-6">Para Profesionales</h3>
+                        <p class="font-body-lg text-body-lg text-on-secondary-container mb-8">Diseñamos tu trayectoria estratégica y te preparamos para que lideres con propósito y accedas al puesto deseado.</p>
+                        <a href="contacto.html" class="text-primary border-b-2 border-primary pb-1 font-label-md hover:opacity-70 transition-opacity">Ver preparación individual →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="bg-white rounded-[2rem] p-8 md:p-16 shadow-[0px_12px_32px_rgba(10,25,47,0.08)] flex flex-col lg:flex-row gap-16 border border-outline-variant/30">
+                <div class="lg:w-1/2">
+                    <h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary mb-6">¿Listo para dar el siguiente paso?</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Agenda una sesión diagnóstica gratuita para identificar las brechas de crecimiento en tu organización y diseñar una hoja de ruta personalizada.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-mint-soft rounded-full flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined">verified</span>
+                            </div>
+                            <span class="font-label-md text-on-surface">Diagnóstico inicial sin compromiso</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-mint-soft rounded-full flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined">event_available</span>
+                            </div>
+                            <span class="font-label-md text-on-surface">Flexibilidad de horarios</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 bg-surface-container-low p-8 rounded-2xl">
+                    <form class="grid grid-cols-1 gap-6" onsubmit="event.preventDefault();">
+                        <div>
+                            <label class="block font-label-sm text-on-surface-variant mb-2">Nombre Completo</label>
+                            <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="Ej. Juan Pérez" type="text"/>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block font-label-sm text-on-surface-variant mb-2">Empresa / Organización</label>
+                                <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="Tu compañía (o 'Independiente')" type="text"/>
+                            </div>
+                            <div>
+                                <label class="block font-label-sm text-on-surface-variant mb-2">Email de Contacto</label>
+                                <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="juan@empresa.com" type="email"/>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-label-sm text-on-surface-variant mb-2">Servicio de interés</label>
+                            <select class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3">
+                                <option>Planeación Estratégica (OKRs & KPIs)</option>
+                                <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="talleres.html">Talleres y Mentorías</a>
+                                <option>Análisis de Equidad Salarial</option>
+                                <option>Reclutamiento y Potencial Humano</option>
+                            </select>
+                        </div>
+                        <button class="w-full bg-tertiary text-white py-4 rounded-xl font-body-md font-semibold shadow-lg shadow-tertiary/20 hover:brightness-110 hover:translate-y-[-2px] transition-all" type="submit">
+                            Agendar Diagnóstico Gratuito
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-surface-container dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline">
+    <div class="w-full px-margin-desktop py-12 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter">
+        <div class="max-w-xs">
+            <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed block mb-4">Consciencia Creativa</span>
+            <p class="font-body-md text-body-md text-on-surface-variant">Uniendo la estrategia corporativa con la salud organizacional.</p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+            <div class="flex flex-col gap-4">
+                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter">Servicios</span>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="planeacion.html">Planeación Estratégica</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="talleres.html">Talleres y Mentorías</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="equidad-salarial.html">Equidad Salarial</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="reclutamiento.html">Reclutamiento</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter">Compañía</span>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="quienes-somos.html">Quiénes Somos</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="contacto.html">Contacto</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter">Legal</span>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Política de Privacidad</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Términos de Servicio</a>
+            </div>
+        </div>
+    </div>
+    <div class="w-full px-margin-desktop py-8 border-t border-outline-variant/30 max-w-container-max mx-auto text-center">
+        <p class="font-label-md text-label-md text-on-surface-variant">© 2026 Consciencia Creativa. Transformación Estratégica y Bienestar Humano.</p>
+    </div>
+</footer>
+
+</body>
+</html>

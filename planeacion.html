@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Planeación Inteligente: OKRs y KPIs | Consciencia Creativa</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "primary": "#0b1a30",
+                        "secondary": "#436653",
+                        "tertiary": "#e07a5f",
+                        "background": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface-variant": "#44474d",
+                        "on-surface": "#191c1e",
+                        "outline-variant": "#c5c6cd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Source Serif 4"],
+                        "headline-lg": ["Source Serif 4"],
+                        "headline-md": ["Source Serif 4"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md relative">
+
+<a href="https://wa.me/573045935556?text=Hola!%20Vengo%20de%20la%20web%20de%20Consciencia%20Creativa%20y%20me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa%20sobre%20la%20planeaci%C3%B3n%20de%20OKRs%20y%20KPIs%20para%20mi%20empresa." 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 group">
+    <span class="material-symbols-outlined text-2xl">chat</span>
+    <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-out font-label-md text-sm font-semibold whitespace-nowrap">
+        Hablemos por WhatsApp
+    </span>
+</a>
+
+<nav class="bg-surface-container-lowest shadow-[0px_12px_32px_rgba(10,25,47,0.08)] top-0 sticky z-50">
+    <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto py-4">
+        <a href="code.html" class="text-headline-md font-headline-md font-bold text-primary">Consciencia Creativa</a>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-secondary font-semibold border-b-2 border-secondary" href="#">Planeación (OKRs & KPIs)</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="talleres.html">Talleres y Mentorías</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="equidad-salarial.html">Equidad Salarial</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="reclutamiento.html">Reclutamiento</a>
+            <a href="#contacto-planeacion" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200 text-center">
+                Agendar Diagnóstico
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section class="bg-primary text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#436653_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto relative z-10">
+            <div class="max-w-3xl">
+                <span class="text-secondary bg-white/10 px-4 py-1.5 rounded-full text-label-sm font-semibold uppercase tracking-wider mb-6 inline-block">Consultoría Avanzada en Ejecución</span>
+                <h1 class="font-display-lg text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+                    Deje de medir tareas. <br><span class="text-white/80">Empiece a dirigir impactos.</span>
+                </h1>
+                <p class="font-body-lg text-xl text-white/80 mb-10 max-w-2xl">
+                    Alineamos los objetivos de su junta directiva con el día a día de sus equipos a través del diseño e implementación de sistemas OKR y KPI con enfoque humano.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contacto-planeacion" class="bg-tertiary text-white text-center px-8 py-4 rounded-xl font-body-md font-semibold hover:brightness-110 active:translate-y-[-2px] transition-all duration-300">
+                        Diseñar la estrategia de mi empresa
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface-container-low">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">El síntoma empresarial</span>
+                <h2 class="font-headline-lg text-3xl md:text-4xl text-primary font-bold">¿Por qué fallan las planeaciones tradicionales?</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-gutter">
+                <div class="bg-white p-8 rounded-2xl border border-outline-variant/50">
+                    <span class="material-symbols-outlined text-tertiary text-3xl mb-4">link_off</span>
+                    <h3 class="font-headline-md text-xl text-primary mb-3">Estrategias desconectadas</h3>
+                    <p class="text-on-surface-variant font-body-md">La dirección tiene una meta clara, pero los equipos operativos avanzan en direcciones diferentes sin saber cómo sus tareas diarias impactan al negocio.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-outline-variant/50">
+                    <span class="material-symbols-outlined text-tertiary text-3xl mb-4">analytics</span>
+                    <h3 class="font-headline-md text-xl text-primary mb-3">Métricas de vanidad</h3>
+                    <p class="text-on-surface-variant font-body-md">Saturación de métricas que miden "esfuerzo" u "horas nalga", pero que no reflejan resultados reales de rentabilidad, eficiencia o crecimiento de mercado.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-outline-variant/50">
+                    <span class="material-symbols-outlined text-tertiary text-3xl mb-4">trending_down</span>
+                    <h3 class="font-headline-md text-xl text-primary mb-3">Metodologías rígidas</h3>
+                    <p class="text-on-surface-variant font-body-md">Intentar copiar el modelo OKR de Google a la fuerza genera frustración, rechazo del equipo y parálisis por análisis organizacional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">Nuestra Propuesta Única</span>
+                    <h2 class="font-headline-lg text-3xl md:text-4xl text-primary mb-6">Fusión Métrica y Humana: OKRs que los equipos realmente adoptan</h2>
+                    <p class="text-on-surface-variant text-lg mb-6 leading-relaxed">
+                        No somos solo consultores de software o de hojas de cálculo. En <strong>Consciencia Creativa</strong> entendemos que detrás de un indicador (KPI) o un resultado clave (OKR) hay personas que necesitan motivación, claridad y salud mental para lograrlos.
+                    </p>
+                    <p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+                        Unimos la rigurosidad analítica de los datos con dinámicas de comunicación efectivas para erradicar la resistencia al cambio institucional.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-l-4 border-secondary pl-4">
+                            <span class="block text-2xl font-bold text-primary font-headline-md">+19%</span>
+                            <span class="text-sm text-on-surface-variant">De tasa de éxito en cierre de metas frente a planeaciones anuales estáticas.</span>
+                        </div>
+                        <div class="border-l-4 border-secondary pl-4">
+                            <span class="block text-2xl font-bold text-primary font-headline-md">100%</span>
+                            <span class="text-sm text-on-surface-variant">Alineamiento de los líderes de departamento bajo un ritmo trimestral ágil.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-surface-container-low p-8 rounded-3xl space-y-6">
+                    <h4 class="font-headline-md text-xl text-primary mb-4">¿Cómo impactamos directamente en su negocio?</h4>
+                    <div class="flex gap-4 bg-white p-5 rounded-xl shadow-sm">
+                        <span class="material-symbols-outlined text-secondary">insights</span>
+                        <div>
+                            <h5 class="font-semibold text-primary">KPIs (Key Performance Indicators)</h5>
+                            <p class="text-sm text-on-surface-variant mt-1">Definen la salud y estabilidad de su operación diaria. Le indican qué está funcionando hoy y dónde hay fugas de rendimiento.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 bg-white p-5 rounded-xl shadow-sm">
+                        <span class="material-symbols-outlined text-secondary">rocket_launch</span>
+                        <div>
+                            <h5 class="font-semibold text-primary">OKRs (Objectives and Key Results)</h5>
+                            <p class="text-sm text-on-surface-variant mt-1">Impulsan la transformación y la innovación. Enfocan el 100% de la energía del negocio hacia la meta disruptiva del trimestre.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 bg-white p-5 rounded-xl shadow-sm">
+                        <span class="material-symbols-outlined text-secondary">forum</span>
+                        <div>
+                            <h5 class="font-semibold text-primary">Ritmo Operativo Sostenible</h5>
+                            <p class="text-sm text-on-surface-variant mt-1">Diseñamos ceremonias de seguimiento semanales cortas para que los objetivos no mueran en un archivo olvidado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface-container-low">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-headline-lg text-3xl text-primary">Etapas del Diseño Estratégico</h2>
+                <p class="text-on-surface-variant mt-2">Garantizamos una transición suave y de alto compromiso para su empresa.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-gutter relative">
+                <div class="bg-white p-6 rounded-xl border border-outline-variant/40 relative">
+                    <span class="absolute top-4 right-4 font-bold text-4xl text-secondary opacity-30">01</span>
+                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4">Diagnóstico y Visión</h4>
+                    <p class="text-sm text-on-surface-variant">Analizamos el estado actual de sus métricas, la cultura de rendición de cuentas y los cuellos de botella de la gerencia.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-outline-variant/40 relative">
+                    <span class="absolute top-4 right-4 font-bold text-4xl text-secondary opacity-30">02</span>
+                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4">Co-creación del Framework</h4>
+                    <p class="text-sm text-on-surface-variant">Sesiones de trabajo con el equipo C-Level para redactar los Objetivos anuales e institucionales, decantándolos a cada área.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-outline-variant/40 relative">
+                    <span class="absolute top-4 right-4 font-bold text-4xl text-secondary opacity-30">03</span>
+                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4">Talleres de Adopción</h4>
+                    <p class="text-sm text-on-surface-variant">Capacitación teórica y práctica para mandos medios y colaboradores, reduciendo el miedo al "control" y convirtiéndolo en autonomía.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-outline-variant/40 relative">
+                    <span class="absolute top-4 right-4 font-bold text-4xl text-secondary opacity-30">04</span>
+                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4">Ritual de Seguimiento</h4>
+                    <p class="text-sm text-on-surface-variant">Institucionalizamos los check-ins semanales y las revisiones trimestrales (CFRs) para pivotar rápido según el mercado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto-planeacion" class="py-24 bg-white">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="max-w-4xl mx-auto bg-primary text-white rounded-[2rem] p-8 md:p-16 shadow-xl relative overflow-hidden">
+                <div class="relative z-10 grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-3">
+                        <h2 class="font-display-lg text-3xl md:text-4xl text-white mb-4">¿Listo para alinear a sus equipos hacia un crecimiento real?</h2>
+                        <p class="text-white/80 font-body-lg mb-6">Solicite una sesión estratégica de 30 minutos sin costo. Evaluaremos su sistema de metas actual y le daremos 3 recomendaciones de mejora inmediata.</p>
+                        <div class="space-y-3 text-sm text-white/90">
+                            <p class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">check_circle</span> Diseñado para CEOs, Directores y Líderes de RRHH.</p>
+                            <p class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">check_circle</span> Enfoque 100% personalizado según su sector comercial.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2 bg-white text-on-background p-6 rounded-2xl relative min-h-[350px] flex flex-col justify-center">
+                        <div id="mensaje-exito" class="hidden text-center p-4">
+                            <span class="material-symbols-outlined text-secondary text-5xl mb-4 block">task_alt</span>
+                            <h4 class="font-headline-md text-xl text-primary mb-2">¡Información Recibida!</h4>
+                            <p class="text-sm text-on-surface-variant">Muchas gracias por tu interés. Tu solicitud ha sido registrada con éxito y **serás contactado prontamente** por nuestro equipo para agendar la sesión.</p>
+                        </div>
+
+                        <form id="form-planeacion" action="https://formspree.io/f/mpqnadpy" method="POST" class="space-y-4">
+                            <input type="hidden" name="_replyto" value="andanasrubram@gmail.com">
+                            <input type="hidden" name="_subject" value="Nuevo Prospecto de OKRs & KPIs - Consciencia Creativa">
+                            
+                            <div>
+                                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre</label>
+                                <input class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Nombre" placeholder="Su nombre" type="text" required/>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email Corporativo</label>
+                                <input class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Email" placeholder="nombre@empresa.com" type="email" required/>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Tamaño de la Empresa</label>
+                                <select class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Tamaño Empresa">
+                                    <option>1 a 15 colaboradores</option>
+                                    <option>16 a 50 colaboradores</option>
+                                    <option>51 a 200 colaboradores</option>
+                                    <option>Más de 200 colaboradores</option>
+                                </select>
+                            </div>
+                            <button id="btn-enviar" class="w-full bg-tertiary text-white py-3 rounded-lg font-label-md text-sm font-semibold hover:brightness-110 transition-all shadow-md shadow-tertiary/20" type="submit">
+                                Solicitar Sesión de Consultoría
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-surface-container border-t border-outline-variant">
+    <div class="w-full px-margin-desktop py-12 max-w-container-max mx-auto text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+            <span class="text-xl font-bold text-primary font-headline-md block">Consciencia Creativa</span>
+            <p class="text-sm text-on-surface-variant">Equilibrio Estratégico y Potencial Humano.</p>
+        </div>
+        <p class="font-label-md text-xs text-on-surface-variant">© 2026 Consciencia Creativa. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    const form = document.getElementById('form-planeacion');
+    const mensajeExito = document.getElementById('mensaje-exito');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault(); // Evita que la página se refresque
+        const button = document.getElementById('btn-enviar');
+        button.disabled = true;
+        button.innerText = 'Enviando...';
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                form.classList.add('hidden'); // Oculta el formulario
+                mensajeExito.classList.remove('hidden'); // Muestra el mensaje de éxito
+            } else {
+                alert('Hubo un inconveniente al enviar tus datos. Por favor, inténtalo de nuevo.');
+                button.disabled = false;
+                button.innerText = 'Solicitar Sesión de Consultoría';
+            }
+        } catch (error) {
+            alert('Error de conexión. Inténtalo de nuevo más tarde.');
+            button.disabled = false;
+            button.innerText = 'Solicitar Sesión de Consultoría';
+        }
+    });
+</script>
+
+</body>
+</html>

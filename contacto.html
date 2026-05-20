@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contacto | Consciencia Creativa</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "primary": "#0b1a30",
+                        "secondary": "#436653",
+                        "tertiary": "#e07a5f",
+                        "background": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface-variant": "#44474d",
+                        "on-surface": "#191c1e",
+                        "outline-variant": "#c5c6cd",
+                        "secondary-container": "#c2e9d1",
+                        "on-secondary-container": "#476a57"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Source Serif 4"],
+                        "headline-lg": ["Source Serif 4"],
+                        "headline-md": ["Source Serif 4"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-mint-soft { background-color: rgba(67, 102, 83, 0.08); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+
+<nav class="bg-surface-container-lowest shadow-[0px_12px_32px_rgba(10,25,47,0.08)] top-0 sticky z-50">
+    <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto py-4">
+        <a href="code.html" class="text-headline-md font-headline-md font-bold text-primary">Consciencia Creativa</a>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="code.html">Servicios</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="quienes-somos.html">Quiénes Somos</a>
+            <a class="text-secondary font-semibold border-b-2 border-secondary" href="#">Contacto</a>
+            <a href="#form-contacto" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200">
+                Agendar Diagnóstico
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section class="py-20 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#436653_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto relative z-10 text-center">
+            <span class="text-secondary bg-white/10 px-4 py-1.5 rounded-full text-label-sm font-semibold uppercase tracking-wider mb-6 inline-block">Estamos para escucharle</span>
+            <h1 class="font-display-lg text-4xl md:text-5xl text-white mb-4 leading-tight">Hablemos.</h1>
+            <p class="font-body-lg text-xl text-white/80 max-w-2xl mx-auto">
+                Cuéntenos cuál es su reto. Le ayudamos a encontrar el camino.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid lg:grid-cols-5 gap-16">
+
+                <div class="lg:col-span-2 space-y-8">
+                    <div>
+                        <h2 class="font-headline-lg text-2xl text-primary mb-6">Canales de contacto</h2>
+                        <div class="space-y-5">
+                            <a href="https://wa.me/573045935556?text=Hola!%20Vengo%20de%20la%20web%20de%20Consciencia%20Creativa%20y%20quisiera%20recibir%20informaci%C3%B3n."
+                               target="_blank" rel="noopener noreferrer"
+                               class="flex items-center gap-4 p-5 bg-[#25D366]/10 border border-[#25D366]/30 rounded-xl hover:bg-[#25D366]/20 transition-colors group">
+                                <div class="w-12 h-12 bg-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-white text-xl">chat</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-primary font-headline-md">WhatsApp</p>
+                                    <p class="text-sm text-on-surface-variant">+57 304 593 5556</p>
+                                    <p class="text-xs text-secondary font-semibold mt-1 group-hover:underline">Respuesta en menos de 2 horas →</p>
+                                </div>
+                            </a>
+
+                            <a href="mailto:andanasrubram@gmail.com"
+                               class="flex items-center gap-4 p-5 bg-surface-container-low border border-outline-variant/40 rounded-xl hover:border-secondary/40 transition-colors group">
+                                <div class="w-12 h-12 bg-mint-soft rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-secondary text-xl">mail</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-primary font-headline-md">Email</p>
+                                    <p class="text-sm text-on-surface-variant">andanasrubram@gmail.com</p>
+                                    <p class="text-xs text-secondary font-semibold mt-1 group-hover:underline">Enviar correo →</p>
+                                </div>
+                            </a>
+
+                            <a href="https://www.linkedin.com/company/consciencia-creativa"
+                               target="_blank" rel="noopener noreferrer"
+                               class="flex items-center gap-4 p-5 bg-surface-container-low border border-outline-variant/40 rounded-xl hover:border-secondary/40 transition-colors group">
+                                <div class="w-12 h-12 bg-mint-soft rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-secondary text-xl">work</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-primary font-headline-md">LinkedIn</p>
+                                    <p class="text-sm text-on-surface-variant">Consciencia Creativa</p>
+                                    <p class="text-xs text-secondary font-semibold mt-1 group-hover:underline">Ver perfil →</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30">
+                        <h3 class="font-headline-md text-lg text-primary mb-4">Horario de atención</h3>
+                        <div class="space-y-3 text-sm font-body-md">
+                            <div class="flex justify-between">
+                                <span class="text-on-surface-variant">Lunes a Viernes</span>
+                                <span class="font-semibold text-primary">8:00 am – 6:00 pm</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-on-surface-variant">Sábados</span>
+                                <span class="font-semibold text-primary">9:00 am – 1:00 pm</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-on-surface-variant">Zona horaria</span>
+                                <span class="font-semibold text-primary">Colombia (UTC-5)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="form-contacto" class="lg:col-span-3">
+                    <h2 class="font-headline-lg text-2xl text-primary mb-6">Cuéntenos su reto</h2>
+                    <div id="mensaje-exito-contacto" class="hidden bg-secondary-container border border-secondary/30 rounded-2xl p-10 text-center">
+                        <span class="material-symbols-outlined text-secondary text-5xl mb-4 block">task_alt</span>
+                        <h4 class="font-headline-md text-xl text-primary mb-2">¡Mensaje Enviado!</h4>
+                        <p class="text-sm text-on-surface-variant">Gracias por escribirnos. Nos pondremos en contacto con usted a la brevedad para coordinar una sesión diagnóstica.</p>
+                    </div>
+                    <form id="form-contacto-form" action="https://formspree.io/f/mpqnadpy" method="POST" class="space-y-5 bg-surface-container-low p-8 rounded-2xl border border-outline-variant/30">
+                        <input type="hidden" name="_replyto" value="andanasrubram@gmail.com">
+                        <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto - Consciencia Creativa">
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block font-label-sm text-on-surface-variant mb-2">Nombre Completo</label>
+                                <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Nombre" placeholder="Su nombre completo" type="text" required/>
+                            </div>
+                            <div>
+                                <label class="block font-label-sm text-on-surface-variant mb-2">Empresa / Organización</label>
+                                <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Empresa" placeholder="Su empresa" type="text"/>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block font-label-sm text-on-surface-variant mb-2">Email de Contacto</label>
+                                <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Email" placeholder="correo@empresa.com" type="email" required/>
+                            </div>
+                            <div>
+                                <label class="block font-label-sm text-on-surface-variant mb-2">Teléfono / WhatsApp</label>
+                                <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Teléfono" placeholder="+57 300 000 0000" type="tel"/>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-label-sm text-on-surface-variant mb-2">Área de interés</label>
+                            <select class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Servicio de Interés">
+                                <option>Planeación Estratégica (OKRs & KPIs)</option>
+                                <option>Talleres y Mentorías de Liderazgo</option>
+                                <option>Pruebas DISC y Diagnóstico de Equipos</option>
+                                <option>Equidad Salarial y Compensación</option>
+                                <option>Reclutamiento y Selección de Talento</option>
+                                <option>Aún no lo tengo definido</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-label-sm text-on-surface-variant mb-2">Cuéntenos brevemente su reto o necesidad</label>
+                            <textarea class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm resize-none" name="Mensaje" placeholder="Describa en pocas palabras el reto actual de su empresa o equipo..." rows="4"></textarea>
+                        </div>
+                        <button id="btn-contacto" class="w-full bg-tertiary text-white py-4 rounded-xl font-body-md font-semibold shadow-lg shadow-tertiary/20 hover:brightness-110 hover:translate-y-[-2px] transition-all" type="submit">
+                            Enviar Mensaje
+                        </button>
+                        <p class="text-xs text-on-surface-variant text-center">Sus datos son confidenciales y no serán compartidos con terceros.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface-container-low">
+        <div class="w-full px-margin-desktop max-w-container-max mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-headline-lg text-2xl text-primary">Preguntas frecuentes</h2>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <details class="bg-white rounded-xl border border-outline-variant/40 group">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-semibold text-primary">
+                        ¿Trabajan con startups o solo con empresas grandes?
+                        <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed">
+                        Trabajamos con organizaciones de todos los tamaños: desde startups con 10 personas hasta corporaciones con más de 500 colaboradores. El tamaño no determina el valor de la intervención; sí lo hace la disposición al cambio de los líderes.
+                    </div>
+                </details>
+                <details class="bg-white rounded-xl border border-outline-variant/40 group">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-semibold text-primary">
+                        ¿En qué ciudades y países operan?
+                        <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed">
+                        Nuestra base principal es Colombia, con operación en Bogotá, Medellín y Cali. Sin embargo, atendemos clientes de toda Latinoamérica de forma virtual. Los talleres presenciales están disponibles en ciudades colombianas y con desplazamiento acordado para otros países.
+                    </div>
+                </details>
+                <details class="bg-white rounded-xl border border-outline-variant/40 group">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-semibold text-primary">
+                        ¿Los talleres son presenciales o virtuales?
+                        <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed">
+                        Ofrecemos ambas modalidades. Los talleres presenciales tienen mayor impacto en dinámicas de equipo y sesiones DISC. Las consultorías de planeación estratégica y las mentorías individuales funcionan perfectamente en formato virtual. Co-diseñamos el formato según sus necesidades.
+                    </div>
+                </details>
+                <details class="bg-white rounded-xl border border-outline-variant/40 group">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-semibold text-primary">
+                        ¿Cuánto dura un proyecto típico?
+                        <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed">
+                        Depende del alcance. Una sesión de talleres DISC puede realizarse en un solo día. Un proceso completo de planeación estratégica con OKRs dura entre 4 y 8 semanas. Un análisis de equidad salarial típicamente requiere 3 a 6 semanas. Siempre definimos tiempos y entregables antes de iniciar.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-surface-container border-t border-outline-variant">
+    <div class="w-full px-margin-desktop py-12 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+            <span class="text-xl font-bold text-primary font-headline-md block">Consciencia Creativa</span>
+            <p class="text-sm text-on-surface-variant">Equilibrio Estratégico y Potencial Humano.</p>
+        </div>
+        <p class="font-label-md text-xs text-on-surface-variant">© 2026 Consciencia Creativa. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    const formContacto = document.getElementById('form-contacto-form');
+    const msgExitoContacto = document.getElementById('mensaje-exito-contacto');
+    formContacto.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('btn-contacto');
+        btn.disabled = true;
+        btn.innerText = 'Enviando...';
+        try {
+            const res = await fetch(formContacto.action, {
+                method: formContacto.method,
+                body: new FormData(formContacto),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                formContacto.classList.add('hidden');
+                msgExitoContacto.classList.remove('hidden');
+            } else {
+                alert('Hubo un inconveniente. Por favor, inténtalo de nuevo.');
+                btn.disabled = false;
+                btn.innerText = 'Enviar Mensaje';
+            }
+        } catch {
+            alert('Error de conexión. Inténtalo de nuevo más tarde.');
+            btn.disabled = false;
+            btn.innerText = 'Enviar Mensaje';
+        }
+    });
+</script>
+
+</body>
+</html>
