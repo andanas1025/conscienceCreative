@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis DISC</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* Inyección de tus Tokens de Diseño en variables CSS */
+    :root {
+      --color-background: #f7f9fb;
+      --color-surface-container: #eceef0;
+      --color-primary: #0b1a30;
+      --color-on-primary: #ffffff;
+      --color-secondary: #436653;
+      --color-tertiary: #e07a5f;
+      --color-on-surface: #191c1e;
+      --color-on-surface-variant: #44474d;
+      --color-outline-variant: #c5c6cd;
+      
+      --font-display: 'Source Serif 4', Georgia, serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--color-background);
+      font-family: var(--font-body);
+      color: var(--color-on-surface);
+    }
+
+    .font-display { font-family: var(--font-display); }
+    
+    /* Animación suave estilo Typeform al cambiar de pregunta */
+    .fade-in {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-6 md:p-12">
+
+  <header class="max-w-7xl w-full mx-auto flex justify-between items-center border-b pb-4" style="border-color: var(--color-outline-variant);">
+    <span class="font-display text-xl font-bold tracking-tight" style="color: var(--color-primary);">Ethos & Growth</span>
+    <span id="progress-text" class="text-xs font-semibold tracking-wider uppercase" style="color: var(--color-on-surface-variant);">Bloque 1 de 3</span>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center my-8">
+    <div id="quiz-card" class="w-full max-w-xl bg-white p-8 md:p-10 shadow-sm fade-in" style="border-radius: 0.75rem; background-color: #ffffff; border: 1px solid var(--color-surface-container);">
+      
+      <h2 id="question-title" class="font-display text-2xl md:text-3xl font-semibold mb-2" style="color: var(--color-primary);">
+        Bloque 1
+      </h2>
+      <p class="text-sm mb-6" style="color: var(--color-on-surface-variant);">
+        Selecciona una opción que <strong>MÁS</strong> te describa y otra que <strong>MENOS</strong> te describa.
+      </p>
+
+      <div id="options-container" class="space-y-4"></div>
+
+      <div class="mt-8 flex justify-end">
+        <button id="next-btn" disabled class="px-6 py-2.5 font-medium text-sm transition-all flex items-center gap-2 opacity-50 cursor-not-allowed" 
+                style="border-radius: 9999px; background-color: var(--color-primary); color: var(--color-on-primary);">
+          Siguiente 
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="max-w-xl w-full mx-auto">
+    <div class="w-full h-1 bg-gray-200 rounded-full overflow-hidden" style="background-color: var(--color-surface-container);">
+      <div id="progress-bar" class="h-full transition-all duration-300" style="width: 33.3%; background-color: var(--color-secondary);"></div>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Datos de los bloques (Agregados los 24 bloques completos para producción)
+    const bloques = [
+      { id: 1, opciones: [{ texto: "Decidido, busca resultados", factor: "D" }, { texto: "Optimista, entusiasta", factor: "I" }, { texto: "Paciente, sabe escuchar", factor: "S" }, { texto: "Preciso, sigue las reglas", factor: "C" }] },
+      { id: 2, opciones: [{ texto: "Competitivo, le gustan los retos", factor: "D" }, { texto: "Comunicativo, habla mucho", factor: "I" }, { texto: "Calmado, evita los conflictos", factor: "S" }, { texto: "Analítico, piensa las cosas", factor: "C" }] },
+      { id: 3, opciones: [{ texto: "Directo, dice lo que piensa", factor: "D" }, { texto: "Sociable, hace amigos rápido", factor: "I" }, { texto: "Leal, apoya a su equipo", factor: "S" }, { texto: "Cuidadoso, evita cometer errores", factor: "C" }] },
+      { id: 4, opciones: [{ texto: "Exigente, quiere todo rápido", factor: "D" }, { texto: "Animado, le gusta divertirse", factor: "I" }, { texto: "Cooperativo, trabaja bien con otros", factor: "S" }, { texto: "Estructurado, le gusta el orden", factor: "C" }] },
+      { id: 5, opciones: [{ texto: "Independiente, hace las cosas solo", factor: "D" }, { texto: "Convincente, sabe vender ideas", factor: "I" }, { texto: "Amable, es muy servicial", factor: "S" }, { texto: "Lógico, se basa en datos", factor: "C" }] },
+      { id: 6, opciones: [{ texto: "Osado, toma riesgos", factor: "D" }, { texto: "Afectuoso, demuestra cariño", factor: "I" }, { texto: "Predecible, le gusta la rutina", factor: "S" }, { texto: "Perfeccionista, busca la excelencia", factor: "C" }] },
+      { id: 7, opciones: [{ texto: "Enérgico, actúa con fuerza", factor: "D" }, { texto: "Influente, guía a los demás", factor: "I" }, { texto: "Satisfecho, se adapta a lo que hay", factor: "S" }, { texto: "Disciplinado, sigue procesos", factor: "C" }] },
+      { id: 8, opciones: [{ texto: "Seguro de sí mismo", factor: "D" }, { texto: "Popular, le gusta llamar la atención", factor: "I" }, { texto: "Amistoso, es muy cercano", factor: "S" }, { texto: "Metódico, va paso a paso", factor: "C" }] },
+      { id: 9, opciones: [{ texto: "Persistente, no se rinde", factor: "D" }, { texto: "Expresivo, usa mucho las manos", factor: "I" }, { texto: "Comprensivo, se pone en el lugar del otro", factor: "S" }, { texto: "Formal, es muy educado y serio", factor: "C" }] },
+      { id: 10, opciones: [{ texto: "Iniciador, arranca proyectos nuevos", factor: "D" }, { texto: "Alegre, siempre ve el lado bueno", factor: "I" }, { texto: "Tranquilo, transmite paz", factor: "S" }, { texto: "Objetivo, no se deja llevar por emociones", factor: "C" }] },
+      { id: 11, opciones: [{ texto: "Firme, defiende su postura", factor: "D" }, { texto: "Estimulante, motiva a los demás", factor: "I" }, { texto: "Estable, no le gustan los cambios bruscos", factor: "S" }, { texto: "Detallista, revisa todo dos veces", factor: "C" }] },
+      { id: 12, opciones: [{ texto: "Líder, toma el control", factor: "D" }, { texto: "Encantador, cae bien a todos", factor: "I" }, { texto: "Sencillo, no busca presumir", factor: "S" }, { texto: "Riguroso, muy apegado a la verdad", factor: "C" }] },
+      { id: 13, opciones: [{ texto: "Audaz, no le tiene miedo a lo nuevo", factor: "D" }, { texto: "Espontáneo, actúa según el momento", factor: "I" }, { texto: "Soportador, siempre ayuda por detrás", factor: "S" }, { texto: "Prudente, piensa antes de actuar", factor: "C" }] },
+      { id: 14, opciones: [{ texto: "Directivo, asigna tareas a otros", factor: "D" }, { texto: "Simpático, tiene buen humor", factor: "I" }, { texto: "Acomodaticio, prefiere ceder a pelear", factor: "S" }, { texto: "Concentrado, se enfoca en su trabajo", factor: "C" }] },
+      { id: 15, opciones: [{ texto: "Productivo, hace que las cosas pasen", factor: "D" }, { texto: "Optimista, contagia buena energía", factor: "I" }, { texto: "Tolerante, acepta a los demás como son", factor: "S" }, { texto: "Sistemático, sigue un plan establecido", factor: "C" }] },
+      { id: 16, opciones: [{ texto: "Fuerte, aguanta la presión", factor: "D" }, { texto: "Abierto, comparte su vida fácil", factor: "I" }, { texto: "Considerado, respeta los tiempos de otros", factor: "S" }, { texto: "Examinador, le gusta investigar a fondo", factor: "C" }] },
+      { id: 17, opciones: [{ texto: "Rápido, decide sin dar rodeos", factor: "D" }, { texto: "Magnético, atrae a las personas", factor: "I" }, { texto: "Modesto, prefiere el bajo perfil", factor: "S" }, { texto: "Cauteloso, camina con cuidado", factor: "C" }] },
+      { id: 18, opciones: [{ texto: "Valiente, enfrenta los problemas de frente", factor: "D" }, { texto: "Dinámico, siempre está en movimiento", factor: "I" }, { texto: "Paciente, no se desespera si hay retrasos", factor: "S" }, { texto: "Exacto, no le gustan los datos a medias", factor: "C" }] },
+      { id: 19, opciones: [{ texto: "Agresivo con sus metas, quiere ganar", factor: "D" }, { texto: "Sociable, prefiere trabajar acompañado", factor: "I" }, { texto: "Gentil, trata a todos con suavidad", factor: "S" }, { texto: "Concienzudo, hace las cosas con mucha ética", factor: "C" }] },
+      { id: 20, opciones: [{ texto: "Decisivo, no duda al elegir", factor: "D" }, { texto: "Vivaz, lleno de energía e ideas", factor: "I" }, { texto: "Sosegado, nada lo altera", factor: "S" }, { texto: "Fáctico, solo cree en hechos demostrables", factor: "C" }] },
+      { id: 21, opciones: [{ texto: "Competitivo, mide su éxito con otros", factor: "D" }, { texto: "Cálido, genera confianza rápido", factor: "I" }, { texto: "Ecuánime, busca el equilibrio para todos", factor: "S" }, { texto: "Reflexivo, analiza los pros y contras", factor: "C" }] },
+      { id: 22, opciones: [{ texto: "Insistente, repite hasta lograrlo", factor: "D" }, { texto: "Divertido, busca pasarla bien en el trabajo", factor: "I" }, { texto: "Fiel, se queda en las buenas y en las malas", factor: "S" }, { texto: "Reservado, es una persona tímida o privada", factor: "C" }] },
+      { id: 23, opciones: [{ texto: "Comandante, le sale natural dar órdenes", factor: "D" }, { texto: "Apasionado, se emociona con los proyectos", factor: "I" }, { texto: "Pacífico, busca la armonía en el ambiente", factor: "S" }, { texto: "Organizado, todo tiene un lugar y un porqué", factor: "C" }] },
+      { id: 24, opciones: [{ texto: "Eficaz, busca el camino más corto al éxito", factor: "D" }, { texto: "Popular, le importa lo que otros opinen", factor: "I" }, { texto: "Agradecido, valora mucho el esfuerzo ajeno", factor: "S" }, { texto: "Escéptico, cuestiona las cosas antes de creer", factor: "C" }] }
+    ];
+
+    let bloqueActual = 0;
+    let respuestasLog = [];
+    let seleccionMas = null;
+    let seleccionMenos = null;
+
+    // Elementos DOM
+    const card = document.getElementById('quiz-card');
+    const questionTitle = document.getElementById('question-title');
+    const optionsContainer = document.getElementById('options-container');
+    const nextBtn = document.getElementById('next-btn');
+    const progressText = document.getElementById('progress-text');
+    const progressBar = document.getElementById('progress-bar');
+
+    // --- FUNCIONES DE ESTILO (Movidas arriba para evitar errores de orden) ---
+    function marcarBotones(tipo, index) {
+      const btn = document.getElementById(`btn-${tipo}-${index}`);
+      if (tipo === 'mas') {
+        btn.style.backgroundColor = "var(--color-secondary)";
+        btn.style.borderColor = "var(--color-secondary)";
+        btn.style.color = "#ffffff";
+      } else {
+        btn.style.backgroundColor = "var(--color-tertiary)";
+        btn.style.borderColor = "var(--color-tertiary)";
+        btn.style.color = "#ffffff";
+      }
+    }
+
+    function desmarcarBotones(tipo, index) {
+      const btn = document.getElementById(`btn-${tipo}-${index}`);
+      btn.style.backgroundColor = "transparent";
+      btn.style.borderColor = "var(--color-outline-variant)";
+      btn.style.color = "var(--color-on-surface-variant)";
+    }
+
+    // 2. Renderizar el bloque actual
+    function cargarBloque() {
+      const datosBloque = bloques[bloqueActual];
+      
+      // Actualizar textos y barra de progreso
+      questionTitle.innerText = `Bloque ${datosBloque.id}`;
+      progressText.innerText = `Bloque ${datosBloque.id} de ${bloques.length}`;
+      progressBar.style.width = `${((bloqueActual + 1) / bloques.length) * 100}%`;
+      
+      // Reset de selecciones de este bloque
+      seleccionMas = null;
+      seleccionMenos = null;
+      nextBtn.disabled = true;
+      nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+      // Limpiar contenedor y meter efecto fade-in
+      optionsContainer.innerHTML = '';
+      card.classList.remove('fade-in');
+      void card.offsetWidth; // Reiniciar animación CSS
+      card.classList.add('fade-in');
+
+      // Generar filas
+      datosBloque.opciones.forEach((opcion, index) => {
+        const row = document.createElement('div');
+        row.className = "flex items-center justify-between p-4 border transition-all bg-stone-50/40";
+        row.style.borderRadius = "0.375rem";
+        row.style.borderColor = "var(--color-surface-container)";
+
+        row.innerHTML = `
+          <span class="text-sm font-medium mr-4" style="color: var(--color-on-surface);">${opcion.texto}</span>
+          <div class="flex gap-2 shrink-0">
+            <button onclick="seleccionar(${index}, 'mas')" id="btn-mas-${index}" class="w-14 h-10 border text-xs font-semibold flex items-center justify-center transition-all" style="border-radius: 9999px; border-color: var(--color-outline-variant); color: var(--color-on-surface-variant);">MÁS</button>
+            <button onclick="seleccionar(${index}, 'menos')" id="btn-menos-${index}" class="w-14 h-10 border text-xs font-semibold flex items-center justify-center transition-all" style="border-radius: 9999px; border-color: var(--color-outline-variant); color: var(--color-on-surface-variant);">MENOS</button>
+          </div>
+        `;
+        optionsContainer.appendChild(row);
+      });
+    }
+
+    // 3. Manejar los clics en los botones MÁS y MENOS
+    window.seleccionar = function(index, tipo) {
+      if (tipo === 'mas') {
+        if (seleccionMenos === index) return; // No puede ser más y menos a la vez
+        if (seleccionMas !== null) desmarcarBotones('mas', seleccionMas);
+        seleccionMas = index;
+        marcarBotones('mas', index);
+      } else {
+        if (seleccionMas === index) return; // No puede ser más y menos a la vez
+        if (seleccionMenos !== null) desmarcarBotones('menos', seleccionMenos);
+        seleccionMenos = index;
+        marcarBotones('menos', index);
+      }
+
+      // Habilitar botón Siguiente si ambos están seleccionados
+      if (seleccionMas !== null && seleccionMenos !== null) {
+        nextBtn.disabled = false;
+        nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+    };
+
+    // 4. Guardar respuestas e ir al siguiente bloque
+    nextBtn.addEventListener('click', () => {
+      const opciones = bloques[bloqueActual].opciones;
+      
+      respuestasLog.push({
+        bloque: bloques[bloqueActual].id,
+        mas: opciones[seleccionMas].factor,
+        menos: opciones[seleccionMenos].factor
+      });
+
+      if (bloqueActual < bloques.length - 1) {
+        bloqueActual++;
+        cargarBloque();
+      } else {
+        finalizarTest();
+      }
+    });
+
+    // 5. Enviar los datos al Webhook de n8n
+    function finalizarTest() {
+      card.innerHTML = `
+        <h2 class="font-display text-2xl font-semibold mb-4" style="color: var(--color-primary);">¡Analizando tus respuestas!</h2>
+        <p class="text-sm" style="color: var(--color-on-surface-variant);">Estamos procesando tu perfil de personalidad mediante Ethos & Growth...</p>
+      `;
+      
+      console.log("JSON final listo para n8n:", respuestasLog);
+
+      // Cambia esta URL por tu Webhook real de n8n cuando lo crees
+      const urlWebhookN8n = 'https://andanasrubram.app.n8n.cloud/webhook-test/analisis-disc';
+
+      fetch(urlWebhookN8n, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ respuestas: respuestasLog, email: "prueba@ethosandgrowth.com" })
+      })
+      .then(response => {
+        if(response.ok) {
+           card.innerHTML += `<p class="text-xs mt-4 text-emerald-600 font-medium">✓ Datos enviados con éxito a n8n.</p>`;
+        } else {
+           card.innerHTML += `<p class="text-xs mt-4 text-rose-600 font-medium">⚠ El servidor n8n devolvió un error.</p>`;
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        card.innerHTML += `<p class="text-xs mt-4 text-rose-600 font-medium">⚠ No se pudo conectar con n8n de forma local (Asegúrate de que n8n esté corriendo).</p>`;
+      });
+    }
+
+    // Inicializar el formulario al cargar la página
+    cargarBloque();
+  </script>
+</body>
+</html>
