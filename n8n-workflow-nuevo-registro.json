@@ -1,0 +1,82 @@
+{
+  "name": "Consciencia Creativa — Nuevo Registro",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "nuevo-usuario-cc",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "f1a2b3c4-d5e6-7890-abcd-ef0123456780",
+      "name": "Webhook — Supabase",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "nuevo-usuario-cc"
+    },
+    {
+      "parameters": {
+        "jsCode": "const record = $input.first().json.body.record;\nconst meta = record.raw_user_meta_data || {};\nconst nombre = meta.nombre || record.email.split('@')[0];\nconst fullName = meta.full_name || nombre;\nconst email = record.email;\nconst empresa = meta.empresa || 'No especificada';\n\nconst emailHtml = `<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1.0'></head><body style='margin:0;padding:0;background:#f2f4f6;font-family:Inter,Arial,sans-serif'><table width='100%' cellpadding='0' cellspacing='0' style='padding:32px 16px'><tr><td align='center'><table cellpadding='0' cellspacing='0' style='max-width:580px;width:100%'><tr><td style='background:#0b1a30;padding:28px 36px;border-radius:16px 16px 0 0'><p style='margin:0;font-family:Georgia,serif;font-size:17px;font-weight:700;color:#fff'>&#9679; Consciencia Creativa</p></td></tr><tr><td style='background:#ffffff;padding:44px 36px'><h1 style='font-family:Georgia,serif;font-size:24px;color:#0b1a30;margin:0 0 8px'>¡Bienvenido, ${nombre}!</h1><p style='font-size:14px;font-weight:600;color:#436653;margin:0 0 20px'>Tu cuenta en Consciencia Creativa está lista.</p><p style='font-size:14px;color:#44474d;line-height:1.65;margin:0 0 28px'>Gracias por unirte a nuestra comunidad. Desde tu portal accedes a tus resultados DISC, planeación estratégica, talleres de liderazgo y mucho más.</p><div style='text-align:center;margin-bottom:32px'><a href='https://TU-DOMINIO.COM/dashboard.html' style='background:#436653;color:#fff;padding:14px 32px;border-radius:10px;font-size:14px;font-weight:600;display:inline-block;text-decoration:none'>Ingresar al portal &rarr;</a></div><table width='100%' cellpadding='0' cellspacing='0' style='border-top:1px solid #f2f4f6;padding-top:16px'><tr><td style='padding:8px 0;border-bottom:1px solid #f2f4f6;font-size:13px;color:#191c1e'>&#129504;&nbsp; Diagn&oacute;stico conductual DISC</td></tr><tr><td style='padding:8px 0;border-bottom:1px solid #f2f4f6;font-size:13px;color:#191c1e'>&#128202;&nbsp; Planeaci&oacute;n estrat&eacute;gica OKRs y KPIs</td></tr><tr><td style='padding:8px 0;border-bottom:1px solid #f2f4f6;font-size:13px;color:#191c1e'>&#127807;&nbsp; Talleres y mentor&iacute;as de liderazgo</td></tr><tr><td style='padding:8px 0;font-size:13px;color:#191c1e'>&#9878;&nbsp; An&aacute;lisis de equidad salarial</td></tr></table></td></tr><tr><td style='background:#f7f9fb;padding:20px 36px;border-radius:0 0 16px 16px;border-top:1px solid #e0e3e5'><p style='font-size:11px;color:#75777e;margin:0;text-align:center;line-height:1.7'>&copy; 2026 Consciencia Creativa &middot; Todos los derechos reservados.<br>Correo enviado a ${email}</p></td></tr></table></td></tr></table></body></html>`;\n\nconst telegramMsg = `🎉 <b>Nuevo registro en Consciencia Creativa</b>\n\n👤 <b>${fullName}</b>\n📧 ${email}\n🏢 ${empresa}\n\n📅 ${new Date().toLocaleString('es-CO', {dateStyle: 'medium', timeStyle: 'short'})}`;\n\nreturn [{ json: { email, nombre, fullName, empresa, emailHtml, telegramMsg } }];"
+      },
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef0123456781",
+      "name": "Code — Preparar Datos",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "={{ \"¡Bienvenido a Consciencia Creativa, \" + $json.nombre + \"! 🌱\" }}",
+        "emailType": "html",
+        "message": "={{ $json.emailHtml }}",
+        "options": {
+          "senderName": "Consciencia Creativa"
+        }
+      },
+      "id": "b2c3d4e5-f6a7-8901-bcde-f01234567890",
+      "name": "Gmail — Bienvenida",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [720, 160]
+    },
+    {
+      "parameters": {
+        "chatId": "TU_CHAT_ID_AQUI",
+        "text": "={{ $json.telegramMsg }}",
+        "additionalFields": {
+          "parse_mode": "HTML"
+        }
+      },
+      "id": "c3d4e5f6-a7b8-9012-cdef-012345678901",
+      "name": "Telegram — Admin",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [720, 440]
+    }
+  ],
+  "connections": {
+    "Webhook — Supabase": {
+      "main": [
+        [
+          { "node": "Code — Preparar Datos", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Code — Preparar Datos": {
+      "main": [
+        [
+          { "node": "Gmail — Bienvenida", "type": "main", "index": 0 },
+          { "node": "Telegram — Admin", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [],
+  "pinData": {}
+}

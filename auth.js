@@ -1,6 +1,15 @@
-/* ─── Auth Modal — Consciencia Creativa ─────────────────────── */
+/* ─── Auth + Supabase — Consciencia Creativa ────────────────── */
 (function () {
   'use strict';
+
+  var SUPABASE_URL = 'https://bwqqvawavawotrryzyys.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3cXF2YXdhdmF3b3Rycnl6eXlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzMjU4NTUsImV4cCI6MjA5NDkwMTg1NX0.2IAVaHlgONmoC6fHDrcznr6kk-ZIlyu-fSPlxAEmuY0';
+  var _client = null;
+
+  function getClient() {
+    if (!_client) _client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    return _client;
+  }
 
   // ── SVG icons ────────────────────────────────────────────────
   var EYE_ON  = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
@@ -49,7 +58,7 @@
           <div class="auth-btn-spinner"></div>\
         </button>\
       </form>\
-      <p class="auth-switch-text">¿No tienes cuenta? <button type="button" class="auth-link" onclick="authTab(\'register\')">Regístrate gratis</button></p>\
+      <p class="auth-switch-text">¿No tienes cuenta? <button type="button" class="auth-link" onclick="authTab(\'register\')">Regístrate gratis</button></p>\
     </div>\
 \
     <!-- REGISTER -->\
@@ -102,7 +111,7 @@
           <div class="auth-btn-spinner"></div>\
         </button>\
       </form>\
-      <p class="auth-switch-text">¿Ya tienes cuenta? <button type="button" class="auth-link" onclick="authTab(\'login\')">Inicia Sesión</button></p>\
+      <p class="auth-switch-text">¿Ya tienes cuenta? <button type="button" class="auth-link" onclick="authTab(\'login\')">Inicia Sesión</button></p>\
     </div>\
 \
     <!-- FORGOT -->\
@@ -132,10 +141,10 @@
       <div class="auth-success-icon">\
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#436653" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>\
       </div>\
-      <h2 class="auth-success-title" id="success-title">¡Bienvenido!</h2>\
-      <p class="auth-success-sub" id="success-sub">Tu sesión ha iniciado correctamente.</p>\
-      <button class="auth-btn-primary" onclick="closeAuthModal()">\
-        <span class="auth-btn-label">Continuar</span>\
+      <h2 class="auth-success-title" id="success-title">¡Cuenta creada!</h2>\
+      <p class="auth-success-sub" id="success-sub">Revisa tu correo y confirma tu cuenta para activarla.</p>\
+      <button class="auth-btn-primary" id="btn-success" onclick="closeAuthModal()">\
+        <span class="auth-btn-label">Entendido</span>\
       </button>\
     </div>\
   </div>\
@@ -170,7 +179,6 @@
     }
     var panel = document.getElementById('auth-panel-' + tab);
     if (panel) panel.classList.add('active');
-    // Focus first input after transition
     setTimeout(function () {
       var inp = document.querySelector('#auth-panel-' + tab + ' input');
       if (inp) inp.focus();
@@ -254,75 +262,162 @@
     el.textContent = text;
   }
 
-  // ── Login handler ────────────────────────────────────────────
+  function sbError(error) {
+    var msg = (error && error.message) || '';
+    if (msg.includes('Invalid login credentials'))  return 'Correo o contraseña incorrectos.';
+    if (msg.includes('Email not confirmed'))         return 'Confirma tu correo antes de iniciar sesión. Revisa tu bandeja de entrada.';
+    if (msg.includes('User already registered'))    return 'Este correo ya está registrado. Intenta iniciar sesión.';
+    if (msg.includes('Password should be at least')) return 'La contraseña debe tener al menos 6 caracteres.';
+    if (msg.includes('rate limit') || msg.includes('over_email_send_rate_limit')) return 'Demasiados intentos. Espera unos minutos e intenta de nuevo.';
+    if (msg.includes('network') || msg.includes('fetch')) return 'Error de conexión. Verifica tu internet.';
+    return 'Ocurrió un error inesperado. Intenta de nuevo.';
+  }
+
+  // ── Login ────────────────────────────────────────────────────
   function handleLogin(e) {
     e.preventDefault();
     clearMessages();
-    var email = document.getElementById('l-email').value;
+    var email = document.getElementById('l-email').value.trim();
     var pwd   = document.getElementById('l-pwd').value;
     var ok    = true;
-    if (!email || !isEmail(email)) {
-      fieldErr('l-email', 'e-l-email', 'Ingresa un correo electrónico válido.'); ok = false;
-    }
-    if (!pwd || pwd.length < 6) {
-      fieldErr('l-pwd', 'e-l-pwd', 'La contraseña debe tener al menos 6 caracteres.'); ok = false;
-    }
+    if (!email || !isEmail(email)) { fieldErr('l-email', 'e-l-email', 'Ingresa un correo electrónico válido.'); ok = false; }
+    if (!pwd || pwd.length < 6)    { fieldErr('l-pwd',   'e-l-pwd',   'La contraseña debe tener al menos 6 caracteres.'); ok = false; }
     if (!ok) return;
+
     setLoading('btn-login', true);
-    setTimeout(function () {
-      setLoading('btn-login', false);
-      document.getElementById('success-title').textContent = '¡Bienvenido!';
-      document.getElementById('success-sub').textContent   = 'Tu sesión ha iniciado correctamente.';
-      authTab('success');
-    }, 1500);
+    getClient().auth.signInWithPassword({ email: email, password: pwd })
+      .then(function (result) {
+        setLoading('btn-login', false);
+        if (result.error) {
+          showMsg('msg-login', 'msg-error', sbError(result.error));
+        } else {
+          window.location.href = 'dashboard.html';
+        }
+      });
   }
 
-  // ── Register handler ─────────────────────────────────────────
+  // ── Register ─────────────────────────────────────────────────
   function handleRegister(e) {
     e.preventDefault();
     clearMessages();
     var nombre   = document.getElementById('r-nombre').value.trim();
     var apellido = document.getElementById('r-apellido').value.trim();
+    var empresa  = document.getElementById('r-empresa').value.trim();
     var email    = document.getElementById('r-email').value.trim();
     var pwd      = document.getElementById('r-pwd').value;
     var confirm  = document.getElementById('r-confirm').value;
-    var ok       = true;
-    if (!nombre)              { fieldErr('r-nombre',   'e-r-nombre',   'Ingresa tu nombre.'); ok = false; }
-    if (!apellido)            { fieldErr('r-apellido', 'e-r-apellido', 'Ingresa tu apellido.'); ok = false; }
-    if (!email || !isEmail(email)) { fieldErr('r-email', 'e-r-email', 'Ingresa un correo electrónico válido.'); ok = false; }
-    if (!pwd || pwd.length < 8)    { fieldErr('r-pwd',   'e-r-pwd',   'La contraseña debe tener mínimo 8 caracteres.'); ok = false; }
-    if (pwd !== confirm)           { fieldErr('r-confirm', 'e-r-confirm', 'Las contraseñas no coinciden.'); ok = false; }
+    var ok = true;
+    if (!nombre)                    { fieldErr('r-nombre',   'e-r-nombre',   'Ingresa tu nombre.'); ok = false; }
+    if (!apellido)                  { fieldErr('r-apellido', 'e-r-apellido', 'Ingresa tu apellido.'); ok = false; }
+    if (!email || !isEmail(email))  { fieldErr('r-email',    'e-r-email',    'Ingresa un correo electrónico válido.'); ok = false; }
+    if (!pwd || pwd.length < 8)     { fieldErr('r-pwd',      'e-r-pwd',      'La contraseña debe tener mínimo 8 caracteres.'); ok = false; }
+    if (pwd !== confirm)            { fieldErr('r-confirm',  'e-r-confirm',  'Las contraseñas no coinciden.'); ok = false; }
     if (!ok) return;
+
     setLoading('btn-register', true);
-    setTimeout(function () {
+    getClient().auth.signUp({
+      email: email,
+      password: pwd,
+      options: {
+        data: {
+          nombre:     nombre,
+          apellido:   apellido,
+          empresa:    empresa,
+          full_name:  nombre + ' ' + apellido,
+        },
+        emailRedirectTo: window.location.origin + '/dashboard.html',
+      },
+    }).then(function (result) {
       setLoading('btn-register', false);
-      document.getElementById('success-title').textContent = '¡Cuenta creada!';
-      document.getElementById('success-sub').textContent   = 'Tu cuenta ha sido creada exitosamente. Bienvenido a Consciencia Creativa.';
-      authTab('success');
-    }, 1800);
+      if (result.error) {
+        showMsg('msg-register', 'msg-error', sbError(result.error));
+      } else {
+        document.getElementById('success-title').textContent = '¡Revisa tu correo!';
+        document.getElementById('success-sub').textContent =
+          'Te enviamos un enlace de confirmación a ' + email +
+          '. Actívalo para ingresar a tu cuenta.';
+        authTab('success');
+      }
+    });
   }
 
-  // ── Forgot handler ───────────────────────────────────────────
+  // ── Forgot password ──────────────────────────────────────────
   function handleForgot(e) {
     e.preventDefault();
     clearMessages();
     var email = document.getElementById('f-email').value.trim();
-    if (!email || !isEmail(email)) {
-      fieldErr('f-email', 'e-f-email', 'Ingresa un correo electrónico válido.'); return;
-    }
+    if (!email || !isEmail(email)) { fieldErr('f-email', 'e-f-email', 'Ingresa un correo electrónico válido.'); return; }
+
     setLoading('btn-forgot', true);
-    setTimeout(function () {
+    getClient().auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin + '/dashboard.html',
+    }).then(function (result) {
       setLoading('btn-forgot', false);
-      showMsg('msg-forgot', 'msg-info', '✓ Enlace enviado. Revisa tu bandeja de entrada.');
-      document.getElementById('f-email').value = '';
-    }, 1500);
+      if (result.error) {
+        showMsg('msg-forgot', 'msg-error', sbError(result.error));
+      } else {
+        showMsg('msg-forgot', 'msg-info', '✓ Enlace enviado. Revisa tu bandeja de entrada.');
+        document.getElementById('f-email').value = '';
+      }
+    });
+  }
+
+  // ── Nav state ────────────────────────────────────────────────
+  function getUserName(user) {
+    if (user.user_metadata) {
+      if (user.user_metadata.nombre) return user.user_metadata.nombre;
+      if (user.user_metadata.full_name) return user.user_metadata.full_name.split(' ')[0];
+    }
+    return user.email.split('@')[0];
+  }
+
+  function updateNavLoggedIn(user) {
+    var name    = getUserName(user);
+    var initial = name.charAt(0).toUpperCase();
+    // Replace all auth trigger buttons on the page
+    document.querySelectorAll('button[onclick*="openAuthModal"]').forEach(function (btn) {
+      // Only replace buttons in nav bars (not the mobile icon in disc page)
+      var userEl = document.createElement('div');
+      userEl.className = 'auth-nav-user';
+      userEl.innerHTML =
+        '<div class="auth-nav-avatar">' + initial + '</div>' +
+        '<span class="auth-nav-name">' + name + '</span>' +
+        '<button class="auth-nav-out" onclick="authSignOut()">Salir</button>';
+      btn.parentNode.replaceChild(userEl, btn);
+    });
+    // Also hide dividers that were paired with auth buttons (they remain harmlessly)
+  }
+
+  window.authSignOut = function () {
+    getClient().auth.signOut().then(function () {
+      window.location.href = 'index.html';
+    });
+  };
+
+  // ── Auth state check on every page load ──────────────────────
+  function checkAuthState() {
+    getClient().auth.getSession().then(function (result) {
+      if (result.data && result.data.session && result.data.session.user) {
+        updateNavLoggedIn(result.data.session.user);
+      }
+    });
+    getClient().auth.onAuthStateChange(function (event, session) {
+      if (event === 'SIGNED_IN' && session) {
+        updateNavLoggedIn(session.user);
+      }
+    });
   }
 
   // ── Init ─────────────────────────────────────────────────────
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectModal);
-  } else {
+  function init() {
     injectModal();
+    checkAuthState();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 
 })();

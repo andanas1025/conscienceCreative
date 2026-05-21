@@ -382,6 +382,54 @@
   .auth-two-col { grid-template-columns: 1fr; gap: 0; }
 }
 
+/* ── Nav logged-in state ── */
+.auth-nav-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.auth-nav-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #436653;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.auth-nav-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0b1a30;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.auth-nav-out {
+  background: none;
+  border: 1px solid #c5c6cd;
+  border-radius: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #44474d;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.auth-nav-out:hover {
+  border-color: #ba1a1a;
+  color: #ba1a1a;
+  background: #fff0ef;
+}
+
 /* ── Nav button for disc-resultados-v2 ── */
 .auth-disc-btn {
   display: inline-flex;
