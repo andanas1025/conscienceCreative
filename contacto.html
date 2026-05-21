@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="auth.css"/>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -71,9 +72,19 @@
             <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="code.html">Servicios</a>
             <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="quienes-somos.html">Quiénes Somos</a>
             <a class="text-secondary font-semibold border-b-2 border-secondary" href="#">Contacto</a>
+            <div class="w-px h-5 bg-outline-variant"></div>
+            <button onclick="openAuthModal('login')" class="flex items-center gap-1.5 text-on-surface-variant font-medium hover:text-primary border border-outline-variant rounded-lg px-4 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
+                <span class="material-symbols-outlined" style="font-size:17px;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 20">person</span>
+                Iniciar Sesión
+            </button>
             <a href="#form-contacto" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200">
                 Agendar Diagnóstico
             </a>
+        </div>
+        <div class="md:hidden flex items-center">
+            <button onclick="openAuthModal('login')" class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors" aria-label="Iniciar Sesión">
+                <span class="material-symbols-outlined">person</span>
+            </button>
         </div>
     </div>
 </nav>
@@ -299,5 +310,6 @@
     });
 </script>
 
+  <script src="auth.js"></script>
 </body>
 </html>
