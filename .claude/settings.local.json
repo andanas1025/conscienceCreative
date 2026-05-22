@@ -6,7 +6,9 @@
       "mcp__1409b5d4-41c0-447f-bfdf-a571252e645a__execute_sql",
       "mcp__1409b5d4-41c0-447f-bfdf-a571252e645a__apply_migration",
       "Bash(curl -s -o /tmp/n8n_response.txt -w '%{http_code}' -X POST https://andanasrubram.app.n8n.cloud/webhook/analisis-disc -H 'Content-Type: application/json' -d '{ *)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(awk '{print $NF}')",
+      "Bash(python3)"
     ]
   }
 }

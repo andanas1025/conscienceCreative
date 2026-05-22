@@ -272,31 +272,34 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 bg-surface-container-low p-8 rounded-2xl">
-                    <form class="grid grid-cols-1 gap-6" onsubmit="event.preventDefault();">
+                    <form id="form-diagnostico" class="grid grid-cols-1 gap-6" action="https://formspree.io/f/mpqnadpy" method="POST">
                         <div>
                             <label class="block font-label-sm text-on-surface-variant mb-2">Nombre Completo</label>
-                            <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="Ej. Juan Pérez" type="text"/>
+                            <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="Ej. Juan Pérez" type="text" name="Nombre" required/>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block font-label-sm text-on-surface-variant mb-2">Empresa / Organización</label>
-                                <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="Tu compañía (o 'Independiente')" type="text"/>
+                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="Tu compañía (o 'Independiente')" type="text" name="Empresa"/>
                             </div>
                             <div>
                                 <label class="block font-label-sm text-on-surface-variant mb-2">Email de Contacto</label>
-                                <input class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="juan@empresa.com" type="email"/>
+                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="juan@empresa.com" type="email" name="Email" required/>
                             </div>
                         </div>
                         <div>
                             <label class="block font-label-sm text-on-surface-variant mb-2">Servicio de interés</label>
-                            <select class="w-full rounded-lg border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3">
+                            <select class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" name="Servicio de Interés">
                                 <option>Planeación Estratégica (OKRs & KPIs)</option>
-                                <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="talleres.html">Talleres y Mentorías</a>
+                                <option>Talleres y Mentorías</option>
                                 <option>Análisis de Equidad Salarial</option>
                                 <option>Reclutamiento y Potencial Humano</option>
                             </select>
                         </div>
-                        <button class="w-full bg-tertiary text-white py-4 rounded-xl font-body-md font-semibold shadow-lg shadow-tertiary/20 hover:brightness-110 hover:translate-y-[-2px] transition-all" type="submit">
+                        <div id="msg-diagnostico" class="hidden text-center p-4 bg-secondary/10 rounded-xl">
+                            <p class="text-sm font-semibold text-secondary">¡Solicitud enviada! Le contactaremos pronto.</p>
+                        </div>
+                        <button id="btn-diagnostico" class="w-full bg-tertiary text-white py-4 rounded-xl font-body-md font-semibold shadow-lg shadow-tertiary/20 hover:brightness-110 hover:translate-y-[-2px] transition-all" type="submit">
                             Agendar Diagnóstico Gratuito
                         </button>
                     </form>
@@ -338,5 +341,33 @@
 </footer>
 
   <script src="auth.js"></script>
+  <script>
+    const formDiagnostico = document.getElementById('form-diagnostico');
+    formDiagnostico.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-diagnostico');
+      const msg = document.getElementById('msg-diagnostico');
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      try {
+        const res = await fetch(formDiagnostico.action, {
+          method: 'POST',
+          body: new FormData(formDiagnostico),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          formDiagnostico.reset();
+          msg.classList.remove('hidden');
+          btn.classList.add('hidden');
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Agendar Diagnóstico Gratuito';
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Agendar Diagnóstico Gratuito';
+      }
+    });
+  </script>
 </body>
 </html>

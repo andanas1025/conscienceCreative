@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   
   <style>
     /* Inyección de tus Tokens de Diseño en variables CSS */
@@ -226,23 +227,25 @@
     });
 
     // 5. Enviar los datos al Webhook de n8n
-    function finalizarTest() {
+    async function finalizarTest() {
       card.innerHTML = `
         <h2 class="font-display text-2xl font-semibold mb-4" style="color: var(--color-primary);">¡Analizando tus respuestas!</h2>
         <p class="text-sm" style="color: var(--color-on-surface-variant);">Estamos procesando tu perfil de personalidad mediante Ethos & Growth...</p>
       `;
-      
-      console.log("JSON final listo para n8n:", respuestasLog);
 
-      // Cambia esta URL por tu Webhook real de n8n cuando lo crees
-      //const urlWebhookN8n = 'https://andanasrubram.app.n8n.cloud/webhook-test/analisis-disc';
+      const sbClient = supabase.createClient(
+        'https://bwqqvawavawotrryzyys.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3cXF2YXdhdmF3b3Rycnl6eXlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzMjU4NTUsImV4cCI6MjA5NDkwMTg1NX0.2IAVaHlgONmoC6fHDrcznr6kk-ZIlyu-fSPlxAEmuY0'
+      );
+      const { data: { session } } = await sbClient.auth.getSession();
+      const emailUsuario = session ? session.user.email : 'anonimo@ethosandgrowth.com';
+
       const urlWebhookN8n = 'https://andanasrubram.app.n8n.cloud/webhook/analisis-disc';
-      
 
       fetch(urlWebhookN8n, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ respuestas: respuestasLog, email: "prueba@ethosandgrowth.com" })
+        body: JSON.stringify({ respuestas: respuestasLog, email: emailUsuario })
       })
       .then(response => {
         if(response.ok) {
