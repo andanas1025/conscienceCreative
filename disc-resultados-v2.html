@@ -995,7 +995,9 @@
 
   <!-- ─── Script ───────────────────────────────────────── -->
   <script>
-    const urlApiResultados = 'https://andanasrubram.app.n8n.cloud/webhook-test/obtener-resultados';
+    const SUPABASE_URL = 'https://bwqqvawavawotrryzyys.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3cXF2YXdhdmF3b3Rycnl6eXlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzMjU4NTUsImV4cCI6MjA5NDkwMTg1NX0.2IAVaHlgONmoC6fHDrcznr6kk-ZIlyu-fSPlxAEmuY0';
+    const sbClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     let currentSlide = 1;
     const totalSlides = 12;
@@ -1023,14 +1025,22 @@
     async function inicializarPortal() {
       buildDots();
       try {
-        const response = await fetch(urlApiResultados);
-        if (!response.ok) throw new Error('Error al conectar con n8n');
-        
-        const objetoOriginal = await response.json();
-        datosUsuario = Array.isArray(objetoOriginal) ? objetoOriginal[0] : objetoOriginal;
-        
-        document.getElementById('user-email-1').innerText = datosUsuario.Email || 'Consultoría de Talento';
-        document.getElementById('user-profile-title').innerText = datosUsuario.Perfil || 'Perfil Analizado';
+        const { data: { session } } = await sbClient.auth.getSession();
+        if (!session) { window.location.href = 'index.html'; return; }
+
+        const { data, error } = await sbClient
+          .from('disc_resultados')
+          .select('*')
+          .eq('email', session.user.email)
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .single();
+
+        if (error) throw new Error(error.message);
+        datosUsuario = data;
+
+        document.getElementById('user-email-1').innerText = datosUsuario.email || 'Consultoría de Talento';
+        document.getElementById('user-profile-title').innerText = datosUsuario.perfil || 'Perfil Analizado';
         
         document.getElementById('loading').style.display = 'none';
         document.getElementById('controls').classList.add('visible');
@@ -1069,10 +1079,10 @@
 
       // Chart triggers
       if (datosUsuario) {
-        const d = parseInt(datosUsuario.d) || 0;
-        const i = parseInt(datosUsuario.i) || 0;
-        const s = parseInt(datosUsuario.s) || 0;
-        const c = parseInt(datosUsuario.c) || 0;
+        const d = parseInt(datosUsuario.puntos_d) || 0;
+        const i = parseInt(datosUsuario.puntos_i) || 0;
+        const s = parseInt(datosUsuario.puntos_s) || 0;
+        const c = parseInt(datosUsuario.puntos_c) || 0;
 
         if (index === 3) setTimeout(() => { ajustarBarraBipolar('D',d); ajustarBarraBipolar('I',i); ajustarBarraBipolar('S',s); ajustarBarraBipolar('C',c); }, 120);
         if (index === 4) setTimeout(() => generarGraficoRadar(d,i,s,c), 120);

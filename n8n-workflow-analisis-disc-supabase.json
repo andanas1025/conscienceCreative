@@ -1,0 +1,154 @@
+{
+  "name": "analisis-disc (Supabase)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "analisis-disc",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [0, 0],
+      "id": "cd477ca3-5755-4b84-bc8c-d63b89291352",
+      "name": "Webhook",
+      "webhookId": "954f9fc7-a74f-4141-9483-6a06af5a261e"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Capturar las respuestas que envió el formulario web\nconst respuestas = $('Webhook').item.json.body.respuestas || [];\nconst usuarioEmail = $('Webhook').item.json.body.email || \"anonimo@ethosandgrowth.com\";\n\n// 2. Crear las cajas para contar los puntos de los 3 gráficos DISC\nlet graficoPublico = { D: 0, I: 0, S: 0, C: 0 };\nlet graficoPrivado = { D: 0, I: 0, S: 0, C: 0 };\nlet graficoSintesis = { D: 0, I: 0, S: 0, C: 0 };\n\n// 3. Contar matemáticamente los votos del test\nrespuestas.forEach(voto => {\n  if (voto.mas && graficoPublico.hasOwnProperty(voto.mas)) {\n    graficoPublico[voto.mas] += 1;\n  }\n  if (voto.menos && graficoPrivado.hasOwnProperty(voto.menos)) {\n    graficoPrivado[voto.menos] += 1;\n  }\n});\n\n// 4. Calcular el Perfil Síntesis (MÁS menos MENOS)\nfor (let factor in graficoSintesis) {\n  graficoSintesis[factor] = graficoPublico[factor] - graficoPrivado[factor];\n}\n\n// 5. Determinar la combinación de perfil dominante\nlet factoresOrdenados = Object.keys(graficoSintesis).sort((a, b) => graficoSintesis[b] - graficoSintesis[a]);\nlet factorPrincipal = factoresOrdenados[0];\nlet factorSecundario = factoresOrdenados[1];\n\nlet nombrePerfil = \"Evaluación Equilibrada\";\nif (graficoSintesis[factorPrincipal] > 0) {\n  if (factorPrincipal === 'D' && factorSecundario === 'I') nombrePerfil = \"Persuasivo / Motivador\";\n  else if (factorPrincipal === 'D' && factorSecundario === 'C') nombrePerfil = \"Director / Desarrollador\";\n  else if (factorPrincipal === 'I' && factorSecundario === 'S') nombrePerfil = \"Relacionista / Consejero\";\n  else if (factorPrincipal === 'C' && factorSecundario === 'S') nombrePerfil = \"Especialista / Técnico\";\n  else if (factorPrincipal === 'D') nombrePerfil = \"Ejecutor / Conductor Puro\";\n  else if (factorPrincipal === 'I') nombrePerfil = \"Influenciador Puro\";\n  else if (factorPrincipal === 'S') nombrePerfil = \"Estable / Soporte Puro\";\n  else if (factorPrincipal === 'C') nombrePerfil = \"Analítico / Cumplidor Puro\";\n}\n\n// 6. Devolver los datos limpios y organizados\nreturn [\n  {\n    json: {\n      email: usuarioEmail,\n      perfilAsignado: nombrePerfil,\n      graficos: {\n        publico_mas: graficoPublico,\n        privado_menos: graficoPrivado,\n        sintesis_total: graficoSintesis\n      },\n      metadatos: {\n        totalBloquesRespondidos: respuestas.length,\n        fechaProcesado: new Date().toISOString()\n      }\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [208, 0],
+      "id": "9f037e64-4074-46d6-93a1-6639bab325bd",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bwqqvawavawotrryzyys.supabase.co/rest/v1/disc_resultados",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3cXF2YXdhdmF3b3Rycnl6eXlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzMjU4NTUsImV4cCI6MjA5NDkwMTg1NX0.2IAVaHlgONmoC6fHDrcznr6kk-ZIlyu-fSPlxAEmuY0"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3cXF2YXdhdmF3b3Rycnl6eXlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzMjU4NTUsImV4cCI6MjA5NDkwMTg1NX0.2IAVaHlgONmoC6fHDrcznr6kk-ZIlyu-fSPlxAEmuY0"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ email: $('Code in JavaScript').item.json.email, perfil: $('Code in JavaScript').item.json.perfilAsignado, puntos_d: $('Code in JavaScript').item.json.graficos.sintesis_total.D, puntos_i: $('Code in JavaScript').item.json.graficos.sintesis_total.I, puntos_s: $('Code in JavaScript').item.json.graficos.sintesis_total.S, puntos_c: $('Code in JavaScript').item.json.graficos.sintesis_total.C }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [416, 0],
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Guardar en Supabase"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Capturar los resultados del nodo de cálculo\nconst codigoData = $('Code in JavaScript').item.json;\nconst email = codigoData.email;\nconst perfil = codigoData.perfilAsignado;\n\nconst puntosD = codigoData.graficos.sintesis_total.D;\nconst puntosI = codigoData.graficos.sintesis_total.I;\nconst puntosS = codigoData.graficos.sintesis_total.S;\nconst puntosC = codigoData.graficos.sintesis_total.C;\n\nconst pctD = Math.min(100, Math.max(5, (puntosD / 24) * 100));\nconst pctI = Math.min(100, Math.max(5, (puntosI / 24) * 100));\nconst pctS = Math.min(100, Math.max(5, (puntosS / 24) * 100));\nconst pctC = Math.min(100, Math.max(5, (puntosC / 24) * 100));\n\nconst htmlCorreo = `\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Reporte DISC - Ethos & Growth</title>\n</head>\n<body style=\"margin: 0; padding: 0; background-color: #f7f9fb; font-family: 'Segoe UI', Helvetica, Arial, sans-serif;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background-color: #f7f9fb; padding: 40px 20px;\">\n    <tr>\n      <td align=\"center\">\n        <table width=\"100%\" style=\"max-width: 600px; background-color: #ffffff; border: 1px solid #eceef0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border-collapse: separate;\">\n          <tr>\n            <td style=\"background-color: #0b1a30; padding: 30px; text-align: left; border-bottom: 3px solid #436653;\">\n              <span style=\"font-family: Georgia, serif; font-size: 26px; font-weight: bold; color: #ffffff;\">Ethos & Growth</span>\n              <div style=\"color: #c5c6cd; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 5px; font-weight: 600;\">Consultoría de Alta Dirección</div>\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding: 40px 30px;\">\n              <h1 style=\"font-family: Georgia, serif; font-size: 28px; color: #0b1a30; margin: 0 0 10px 0;\">Análisis de Perfil Conductual DISC</h1>\n              <p style=\"font-size: 14px; color: #436653; font-weight: 500; margin: 0 0 30px 0;\">Evaluación realizada para: <strong style=\"color: #191c1e;\">${email}</strong></p>\n              <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background-color: #f2f4f6; border-radius: 6px; margin-bottom: 35px;\">\n                <tr>\n                  <td style=\"padding: 25px; border-left: 4px solid #436653;\">\n                    <h3 style=\"margin: 0 0 8px 0; font-family: Georgia, serif; color: #0b1a30; font-size: 18px;\">Estilo Dominante: ${perfil}</h3>\n                    <p style=\"margin: 0; font-size: 14px; line-height: 1.5; color: #44474d;\">Basado en el procesamiento algorítmico de sus respuestas, usted demuestra una tendencia conductual consolidada enfocada en este perfil estratégico.</p>\n                  </td>\n                </tr>\n              </table>\n              <h2 style=\"font-family: Georgia, serif; font-size: 20px; color: #0b1a30; margin: 0 0 20px 0; border-bottom: 1px solid #eceef0; padding-bottom: 8px;\">Resultados DISC (Síntesis)</h2>\n              <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"margin-bottom: 20px;\">\n                <tr><td style=\"padding: 8px 0;\">\n                  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr>\n                    <td width=\"120\" style=\"font-size: 13px; font-weight: 600; color: #191c1e;\">Dominancia (D)</td>\n                    <td style=\"padding: 0 10px;\"><div style=\"background:#eceef0;border-radius:4px;height:20px;\"><div style=\"background:#0b1a30;border-radius:4px;height:20px;width:${pctD}%;\"></div></div></td>\n                    <td width=\"30\" style=\"font-size: 13px; font-weight: 600; color: #0b1a30; text-align: right;\">${puntosD}</td>\n                  </tr></table>\n                </td></tr>\n                <tr><td style=\"padding: 8px 0;\">\n                  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr>\n                    <td width=\"120\" style=\"font-size: 13px; font-weight: 600; color: #191c1e;\">Influencia (I)</td>\n                    <td style=\"padding: 0 10px;\"><div style=\"background:#eceef0;border-radius:4px;height:20px;\"><div style=\"background:#436653;border-radius:4px;height:20px;width:${pctI}%;\"></div></div></td>\n                    <td width=\"30\" style=\"font-size: 13px; font-weight: 600; color: #436653; text-align: right;\">${puntosI}</td>\n                  </tr></table>\n                </td></tr>\n                <tr><td style=\"padding: 8px 0;\">\n                  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr>\n                    <td width=\"120\" style=\"font-size: 13px; font-weight: 600; color: #191c1e;\">Estabilidad (S)</td>\n                    <td style=\"padding: 0 10px;\"><div style=\"background:#eceef0;border-radius:4px;height:20px;\"><div style=\"background:#e07a5f;border-radius:4px;height:20px;width:${pctS}%;\"></div></div></td>\n                    <td width=\"30\" style=\"font-size: 13px; font-weight: 600; color: #e07a5f; text-align: right;\">${puntosS}</td>\n                  </tr></table>\n                </td></tr>\n                <tr><td style=\"padding: 8px 0;\">\n                  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr>\n                    <td width=\"120\" style=\"font-size: 13px; font-weight: 600; color: #191c1e;\">Cumplimiento (C)</td>\n                    <td style=\"padding: 0 10px;\"><div style=\"background:#eceef0;border-radius:4px;height:20px;\"><div style=\"background:#75777e;border-radius:4px;height:20px;width:${pctC}%;\"></div></div></td>\n                    <td width=\"30\" style=\"font-size: 13px; font-weight: 600; color: #75777e; text-align: right;\">${puntosC}</td>\n                  </tr></table>\n                </td></tr>\n              </table>\n            </td>\n          </tr>\n          <tr>\n            <td style=\"background-color: #eceef0; padding: 20px; text-align: center; font-size: 12px; color: #44474d; border-top: 1px solid #e0e3e5;\">\n              © 2026 Ethos & Growth. Todos los derechos reservados.<br>\n              <span style=\"color: #75777e;\">Este informe es confidencial y para uso exclusivo del destinatario.</span>\n            </td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { email: email, htmlBody: htmlCorreo } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [624, 0],
+      "id": "b93f70c9-2c4e-41fa-a050-95cc35f3f103",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Code in JavaScript').item.json.email }}",
+        "subject": "Análisis de Perfil Conductual DISC - Consciencia Creativa",
+        "message": "={{ $json.htmlBody }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [832, 0],
+      "id": "0e409d61-6453-49b5-9954-a8275c9afaac",
+      "name": "Send a message",
+      "webhookId": "a5e89685-991b-487c-92d1-afd853eff810",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "ZbnoaxEn2N8lMmhn",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Guardar en Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar en Supabase": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4f359689bc97276ad458ed8cdff40388ada15be78bf127f1cf0ad2a65fc3198c"
+  },
+  "id": "w3AoX3OfGe2diC8F",
+  "tags": []
+}

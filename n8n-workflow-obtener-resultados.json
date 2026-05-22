@@ -1,0 +1,134 @@
+{
+  "name": "obtener-resultados",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "obtener-resultados",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [0, 0],
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Webhook",
+      "webhookId": "b2c3d4e5-f6a7-8901-bcde-f12345678901"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "documentId": {
+          "__rl": true,
+          "value": "1c5wma7FDhuWtXbe1gPThUhvUmkWQAZHEimxZ4g-lD_o",
+          "mode": "list",
+          "cachedResultName": "Resultados DISC",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1c5wma7FDhuWtXbe1gPThUhvUmkWQAZHEimxZ4g-lD_o/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1c5wma7FDhuWtXbe1gPThUhvUmkWQAZHEimxZ4g-lD_o/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [208, 0],
+      "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+      "name": "Read Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3BC3fr9D2inrLfQi",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "d4e5f6a7-b8c9-0123-defa-234567890123",
+              "leftValue": "={{ $json.Email }}",
+              "rightValue": "={{ $('Webhook').item.json.query.email }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [416, 0],
+      "id": "e5f6a7b8-c9d0-1234-efab-345678901234",
+      "name": "Filter by Email"
+    },
+    {
+      "parameters": {
+        "respondWith": "firstIncomingItem",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [624, 0],
+      "id": "f6a7b8c9-d0e1-2345-fabc-456789012345",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Read Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Sheet": {
+      "main": [
+        [
+          {
+            "node": "Filter by Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter by Email": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "instanceId": "4f359689bc97276ad458ed8cdff40388ada15be78bf127f1cf0ad2a65fc3198c"
+  },
+  "tags": []
+}
