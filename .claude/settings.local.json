@@ -8,7 +8,8 @@
       "Bash(curl -s -o /tmp/n8n_response.txt -w '%{http_code}' -X POST https://andanasrubram.app.n8n.cloud/webhook/analisis-disc -H 'Content-Type: application/json' -d '{ *)",
       "Read(//tmp/**)",
       "Bash(awk '{print $NF}')",
-      "Bash(python3)"
+      "Bash(python3)",
+      "WebFetch(domain:co.linkedin.com)"
     ]
   }
 }
