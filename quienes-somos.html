@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Quiénes Somos | Consciencia Creativa</title>
+    <title data-i18n="about.title">Quiénes Somos | Consciencia Creativa</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -70,20 +70,55 @@
     <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto py-4">
         <a href="index.html" class="text-headline-md font-headline-md font-bold text-primary">Consciencia Creativa</a>
         <div class="hidden md:flex items-center gap-8">
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="index.html">Servicios</a>
-            <a class="text-secondary font-semibold border-b-2 border-secondary" href="#">Quiénes Somos</a>
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="contacto.html">Contacto</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="index.html" data-i18n="nav.services">Servicios</a>
+            <a class="text-secondary font-semibold border-b-2 border-secondary" href="#" data-i18n="nav.about">Quiénes Somos</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="contacto.html" data-i18n="nav.contact">Contacto</a>
             <div class="w-px h-5 bg-outline-variant"></div>
+            <!-- Language Switcher -->
+            <div class="relative" id="lang-switcher">
+              <button id="lang-switcher-btn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false"
+                      data-i18n-attr="aria-label:nav.lang_aria"
+                      class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary border border-outline-variant rounded-lg px-3 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
+                <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">language</span>
+                <span class="lang-current-label text-xs font-bold">ES</span>
+                <span class="material-symbols-outlined lang-chevron" style="font-size:14px">expand_more</span>
+              </button>
+              <div id="lang-menu" role="menu"
+                   class="absolute right-0 top-full mt-2 bg-white border border-outline-variant/60 rounded-xl shadow-xl py-1 min-w-[148px] z-[200]"
+                   style="display:none">
+                <button data-lang-option="es" onclick="setLang('es')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇨🇴 <span>Español</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+                <button data-lang-option="en" onclick="setLang('en')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇺🇸 <span>English</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+                <button data-lang-option="pt" onclick="setLang('pt')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇧🇷 <span>Português</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+              </div>
+            </div>
             <button onclick="openAuthModal('login')" class="flex items-center gap-1.5 text-on-surface-variant font-medium hover:text-primary border border-outline-variant rounded-lg px-4 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
                 <span class="material-symbols-outlined" style="font-size:17px;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 20">person</span>
-                Iniciar Sesión
+                <span data-i18n="nav.login">Iniciar Sesión</span>
             </button>
-            <a href="contacto.html" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200">
+            <a href="contacto.html" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200" data-i18n="nav.cta_diagnostic">
                 Agendar Diagnóstico
             </a>
         </div>
-        <div class="md:hidden flex items-center">
-            <button onclick="openAuthModal('login')" class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors" aria-label="Iniciar Sesión">
+        <div class="md:hidden flex items-center gap-2">
+            <button onclick="cycleLang()"
+                    class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors font-bold text-xs"
+                    data-i18n-attr="aria-label:nav.lang_aria" aria-label="Seleccionar idioma">
+              <span class="lang-current-label">ES</span>
+            </button>
+            <button onclick="openAuthModal('login')" class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors"
+                    data-i18n-attr="aria-label:nav.login_aria" aria-label="Iniciar Sesión">
                 <span class="material-symbols-outlined">person</span>
             </button>
         </div>
@@ -95,11 +130,11 @@
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#436653_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="w-full px-margin-desktop max-w-container-max mx-auto relative z-10">
             <div class="max-w-3xl">
-                <span class="text-secondary bg-white/10 px-4 py-1.5 rounded-full text-label-sm font-semibold uppercase tracking-wider mb-6 inline-block">Quiénes somos</span>
+                <span class="text-secondary bg-white/10 px-4 py-1.5 rounded-full text-label-sm font-semibold uppercase tracking-wider mb-6 inline-block" data-i18n="about.hero.eyebrow">Quiénes somos</span>
                 <h1 class="font-display-lg text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
-                    Humanidad.<br><span class="text-white/80">Consciencia. Estrategia.</span>
+                    <span data-i18n="about.hero.h1_main">Humanidad.</span><br><span class="text-white/80" data-i18n="about.hero.h1_sub">Consciencia. Estrategia.</span>
                 </h1>
-                <p class="font-body-lg text-xl text-white/80 max-w-2xl leading-relaxed">
+                <p class="font-body-lg text-xl text-white/80 max-w-2xl leading-relaxed" data-i18n="about.hero.subtitle">
                     Conciencia Creativa integra bienestar consciente, liderazgo humano, inteligencia emocional y evolución organizacional para construir formas más humanas de vivir, trabajar y liderar.
                 </p>
             </div>
@@ -110,26 +145,26 @@
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">Nuestro Propósito</span>
-                    <h2 class="font-headline-lg text-3xl md:text-4xl text-primary mb-6">La transformación comienza adentro.</h2>
-                    <p class="text-on-surface-variant text-lg mb-5 leading-relaxed">
+                    <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block" data-i18n="about.purpose.eyebrow">Nuestro Propósito</span>
+                    <h2 class="font-headline-lg text-3xl md:text-4xl text-primary mb-6" data-i18n="about.purpose.h2">La transformación comienza adentro.</h2>
+                    <p class="text-on-surface-variant text-lg mb-5 leading-relaxed" data-i18n="about.purpose.body1">
                         Vivimos en un mundo acelerado, hiperproductivo y emocionalmente agotador. Un mundo donde muchas personas sienten presión constante por rendir, avanzar y sostener múltiples responsabilidades al mismo tiempo.
                     </p>
-                    <p class="text-on-surface-variant text-lg mb-5 leading-relaxed">
-                        <strong class="text-primary">Consciencia Creativa</strong> nace como una invitación a evolucionar de una manera distinta. Más consciente. Más humana. Más sostenible.
+                    <p class="text-on-surface-variant text-lg mb-5 leading-relaxed" data-i18n="about.purpose.body2">
+                        Consciencia Creativa nace como una invitación a evolucionar de una manera distinta. Más consciente. Más humana. Más sostenible.
                     </p>
-                    <p class="text-on-surface-variant text-lg leading-relaxed">
+                    <p class="text-on-surface-variant text-lg leading-relaxed" data-i18n="about.purpose.body3">
                         Creemos que sí es posible crecer profesionalmente sin desconectarnos emocionalmente. Que sí es posible liderar desde la humanidad. Y que el bienestar no debería ser un premio al final del camino, sino parte del camino mismo.
                     </p>
                 </div>
                 <div class="space-y-6">
                     <div class="bg-surface-container-low p-8 rounded-2xl border-l-4 border-secondary">
-                        <h3 class="font-headline-md text-xl text-primary mb-3">Misión</h3>
-                        <p class="text-on-surface-variant font-body-md leading-relaxed">Acompañar a personas y organizaciones a evolucionar con más claridad, humanidad y equilibrio, integrando bienestar emocional, liderazgo consciente y crecimiento profesional sostenible.</p>
+                        <h3 class="font-headline-md text-xl text-primary mb-3" data-i18n="about.mission_title">Misión</h3>
+                        <p class="text-on-surface-variant font-body-md leading-relaxed" data-i18n="about.mission_body">Acompañar a personas y organizaciones a evolucionar con más claridad, humanidad y equilibrio, integrando bienestar emocional, liderazgo consciente y crecimiento profesional sostenible.</p>
                     </div>
                     <div class="bg-surface-container-low p-8 rounded-2xl border-l-4 border-tertiary">
-                        <h3 class="font-headline-md text-xl text-primary mb-3">Visión</h3>
-                        <p class="text-on-surface-variant font-body-md leading-relaxed">Construir un ecosistema donde bienestar, tecnología, transformación humana e innovación coexistan de manera armónica, creando nuevas formas de vivir, trabajar y liderar en el mundo actual.</p>
+                        <h3 class="font-headline-md text-xl text-primary mb-3" data-i18n="about.vision_title">Visión</h3>
+                        <p class="text-on-surface-variant font-body-md leading-relaxed" data-i18n="about.vision_body">Construir un ecosistema donde bienestar, tecnología, transformación humana e innovación coexistan de manera armónica, creando nuevas formas de vivir, trabajar y liderar en el mundo actual.</p>
                     </div>
                 </div>
             </div>
@@ -139,30 +174,30 @@
     <section class="py-24 bg-surface-container-low">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="text-center mb-16">
-                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">Lo que nos define</span>
-                <h2 class="font-headline-lg text-3xl text-primary">Nuestros Valores</h2>
+                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block" data-i18n="about.values.eyebrow">Lo que nos define</span>
+                <h2 class="font-headline-lg text-3xl text-primary" data-i18n="about.values.h2">Nuestros Valores</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-gutter">
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/30">
                     <div class="w-14 h-14 bg-mint-soft rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-secondary text-3xl">self_improvement</span>
                     </div>
-                    <h3 class="font-headline-md text-xl text-primary mb-4">Consciencia</h3>
-                    <p class="text-on-surface-variant font-body-md leading-relaxed">No creemos en el crecimiento basado únicamente en presión o exigencia constante. Creemos que cuando una persona se entiende mejor, lidera mejor, trabaja mejor y vive mejor.</p>
+                    <h3 class="font-headline-md text-xl text-primary mb-4" data-i18n="about.values.v1_title">Consciencia</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed" data-i18n="about.values.v1_body">No creemos en el crecimiento basado únicamente en presión o exigencia constante. Creemos que cuando una persona se entiende mejor, lidera mejor, trabaja mejor y vive mejor.</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/30">
                     <div class="w-14 h-14 bg-mint-soft rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-secondary text-3xl">favorite</span>
                     </div>
-                    <h3 class="font-headline-md text-xl text-primary mb-4">Humanidad</h3>
-                    <p class="text-on-surface-variant font-body-md leading-relaxed">Integramos sensibilidad humana, profundidad emocional e inteligencia emocional en cada proceso. El bienestar no es un lujo; es parte del camino hacia el éxito real.</p>
+                    <h3 class="font-headline-md text-xl text-primary mb-4" data-i18n="about.values.v2_title">Humanidad</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed" data-i18n="about.values.v2_body">Integramos sensibilidad humana, profundidad emocional e inteligencia emocional en cada proceso. El bienestar no es un lujo; es parte del camino hacia el éxito real.</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/30">
                     <div class="w-14 h-14 bg-mint-soft rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-secondary text-3xl">trending_up</span>
                     </div>
-                    <h3 class="font-headline-md text-xl text-primary mb-4">Evolución</h3>
-                    <p class="text-on-surface-variant font-body-md leading-relaxed">Acompañamos procesos de cambio real: reconectarse consigo mismo, desarrollar herramientas emocionales, fortalecer el bienestar y evolucionar desde la autenticidad.</p>
+                    <h3 class="font-headline-md text-xl text-primary mb-4" data-i18n="about.values.v3_title">Evolución</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed" data-i18n="about.values.v3_body">Acompañamos procesos de cambio real: reconectarse consigo mismo, desarrollar herramientas emocionales, fortalecer el bienestar y evolucionar desde la autenticidad.</p>
                 </div>
             </div>
         </div>
@@ -171,9 +206,9 @@
     <section class="py-24 bg-white">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="text-center mb-16">
-                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">Cómo trabajamos</span>
-                <h2 class="font-headline-lg text-3xl text-primary">Cómo acompañamos tu evolución</h2>
-                <p class="text-on-surface-variant mt-2 max-w-2xl mx-auto">Un proceso de cuatro momentos diseñado para que la transformación sea profunda, real y sostenible — no solo en papel, sino en la vida y el trabajo diario.</p>
+                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block" data-i18n="about.method.eyebrow">Cómo trabajamos</span>
+                <h2 class="font-headline-lg text-3xl text-primary" data-i18n="about.method.h2">Cómo acompañamos tu evolución</h2>
+                <p class="text-on-surface-variant mt-2 max-w-2xl mx-auto" data-i18n="about.method.subtitle">Un proceso de cuatro momentos diseñado para que la transformación sea profunda, real y sostenible — no solo en papel, sino en la vida y el trabajo diario.</p>
             </div>
             <div class="grid md:grid-cols-4 gap-gutter">
                 <div class="text-center">
@@ -181,29 +216,29 @@
                         <span class="material-symbols-outlined text-white text-2xl">search</span>
                     </div>
                     <div class="h-1 bg-outline-variant hidden md:block absolute"></div>
-                    <h4 class="font-headline-md text-lg text-primary mb-2">Diagnóstico</h4>
-                    <p class="text-sm text-on-surface-variant">Escuchamos, analizamos datos y entendemos el estado real de la organización antes de proponer cualquier solución.</p>
+                    <h4 class="font-headline-md text-lg text-primary mb-2" data-i18n="about.method.s1_title">Diagnóstico</h4>
+                    <p class="text-sm text-on-surface-variant" data-i18n="about.method.s1_body">Escuchamos, analizamos datos y entendemos el estado real de la organización antes de proponer cualquier solución.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <span class="material-symbols-outlined text-white text-2xl">groups</span>
                     </div>
-                    <h4 class="font-headline-md text-lg text-primary mb-2">Co-creación</h4>
-                    <p class="text-sm text-on-surface-variant">Diseñamos las soluciones junto con su equipo, no para su equipo. Esto garantiza adopción real y compromiso genuino.</p>
+                    <h4 class="font-headline-md text-lg text-primary mb-2" data-i18n="about.method.s2_title">Co-creación</h4>
+                    <p class="text-sm text-on-surface-variant" data-i18n="about.method.s2_body">Diseñamos las soluciones junto con su equipo, no para su equipo. Esto garantiza adopción real y compromiso genuino.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 bg-tertiary rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <span class="material-symbols-outlined text-white text-2xl">rocket_launch</span>
                     </div>
-                    <h4 class="font-headline-md text-lg text-primary mb-2">Implementación</h4>
-                    <p class="text-sm text-on-surface-variant">Acompañamos el despliegue en la operación diaria, gestionando la resistencia al cambio y ajustando en tiempo real.</p>
+                    <h4 class="font-headline-md text-lg text-primary mb-2" data-i18n="about.method.s3_title">Implementación</h4>
+                    <p class="text-sm text-on-surface-variant" data-i18n="about.method.s3_body">Acompañamos el despliegue en la operación diaria, gestionando la resistencia al cambio y ajustando en tiempo real.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 bg-surface-container-highest rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <span class="material-symbols-outlined text-primary text-2xl">monitoring</span>
                     </div>
-                    <h4 class="font-headline-md text-lg text-primary mb-2">Acompañamiento</h4>
-                    <p class="text-sm text-on-surface-variant">Hacemos seguimiento a los resultados y entregamos el proceso documentado para que la empresa opere de forma autónoma.</p>
+                    <h4 class="font-headline-md text-lg text-primary mb-2" data-i18n="about.method.s4_title">Acompañamiento</h4>
+                    <p class="text-sm text-on-surface-variant" data-i18n="about.method.s4_body">Hacemos seguimiento a los resultados y entregamos el proceso documentado para que la empresa opere de forma autónoma.</p>
                 </div>
             </div>
         </div>
@@ -214,19 +249,19 @@
             <div class="grid md:grid-cols-4 gap-gutter text-center">
                 <div>
                     <span class="block text-5xl font-bold font-headline-lg mb-2">+50</span>
-                    <span class="text-secondary font-label-sm uppercase tracking-widest text-sm">Empresas transformadas</span>
+                    <span class="text-secondary font-label-sm uppercase tracking-widest text-sm" data-i18n="about.stats.companies">Empresas transformadas</span>
                 </div>
                 <div>
                     <span class="block text-5xl font-bold font-headline-lg mb-2">+15</span>
-                    <span class="text-secondary font-label-sm uppercase tracking-widest text-sm">Años de experiencia</span>
+                    <span class="text-secondary font-label-sm uppercase tracking-widest text-sm" data-i18n="about.stats.experience">Años de experiencia</span>
                 </div>
                 <div>
                     <span class="block text-5xl font-bold font-headline-lg mb-2">4</span>
-                    <span class="text-secondary font-label-sm uppercase tracking-widest text-sm">Áreas de consultoría</span>
+                    <span class="text-secondary font-label-sm uppercase tracking-widest text-sm" data-i18n="about.stats.areas">Áreas de consultoría</span>
                 </div>
                 <div>
                     <span class="block text-5xl font-bold font-headline-lg mb-2">100%</span>
-                    <span class="text-secondary font-label-sm uppercase tracking-widest text-sm">Proyectos con entregables medibles</span>
+                    <span class="text-secondary font-label-sm uppercase tracking-widest text-sm" data-i18n="about.stats.deliverables">Proyectos con entregables medibles</span>
                 </div>
             </div>
         </div>
@@ -235,8 +270,8 @@
     <section class="py-24 bg-surface-container-low">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="text-center mb-16">
-                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">El equipo</span>
-                <h2 class="font-headline-lg text-3xl text-primary">Quiénes están detrás de Consciencia Creativa</h2>
+                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block" data-i18n="about.team.eyebrow">El equipo</span>
+                <h2 class="font-headline-lg text-3xl text-primary" data-i18n="about.team.h2">Quiénes están detrás de Consciencia Creativa</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-gutter max-w-5xl mx-auto">
                 <div class="bg-white rounded-2xl p-10 shadow-sm border border-outline-variant/30 flex flex-col gap-6">
@@ -246,16 +281,16 @@
                         </div>
                         <div>
                             <h3 class="font-headline-md text-xl text-primary mb-1">Andrés Rubiano Del Chiaro</h3>
-                            <p class="text-secondary font-label-sm font-semibold uppercase tracking-widest text-xs">Co-Fundador & Director de Tecnología</p>
+                            <p class="text-secondary font-label-sm font-semibold uppercase tracking-widest text-xs" data-i18n="about.team.m1_role">Co-Fundador & Director de Tecnología</p>
                         </div>
                     </div>
-                    <p class="text-on-surface-variant font-body-md leading-relaxed">
+                    <p class="text-on-surface-variant font-body-md leading-relaxed" data-i18n="about.team.m1_bio">
                         Ingeniero de software con más de 10 años de experiencia en desarrollo tecnológico para empresas de múltiples sectores. Lidera la arquitectura digital de Consciencia Creativa, integrando herramientas de automatización, inteligencia de negocio y análisis de datos para convertir la consultoría en soluciones medibles y escalables.
                     </p>
                     <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full">Transformación Digital</span>
-                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full">Inteligencia de Negocio</span>
-                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full">Automatización</span>
+                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="about.team.m1_tag1">Transformación Digital</span>
+                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="about.team.m1_tag2">Inteligencia de Negocio</span>
+                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="about.team.m1_tag3">Automatización</span>
                     </div>
                 </div>
                 <div class="bg-white rounded-2xl p-10 shadow-sm border border-outline-variant/30 flex flex-col gap-6">
@@ -265,16 +300,16 @@
                         </div>
                         <div>
                             <h3 class="font-headline-md text-xl text-primary mb-1">Ana Isabel Ramírez Madrid</h3>
-                            <p class="text-secondary font-label-sm font-semibold uppercase tracking-widest text-xs">Co-Fundadora & Especialista en Talento Humano</p>
+                            <p class="text-secondary font-label-sm font-semibold uppercase tracking-widest text-xs" data-i18n="about.team.m2_role">Co-Fundadora & Especialista en Talento Humano</p>
                         </div>
                     </div>
-                    <p class="text-on-surface-variant font-body-md leading-relaxed">
+                    <p class="text-on-surface-variant font-body-md leading-relaxed" data-i18n="about.team.m2_bio">
                         Con más de 15 años convirtiendo el talento humano en el motor real del negocio, Ana Isabel lidera el diseño e implementación de estrategias de desarrollo organizacional. Especialista en coaching ejecutivo, diversidad e inclusión y gestión del cambio, es miembro activa de la organización internacional de Directores de RRHH (DCH) y certificada en Ciencias del Comportamiento por la Universidad EIA.
                     </p>
                     <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full">Coaching Ejecutivo</span>
-                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full">Diversidad & Inclusión</span>
-                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full">Gestión del Cambio</span>
+                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="about.team.m2_tag1">Coaching Ejecutivo</span>
+                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="about.team.m2_tag2">Diversidad & Inclusión</span>
+                        <span class="bg-mint-soft text-secondary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="about.team.m2_tag3">Gestión del Cambio</span>
                     </div>
                 </div>
             </div>
@@ -284,10 +319,10 @@
     <section class="py-24 bg-surface-container-low">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="max-w-3xl mx-auto text-center mb-12">
-                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">Parte de una visión más amplia</span>
-                <h2 class="font-headline-lg text-3xl text-primary mb-4">Una visión construida entre humanidad y tecnología</h2>
-                <p class="text-on-surface-variant text-lg leading-relaxed">
-                    Consciencia Creativa hace parte de <strong class="text-primary">Andanas Group</strong>, un ecosistema humano, creativo y tecnológico desarrollado por Ana Isabel Ramírez y Andrés Rubiano del Chiaro con una idea profunda: crear soluciones, experiencias y espacios que integren consciencia humana, bienestar, innovación y tecnología de una manera más auténtica, estratégica y sostenible.
+                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block" data-i18n="about.andanas.eyebrow">Parte de una visión más amplia</span>
+                <h2 class="font-headline-lg text-3xl text-primary mb-4" data-i18n="about.andanas.h2">Una visión construida entre humanidad y tecnología</h2>
+                <p class="text-on-surface-variant text-lg leading-relaxed" data-i18n="about.andanas.body">
+                    Consciencia Creativa hace parte de Andanas Group, un ecosistema humano, creativo y tecnológico desarrollado por Ana Isabel Ramírez y Andrés Rubiano del Chiaro con una idea profunda: crear soluciones, experiencias y espacios que integren consciencia humana, bienestar, innovación y tecnología de una manera más auténtica, estratégica y sostenible.
                 </p>
             </div>
             <div class="grid md:grid-cols-2 gap-gutter max-w-4xl mx-auto">
@@ -295,15 +330,15 @@
                     <div class="w-12 h-12 bg-mint-soft rounded-xl flex items-center justify-center mb-5">
                         <span class="material-symbols-outlined text-secondary text-2xl">psychology</span>
                     </div>
-                    <h3 class="font-headline-md text-lg text-primary mb-3">Ana Isabel lidera</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">Transformación humana · Bienestar consciente · Liderazgo · Cultura organizacional · Inteligencia emocional · Evolución personal y profesional</p>
+                    <h3 class="font-headline-md text-lg text-primary mb-3" data-i18n="about.andanas.col1_title">Ana Isabel lidera</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed" data-i18n="about.andanas.col1_body">Transformación humana · Bienestar consciente · Liderazgo · Cultura organizacional · Inteligencia emocional · Evolución personal y profesional</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl border border-outline-variant/30 shadow-sm">
                     <div class="w-12 h-12 bg-mint-soft rounded-xl flex items-center justify-center mb-5">
                         <span class="material-symbols-outlined text-secondary text-2xl">developer_board</span>
                     </div>
-                    <h3 class="font-headline-md text-lg text-primary mb-3">Andrés aporta</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">Visión tecnológica · Pensamiento sistémico · Innovación · Estrategia digital · Arquitectura de soluciones · Automatización · Transformación digital</p>
+                    <h3 class="font-headline-md text-lg text-primary mb-3" data-i18n="about.andanas.col2_title">Andrés aporta</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed" data-i18n="about.andanas.col2_body">Visión tecnológica · Pensamiento sistémico · Innovación · Estrategia digital · Arquitectura de soluciones · Automatización · Transformación digital</p>
                 </div>
             </div>
         </div>
@@ -311,9 +346,9 @@
 
     <section class="py-24 bg-white">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto text-center">
-            <h2 class="font-headline-lg text-3xl text-primary mb-4">Tal vez este sea el momento de volver a ti.</h2>
-            <p class="text-on-surface-variant font-body-lg mb-8 max-w-xl mx-auto">Si estás buscando más claridad, equilibrio, bienestar o una forma más consciente de crecer, este espacio es para ti.</p>
-            <a href="contacto.html" class="inline-block bg-tertiary text-white px-10 py-4 rounded-xl font-body-md font-semibold hover:brightness-110 active:translate-y-[-2px] transition-all duration-300 shadow-lg shadow-tertiary/20">
+            <h2 class="font-headline-lg text-3xl text-primary mb-4" data-i18n="about.cta.h2">Tal vez este sea el momento de volver a ti.</h2>
+            <p class="text-on-surface-variant font-body-lg mb-8 max-w-xl mx-auto" data-i18n="about.cta.body">Si estás buscando más claridad, equilibrio, bienestar o una forma más consciente de crecer, este espacio es para ti.</p>
+            <a href="contacto.html" class="inline-block bg-tertiary text-white px-10 py-4 rounded-xl font-body-md font-semibold hover:brightness-110 active:translate-y-[-2px] transition-all duration-300 shadow-lg shadow-tertiary/20" data-i18n="about.cta.btn">
                 Hablemos
             </a>
         </div>
@@ -324,13 +359,14 @@
     <div class="w-full px-margin-desktop py-12 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
             <span class="text-xl font-bold text-primary font-headline-md block">Consciencia Creativa</span>
-            <p class="text-sm text-on-surface-variant">Transformación humana consciente para personas, líderes y organizaciones.</p>
-            <p class="text-xs text-on-surface-variant mt-1">Parte del ecosistema Andanas Group.</p>
+            <p class="text-sm text-on-surface-variant" data-i18n="footer.tagline">Transformación humana consciente para personas, líderes y organizaciones.</p>
+            <p class="text-xs text-on-surface-variant mt-1" data-i18n="footer.ecosystem">Parte del ecosistema Andanas Group.</p>
         </div>
-        <p class="font-label-md text-xs text-on-surface-variant">© 2026 Consciencia Creativa. Todos los derechos reservados.</p>
+        <p class="font-label-md text-xs text-on-surface-variant" data-i18n="footer.copyright">© 2026 Consciencia Creativa. Todos los derechos reservados.</p>
     </div>
 </footer>
 
+  <script src="i18n.js" data-base="locales/"></script>
   <script src="auth.js"></script>
 </body>
 </html>

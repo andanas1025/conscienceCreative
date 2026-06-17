@@ -1,0 +1,500 @@
+{
+  "nav": {
+    "lang_aria": "Selecionar idioma",
+    "login": "Entrar",
+    "login_aria": "Entrar",
+    "services": "Serviços",
+    "about": "Quem Somos",
+    "contact": "Contato",
+    "plan": "Planejamento (OKRs)",
+    "workshops": "Workshops e Mentoria",
+    "equity": "Equidade Salarial",
+    "recruitment": "Recrutamento",
+    "cta_diagnostic": "Agendar Diagnóstico",
+    "cta_workshop": "Solicitar Orçamento",
+    "cta_activate": "Iniciar Processo",
+    "cta_analysis": "Solicitar Análise"
+  },
+  "footer": {
+    "tagline": "Transformação humana consciente para pessoas, líderes e organizações.",
+    "ecosystem": "Parte do ecossistema Andanas Group.",
+    "copyright": "© 2026 Consciencia Creativa. Todos os direitos reservados.",
+    "copyright_index": "© 2026 Consciencia Creativa. Transformação Estratégica e Bem-Estar Humano.",
+    "services_heading": "Serviços",
+    "company_heading": "Empresa",
+    "legal_heading": "Legal",
+    "plan": "Planejamento Estratégico",
+    "workshops": "Workshops e Mentoria",
+    "equity": "Equidade Salarial",
+    "recruitment": "Recrutamento",
+    "about": "Quem Somos",
+    "contact": "Contato",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço"
+  },
+  "whatsapp": {
+    "label": "Consultar pelo WhatsApp",
+    "label_plan": "Falar pelo WhatsApp"
+  },
+  "index": {
+    "title": "Consciencia Creativa | Transformação Humana Consciente",
+    "hero": {
+      "h1": "Evolua sem se perder.",
+      "subtitle": "Um espaço de bem-estar consciente, transformação humana e liderança emocional para pessoas e organizações que querem crescer com mais clareza, equilíbrio e humanidade.",
+      "cta1": "Quero começar",
+      "cta2": "Explorar serviços"
+    },
+    "purpose": {
+      "eyebrow": "Nosso Propósito",
+      "h2": "Acreditamos em uma forma mais humana de crescer.",
+      "body": "Vivemos em um mundo acelerado e emocionalmente exaustivo. No meio dessa pressão constante, é fácil se desconectar de si mesmo, do bem-estar e do propósito. A Consciencia Creativa nasce como um convite para evoluir de forma diferente: mais consciente, mais humana, mais sustentável. Porque o bem-estar não deveria ser uma recompensa no final do caminho — deveria ser parte do caminho em si."
+    },
+    "services": {
+      "h2": "Espaços para transformar, reconectar e evoluir",
+      "s1_title": "Planejamento Estratégico",
+      "s1_body": "Estrutura baseada em OKRs e KPIs para um crescimento mensurável. Alinhamos a visão executiva com a execução operacional para garantir resultados de alto impacto.",
+      "s1_link": "Ver metodologia e soluções",
+      "s2_title": "Workshops e Experiências",
+      "s2_body": "Mentoria de liderança, avaliações DISC e programas de prevenção de Burnout projetados para construir equipes resilientes.",
+      "s2_link": "Conhecer experiências",
+      "s3_title": "Competitividade e Equidade Salarial",
+      "s3_body": "Análise inteligente de remuneração e redução de disparidades salariais para uma cultura organizacional justa, competitiva e atrativa.",
+      "s3_link": "Ver análise de remuneração",
+      "s4_title": "Recrutamento e Potencial Humano",
+      "s4_body": "Recrutamento estratégico e preparação de talentos para o futuro. Identificamos habilidades técnicas e o alinhamento cultural necessário para o sucesso mútuo.",
+      "s4_link": "Conhecer o processo de seleção"
+    },
+    "b2b": {
+      "tag": "B2B",
+      "h3": "Para Empresas",
+      "body": "Otimizamos o motor do seu negócio por meio de sistemas de gestão, planejamento e atração de talentos de ponta.",
+      "link": "Solicitar proposta empresarial →"
+    },
+    "b2c": {
+      "tag": "B2C",
+      "h3": "Para Profissionais",
+      "body": "Desenhamos sua trajetória estratégica e te preparamos para liderar com propósito e alcançar o cargo desejado.",
+      "link": "Ver preparação individual →"
+    },
+    "cta": {
+      "h2": "Talvez este seja o momento de voltar para você.",
+      "body": "Se você está buscando mais clareza, equilíbrio, bem-estar ou uma forma mais consciente de crescer, este espaço é para você. Agende uma sessão diagnóstica gratuita e demos juntos o primeiro passo.",
+      "benefit1": "Diagnóstico inicial sem compromisso",
+      "benefit2": "Flexibilidade de horários",
+      "service_label": "Serviço de interesse",
+      "opt_plan": "Planejamento Estratégico (OKRs & KPIs)",
+      "opt_workshops": "Workshops e Mentoria",
+      "opt_equity": "Análise de Equidade Salarial",
+      "opt_recruitment": "Recrutamento e Potencial Humano",
+      "btn": "Agendar Diagnóstico Gratuito",
+      "success": "Solicitação enviada! Entraremos em contato em breve.",
+      "sending": "Enviando…",
+      "name_label": "Nome Completo",
+      "company_label": "Empresa / Organização",
+      "email_label": "E-mail de Contato",
+      "name_placeholder": "Ex. João Silva",
+      "company_placeholder": "Sua empresa (ou 'Freelancer')",
+      "email_placeholder": "joao@empresa.com"
+    }
+  },
+  "about": {
+    "title": "Quem Somos | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Quem somos",
+      "h1_main": "Humanidade.",
+      "h1_sub": "Consciência. Estratégia.",
+      "subtitle": "A Consciencia Creativa integra bem-estar consciente, liderança humana, inteligência emocional e evolução organizacional para construir formas mais humanas de viver, trabalhar e liderar."
+    },
+    "purpose": {
+      "eyebrow": "Nosso Propósito",
+      "h2": "A transformação começa por dentro.",
+      "body1": "Vivemos em um mundo acelerado, hiperprodutivo e emocionalmente exaustivo — um mundo onde muitas pessoas sentem pressão constante para render, avançar e sustentar múltiplas responsabilidades ao mesmo tempo.",
+      "body2": "A Consciencia Creativa nasce como um convite para evoluir de uma forma diferente. Mais consciente. Mais humana. Mais sustentável.",
+      "body3": "Acreditamos que é possível crescer profissionalmente sem se desconectar emocionalmente. Que é possível liderar a partir da humanidade. E que o bem-estar não deveria ser uma recompensa no final do caminho — deveria ser parte do próprio caminho."
+    },
+    "mission_title": "Missão",
+    "mission_body": "Acompanhar pessoas e organizações na evolução com mais clareza, humanidade e equilíbrio, integrando bem-estar emocional, liderança consciente e crescimento profissional sustentável.",
+    "vision_title": "Visão",
+    "vision_body": "Construir um ecossistema onde bem-estar, tecnologia, transformação humana e inovação coexistam de forma harmoniosa, criando novas formas de viver, trabalhar e liderar no mundo atual.",
+    "values": {
+      "eyebrow": "O que nos define",
+      "h2": "Nossos Valores",
+      "v1_title": "Consciência",
+      "v1_body": "Não acreditamos em crescimento baseado apenas em pressão ou exigência constante. Acreditamos que quando uma pessoa se entende melhor, lidera melhor, trabalha melhor e vive melhor.",
+      "v2_title": "Humanidade",
+      "v2_body": "Integramos sensibilidade humana, profundidade emocional e inteligência emocional em cada processo. O bem-estar não é um luxo — é parte do caminho para o sucesso real.",
+      "v3_title": "Evolução",
+      "v3_body": "Acompanhamos processos de mudança real: reconectar-se consigo mesmo, desenvolver ferramentas emocionais, fortalecer o bem-estar e evoluir a partir da autenticidade."
+    },
+    "method": {
+      "eyebrow": "Como trabalhamos",
+      "h2": "Como acompanhamos sua evolução",
+      "subtitle": "Um processo de quatro momentos projetado para que a transformação seja profunda, real e sustentável — não apenas no papel, mas na vida e no trabalho diário.",
+      "s1_title": "Diagnóstico",
+      "s1_body": "Ouvimos, analisamos dados e entendemos o estado real da organização antes de propor qualquer solução.",
+      "s2_title": "Co-criação",
+      "s2_body": "Desenhamos soluções junto com sua equipe, não para sua equipe. Isso garante adoção real e comprometimento genuíno.",
+      "s3_title": "Implementação",
+      "s3_body": "Acompanhamos o lançamento nas operações diárias, gerenciando a resistência à mudança e ajustando em tempo real.",
+      "s4_title": "Acompanhamento",
+      "s4_body": "Monitoramos os resultados e entregamos o processo documentado para que a empresa opere de forma autônoma."
+    },
+    "stats": {
+      "companies": "Organizações transformadas",
+      "experience": "Anos de experiência",
+      "areas": "Áreas de consultoria",
+      "deliverables": "Projetos com entregáveis mensuráveis"
+    },
+    "team": {
+      "eyebrow": "A equipe",
+      "h2": "As pessoas por trás da Consciencia Creativa",
+      "m1_role": "Co-Fundador & Diretor de Tecnologia",
+      "m1_bio": "Engenheiro de software com mais de 10 anos de experiência em desenvolvimento tecnológico para empresas de múltiplos setores. Lidera a arquitetura digital da Consciencia Creativa, integrando ferramentas de automação, inteligência de negócios e análise de dados para transformar a consultoria em soluções mensuráveis e escaláveis.",
+      "m1_tag1": "Transformação Digital",
+      "m1_tag2": "Inteligência de Negócios",
+      "m1_tag3": "Automação",
+      "m2_role": "Co-Fundadora & Especialista em Talentos Humanos",
+      "m2_bio": "Com mais de 15 anos transformando talentos humanos no verdadeiro motor dos negócios, Ana Isabel lidera o design e a implementação de estratégias de desenvolvimento organizacional. Especialista em coaching executivo, diversidade e inclusão e gestão de mudanças, é membro ativa da organização internacional de Diretores de RH (DCH) e certificada em Ciências do Comportamento pela Universidad EIA.",
+      "m2_tag1": "Coaching Executivo",
+      "m2_tag2": "Diversidade & Inclusão",
+      "m2_tag3": "Gestão de Mudanças"
+    },
+    "andanas": {
+      "eyebrow": "Parte de uma visão mais ampla",
+      "h2": "Uma visão construída entre humanidade e tecnologia",
+      "body": "A Consciencia Creativa faz parte do Andanas Group, um ecossistema humano, criativo e tecnológico desenvolvido por Ana Isabel Ramírez e Andrés Rubiano del Chiaro com uma ideia profunda: criar soluções, experiências e espaços que integrem consciência humana, bem-estar, inovação e tecnologia de forma mais autêntica, estratégica e sustentável.",
+      "col1_title": "Ana Isabel lidera",
+      "col1_body": "Transformação humana · Bem-estar consciente · Liderança · Cultura organizacional · Inteligência emocional · Evolução pessoal e profissional",
+      "col2_title": "Andrés contribui",
+      "col2_body": "Visão tecnológica · Pensamento sistêmico · Inovação · Estratégia digital · Arquitetura de soluções · Automação · Transformação digital"
+    },
+    "cta": {
+      "h2": "Talvez este seja o momento de voltar para você.",
+      "body": "Se você está buscando mais clareza, equilíbrio, bem-estar ou uma forma mais consciente de crescer, este espaço é para você.",
+      "btn": "Vamos conversar"
+    }
+  },
+  "talleres": {
+    "title": "Workshops e Experiências de Liderança | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Desenvolvimento Humano & Saúde Organizacional",
+      "h1_main": "Equipes de alto desempenho,",
+      "h1_sub": "livres de Burnout.",
+      "subtitle": "Desenvolvemos o potencial dos seus líderes e protegemos a saúde mental da sua equipe por meio de mentorias transformadoras, dinâmicas de equipe e a metodologia de perfis DISC.",
+      "cta": "Criar um workshop para minha empresa"
+    },
+    "experiences": {
+      "eyebrow": "Nossas Experiências",
+      "h2": "Soluções personalizadas para a cultura da sua empresa",
+      "c1_title": "Avaliação e Workshops DISC",
+      "c1_body": "Descubra os perfis comportamentais da sua equipe (Dominância, Influência, Estabilidade, Conformidade). Otimize a comunicação interna, reduza mal-entendidos e atribua tarefas com base nas forças inatas de cada colaborador.",
+      "c1_tag": "Ideal para: Integração e Comunicação",
+      "c2_title": "Prevenção do Burnout",
+      "c2_body": "Workshops focados em bem-estar, gestão de energia e manejo do estresse crônico. Ensina as equipes a estabelecer limites saudáveis e ajuda as empresas a construir ambientes psicologicamente seguros sem perder produtividade.",
+      "c2_tag": "Ideal para: Clima de Trabalho e Retenção",
+      "c3_title": "Mentorias de Liderança",
+      "c3_body": "Acompanhamento personalizado individual ou em grupo para líderes e gerentes intermediários. Desenvolvemos inteligência emocional, feedback assertivo, resolução de conflitos e metodologias de delegação eficaz.",
+      "c3_tag": "Ideal para: Gestores e Executivos"
+    },
+    "impact": {
+      "eyebrow": "O Impacto no Negócio",
+      "h2": "Por que o bem-estar humano impacta a lucratividade?",
+      "body1": "Uma equipe desalinhada ou estressada comete mais erros operacionais, atende mal seus clientes e cria um ambiente tenso que expulsa os melhores talentos.",
+      "body2": "Nossas metodologias são estruturadas em dinâmicas lúdicas e ferramentas cientificamente validadas que garantem que o aprendizado não fique em sala de aula — ele muda os hábitos no dia seguinte.",
+      "bullet1": "Workshops Práticos: Zero teoria entediante; 100% experiências vivenciais aplicáveis ao ambiente corporativo real.",
+      "bullet2": "Relatório Pós-Workshop: Entregamos um diagnóstico geral ao RH sobre os alertas e pontos fortes identificados no grupo.",
+      "m1_label": "Metodologia Global",
+      "m1_body": "Avaliações psicométricas que mapeiam o DNA comportamental dos seus líderes.",
+      "m2_label": "Rotatividade Estimada",
+      "m2_body": "Redução de saídas por meio da prevenção oportuna do Burnout.",
+      "m3_label": "Mentoria Próxima",
+      "m3_body": "Abordagem personalizada que acelera o desenvolvimento de habilidades interpessoais.",
+      "m4_label": "Co-Criado",
+      "m4_body": "Adaptamos cada dinâmica ao tamanho do grupo e à cultura específica do seu setor."
+    },
+    "form": {
+      "h2": "Inicie a transformação cultural da sua organização",
+      "body": "Conte-nos sobre as necessidades atuais da sua equipe e criaremos uma proposta conceitual de workshop sob medida para sua empresa.",
+      "bullet1": "Formato presencial ou virtual de acordo com sua localização.",
+      "bullet2": "Materiais e relatórios executivos incluídos.",
+      "name_label": "Nome do Solicitante",
+      "email_label": "Email Corporativo",
+      "focus_label": "Foco do Workshop",
+      "size_label": "Tamanho estimado do grupo",
+      "size_placeholder": "Ex. 15 pessoas",
+      "opt_disc": "Avaliação DISC & Comunicação",
+      "opt_burnout": "Prevenção do Burnout & Bem-Estar",
+      "opt_mentoring": "Mentoria de Liderança Executiva",
+      "opt_undefined": "Ainda não defini",
+      "btn": "Solicitar Orçamento Temático",
+      "success_title": "Solicitação Recebida!",
+      "success_body": "Sua solicitação de workshop ou experiência foi enviada com sucesso. Entraremos em contato em breve para agendar uma breve chamada informativa."
+    }
+  },
+  "planeacion": {
+    "title": "Planejamento Inteligente: OKRs e KPIs | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Consultoria Avançada em Execução",
+      "h1_main": "Pare de medir tarefas.",
+      "h1_sub": "Comece a dirigir impactos.",
+      "subtitle": "Alinhamos os objetivos do seu conselho com o dia a dia das suas equipes por meio do design e implementação de sistemas de OKR e KPI com foco humano.",
+      "cta": "Criar a estratégia da minha empresa"
+    },
+    "problems": {
+      "eyebrow": "O sintoma empresarial",
+      "h2": "Por que os planejamentos tradicionais falham?",
+      "p1_title": "Estratégias desconectadas",
+      "p1_body": "A liderança tem uma meta clara, mas as equipes operacionais avançam em direções diferentes sem saber como suas tarefas diárias impactam o negócio.",
+      "p2_title": "Métricas de vaidade",
+      "p2_body": "Saturação de métricas que medem «esforço» ou «horas», mas que não refletem resultados reais de rentabilidade, eficiência ou crescimento de mercado.",
+      "p3_title": "Metodologias rígidas",
+      "p3_body": "Tentar copiar o modelo OKR do Google à força gera frustração, resistência da equipe e paralisia por análise organizacional."
+    },
+    "proposal": {
+      "eyebrow": "Nossa Proposta Única",
+      "h2": "Fusão Métrica e Humana: OKRs que as equipes realmente adotam",
+      "body1": "Não somos apenas consultores de software ou planilhas. Na Consciencia Creativa entendemos que por trás de um indicador (KPI) ou resultado-chave (OKR) há pessoas que precisam de motivação, clareza e saúde mental para alcançá-los.",
+      "body2": "Combinamos o rigor analítico dos dados com dinâmicas de comunicação eficazes para erradicar a resistência institucional à mudança.",
+      "stat1_body": "Taxa de sucesso no fechamento de metas em comparação com planejamentos anuais estáticos.",
+      "stat2_body": "Alinhamento dos líderes de departamento sob um ritmo trimestral ágil.",
+      "box_h4": "Como impactamos diretamente no seu negócio?",
+      "kpi_title": "KPIs (Key Performance Indicators)",
+      "kpi_body": "Definem a saúde e estabilidade da sua operação diária. Indicam o que está funcionando hoje e onde há vazamentos de desempenho.",
+      "okr_title": "OKRs (Objectives and Key Results)",
+      "okr_body": "Impulsionam a transformação e a inovação. Concentram 100% da energia do negócio na meta disruptiva do trimestre.",
+      "ritmo_title": "Ritmo Operacional Sustentável",
+      "ritmo_body": "Projetamos cerimônias de acompanhamento semanais curtas para que os objetivos não morram em um arquivo esquecido."
+    },
+    "stages": {
+      "h2": "Etapas do Design Estratégico",
+      "subtitle": "Garantimos uma transição suave e de alto comprometimento para sua empresa.",
+      "s1_title": "Diagnóstico e Visão",
+      "s1_body": "Analisamos o estado atual das suas métricas, a cultura de prestação de contas e os gargalos da gestão.",
+      "s2_title": "Co-criação do Framework",
+      "s2_body": "Sessões de trabalho com a equipe C-Level para redigir os Objetivos anuais e institucionais, desdobrando-os em cada área.",
+      "s3_title": "Workshops de Adoção",
+      "s3_body": "Treinamento teórico e prático para gestores intermediários e colaboradores, reduzindo o medo do «controle» e transformando-o em autonomia.",
+      "s4_title": "Ritual de Acompanhamento",
+      "s4_body": "Institucionalizamos os check-ins semanais e as revisões trimestrais (CFRs) para pivotar rapidamente conforme o mercado."
+    },
+    "form": {
+      "h2": "Pronto para alinhar suas equipes em direção a um crescimento real?",
+      "body": "Solicite uma sessão estratégica gratuita de 30 minutos. Avaliaremos seu sistema atual de metas e daremos 3 recomendações de melhoria imediata.",
+      "bullet1": "Destinado a CEOs, Diretores e Líderes de RH.",
+      "bullet2": "Abordagem 100% personalizada para o seu setor comercial.",
+      "name_label": "Nome",
+      "email_label": "Email Corporativo",
+      "size_label": "Tamanho da Empresa",
+      "opt_1_15": "1 a 15 colaboradores",
+      "opt_16_50": "16 a 50 colaboradores",
+      "opt_51_200": "51 a 200 colaboradores",
+      "opt_200plus": "Mais de 200 colaboradores",
+      "btn": "Solicitar Sessão de Consultoria",
+      "success_title": "Informações Recebidas!",
+      "success_body": "Muito obrigado pelo seu interesse. Sua solicitação foi registrada com sucesso e você será contatado em breve pela nossa equipe para agendar a sessão."
+    }
+  },
+  "contacto": {
+    "title": "Contato | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Estamos aqui para ouvir",
+      "h1": "Vamos conversar.",
+      "subtitle": "Conte-nos sobre seu desafio. Ajudamos você a encontrar o caminho."
+    },
+    "channels": {
+      "h2": "Canais de contato",
+      "wa_title": "WhatsApp",
+      "wa_desc": "+57 304 593 5556",
+      "wa_link": "Resposta em menos de 2 horas →",
+      "email_title": "Email",
+      "email_link": "Enviar email →",
+      "li_title": "LinkedIn",
+      "li_desc": "Consciencia Creativa",
+      "li_link": "Ver perfil →"
+    },
+    "hours": {
+      "h3": "Horário de atendimento",
+      "weekdays": "Segunda a Sexta",
+      "weekdays_hours": "8:00 – 18:00",
+      "saturday": "Sábados",
+      "saturday_hours": "9:00 – 13:00",
+      "timezone": "Fuso horário",
+      "timezone_val": "Colômbia (UTC-5)"
+    },
+    "form": {
+      "h2": "Conte-nos seu desafio",
+      "name_label": "Nome Completo",
+      "name_placeholder": "Seu nome completo",
+      "company_label": "Empresa / Organização",
+      "company_placeholder": "Sua empresa",
+      "email_label": "Email de Contato",
+      "email_placeholder": "email@empresa.com",
+      "phone_label": "Telefone / WhatsApp",
+      "phone_placeholder": "+57 300 000 0000",
+      "area_label": "Área de interesse",
+      "message_label": "Conte-nos brevemente seu desafio ou necessidade",
+      "message_placeholder": "Descreva brevemente o desafio atual da sua empresa ou equipe...",
+      "opt_plan": "Planejamento Estratégico (OKRs & KPIs)",
+      "opt_workshops": "Workshops e Mentorias de Liderança",
+      "opt_disc": "Avaliações DISC e Diagnóstico de Equipes",
+      "opt_equity": "Equidade Salarial e Remuneração",
+      "opt_recruitment": "Recrutamento e Seleção de Talentos",
+      "opt_undefined": "Ainda não defini",
+      "btn": "Enviar Mensagem",
+      "privacy": "Seus dados são confidenciais e não serão compartilhados com terceiros.",
+      "success_title": "Mensagem Enviada!",
+      "success_body": "Obrigado por nos escrever. Entraremos em contato em breve para coordenar uma sessão diagnóstica."
+    },
+    "faq": {
+      "h2": "Perguntas frequentes",
+      "q1": "Vocês trabalham com startups ou apenas com grandes empresas?",
+      "a1": "Trabalhamos com organizações de todos os tamanhos: desde startups com 10 pessoas até corporações com mais de 500 colaboradores. O tamanho não determina o valor da intervenção — a disposição para mudança dos líderes, sim.",
+      "q2": "Em quais cidades e países vocês atuam?",
+      "a2": "Nossa base principal é a Colômbia, com operação em Bogotá, Medellín e Cali. No entanto, atendemos clientes de toda a América Latina de forma virtual. Os workshops presenciais estão disponíveis em cidades colombianas e com deslocamento acordado para outros países.",
+      "q3": "Os workshops são presenciais ou virtuais?",
+      "a3": "Oferecemos ambas as modalidades. Os workshops presenciais têm maior impacto em dinâmicas de equipe e sessões DISC. As consultorias de planejamento estratégico e as mentorias individuais funcionam perfeitamente no formato virtual. Co-criamos o formato de acordo com suas necessidades.",
+      "q4": "Quanto tempo dura um projeto típico?",
+      "a4": "Depende do escopo. Uma sessão de workshops DISC pode ser feita em um único dia. Um processo completo de planejamento estratégico com OKRs dura de 4 a 8 semanas. Uma análise de equidade salarial normalmente requer de 3 a 6 semanas. Sempre definimos prazos e entregáveis antes de começar."
+    }
+  },
+  "reclutamiento": {
+    "title": "Recrutamento e Potencial Humano | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Atração & Seleção Estratégica de Talentos",
+      "h1_main": "O talento certo,",
+      "h1_sub": "no papel certo, desde o primeiro dia.",
+      "subtitle": "Recrutamos com base em competências, cultura e potencial de crescimento. Não apenas preenchemos vagas — construímos a equipe que sua empresa precisa para a próxima etapa.",
+      "cta": "Ativar processo de seleção"
+    },
+    "cost": {
+      "eyebrow": "O custo de contratar errado",
+      "h2": "Uma má contratação custa entre 3 e 6 vezes o salário anual do cargo",
+      "c1_title": "Fit cultural deficiente",
+      "c1_body": "Candidatos tecnicamente brilhantes que não se adaptam à cultura organizacional, gerando conflitos de equipe e desistências nos primeiros 90 dias.",
+      "c2_title": "Perfis genéricos",
+      "c2_body": "Publicações vagas que atraem volume mas não qualidade, sobrecarregando a equipe de RH com currículos irrelevantes e prolongando o tempo de contratação.",
+      "c3_title": "Onboarding fraco",
+      "c3_body": "O investimento na contratação se perde se o primeiro mês do candidato não estiver estruturado para garantir sua adaptação e sucesso no cargo."
+    },
+    "approach": {
+      "eyebrow": "Nossa Abordagem",
+      "h2": "Seleção baseada em comportamento, não apenas em currículo",
+      "body1": "Integramos a metodologia DISC e entrevistas por competências para avaliar não apenas o que o candidato sabe, mas como age sob pressão, como se comunica com sua equipe e como enfrenta os desafios do cargo.",
+      "body2": "O resultado final é uma lista documentada com um relatório comparativo que permite à gerência tomar uma decisão informada e com respaldo técnico.",
+      "stat1_body": "Redução na rotatividade precoce (primeiros 6 meses) com nosso processo.",
+      "stat2_body": "Maior rapidez para preencher vagas-chave em comparação com processos internos tradicionais.",
+      "box_h4": "O que está incluído no processo?",
+      "p1_title": "Perfil de Cargo Estratégico",
+      "p1_body": "Definimos o DNA comportamental e as habilidades interpessoais necessárias para o sucesso, além das responsabilidades técnicas.",
+      "p2_title": "Avaliação DISC nos Candidatos",
+      "p2_body": "Mapeamos o perfil comportamental dos finalistas e cruzamos com a dinâmica da equipe existente.",
+      "p3_title": "Entrevistas por Competências",
+      "p3_body": "Metodologia STAR para avaliar com evidências concretas, eliminando decisões baseadas apenas em impressões subjetivas."
+    },
+    "stages": {
+      "h2": "Etapas do Processo de Seleção",
+      "subtitle": "Da definição do perfil à negociação e onboarding.",
+      "s1_title": "Design do Perfil Ideal",
+      "s1_body": "Sessão de trabalho com o líder do cargo para definir competências técnicas, habilidades interpessoais e o fit cultural do candidato ideal.",
+      "s2_title": "Busca e Filtragem",
+      "s2_body": "Publicação estratégica, busca ativa no LinkedIn e pré-seleção com base em critérios objetivos definidos previamente.",
+      "s3_title": "Avaliação Psicométrica",
+      "s3_body": "Aplicação de testes DISC e de raciocínio para os candidatos finalistas, com relatório de compatibilidade com a equipe.",
+      "s4_title": "Shortlist e Acompanhamento",
+      "s4_body": "Apresentação dos 3 melhores candidatos com relatório comparativo e suporte na negociação salarial e onboarding."
+    },
+    "form": {
+      "h2": "Conte-nos sobre a vaga que precisa preencher",
+      "body": "Compartilhe os detalhes do cargo e criaremos uma proposta de processo de seleção sob medida para sua organização.",
+      "bullet1": "Cobrimos cargos operacionais, gerência intermediária e posições executivas.",
+      "bullet2": "Inclui avaliação DISC e entrevistas por competências.",
+      "name_label": "Nome do Solicitante",
+      "name_placeholder": "Seu nome",
+      "email_label": "Email Corporativo",
+      "position_label": "Nome do Cargo a Preencher",
+      "position_placeholder": "Ex. Gerente Comercial",
+      "level_label": "Nível do Cargo",
+      "opt_op": "Operacional / Analista",
+      "opt_coord": "Coordenador / Supervisor",
+      "opt_mgr": "Gerente / Diretor",
+      "opt_exec": "C-Level / VP",
+      "btn": "Ativar Processo de Seleção",
+      "sending": "Enviando…",
+      "success_title": "Solicitação Recebida!",
+      "success_body": "Recebemos sua solicitação. Entraremos em contato em breve para coordenar o início do processo de seleção."
+    }
+  },
+  "equidad": {
+    "title": "Equidade Salarial e Remuneração | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Estratégia de Remuneração & Equidade",
+      "h1_main": "Pague de forma justa.",
+      "h1_sub": "Retenha os melhores talentos.",
+      "subtitle": "Criamos estruturas salariais competitivas e equitativas baseadas em dados de mercado, eliminando as lacunas que geram frustração e rotatividade na sua equipe.",
+      "cta": "Solicitar análise salarial"
+    },
+    "hidden_cost": {
+      "eyebrow": "O custo oculto da inequidade",
+      "h2": "Por que sua empresa perde talentos sem entender por quê?",
+      "c1_title": "Compressão salarial",
+      "c1_body": "Novos contratados ganham o mesmo ou mais que funcionários com anos de experiência, gerando ressentimento silencioso e saídas inesperadas de talentos-chave.",
+      "c2_title": "Falta de transparência",
+      "c2_body": "Sem uma estrutura clara de faixas salariais, as negociações se tornam arbitrárias, gerando desconfiança e percepção de favoritismo na organização.",
+      "c3_title": "Defasagem de mercado",
+      "c3_body": "As escalas salariais não acompanham o ritmo do mercado, fazendo a empresa perder candidatos de alto potencial para concorrentes locais e internacionais."
+    },
+    "proposal": {
+      "eyebrow": "Nossa Proposta",
+      "h2": "Equidade interna + competitividade externa: a fórmula para reter talentos",
+      "body1": "Combinamos metodologias de avaliação de cargos com benchmarking real de mercado para criar uma estrutura salarial percebida como justa internamente e atrativa para os candidatos que você deseja contratar.",
+      "body2": "O resultado: menos rotatividade, conversas de desempenho mais claras e uma proposta de valor ao colaborador coerente com suas ambições de crescimento.",
+      "stat1_body": "Redução na rotatividade voluntária no primeiro ano pós-implementação.",
+      "stat2_body": "Benchmarking com dados reais do mercado do seu setor e indústria.",
+      "box_h4": "Componentes da análise",
+      "c1_title": "Avaliação de Cargos",
+      "c1_body": "Metodologia de pontos e níveis para classificar objetivamente cada posição por impacto, complexidade e autonomia.",
+      "c2_title": "Benchmarking Externo",
+      "c2_body": "Comparação das suas escalas com pesquisas salariais de mercado do setor, região e tamanho de empresa.",
+      "c3_title": "Faixas Salariais",
+      "c3_body": "Design de faixas mínimo-médio-máximo que permitem crescer dentro do cargo e vinculam o salário ao desempenho."
+    },
+    "process": {
+      "h2": "Processo de Análise",
+      "subtitle": "Quatro etapas para uma remuneração objetiva e sustentável.",
+      "s1_title": "Inventário de Cargos",
+      "s1_body": "Levantamento e documentação de todos os perfis e suas responsabilidades reais, diferenciando o cargo do titular.",
+      "s2_title": "Avaliação e Nivelamento",
+      "s2_body": "Classificação objetiva de cada cargo usando critérios de impacto organizacional, complexidade técnica e autonomia.",
+      "s3_title": "Benchmarking de Mercado",
+      "s3_body": "Cruzamento das suas escalas atuais com dados de mercado do seu setor, cidade e tamanho de empresa para identificar lacunas críticas.",
+      "s4_title": "Faixas e Plano de Ajuste",
+      "s4_body": "Entrega da estrutura final com um plano de implementação gradual, sem impacto fiscal traumático para a empresa."
+    },
+    "form": {
+      "h2": "Seus salários retêm ou repelem talentos?",
+      "body": "Solicite uma revisão da sua estrutura atual. Entregaremos um diagnóstico de equidade com as lacunas mais críticas a corrigir.",
+      "bullet1": "Destinado a gerentes de RH, CEOs e diretores financeiros.",
+      "bullet2": "Confidencial e personalizado para sua empresa e setor.",
+      "name_label": "Nome",
+      "name_placeholder": "Seu nome",
+      "email_label": "Email Corporativo",
+      "sector_label": "Setor / Indústria",
+      "opt_tech": "Tecnologia / Software",
+      "opt_mfg": "Manufatura e Indústria",
+      "opt_health": "Saúde e Ciências da Vida",
+      "opt_finance": "Serviços Financeiros",
+      "opt_retail": "Comércio e Varejo",
+      "opt_edu": "Educação",
+      "opt_other": "Outro",
+      "positions_label": "N.° aproximado de cargos",
+      "opt_less10": "Menos de 10 cargos",
+      "opt_10_30": "10 a 30 cargos",
+      "opt_31_80": "31 a 80 cargos",
+      "opt_80plus": "Mais de 80 cargos",
+      "btn": "Solicitar Análise Salarial",
+      "sending": "Enviando…",
+      "success_title": "Solicitação Recebida!",
+      "success_body": "Recebemos seu interesse. Nossa equipe entrará em contato em breve para coordenar o levantamento de informações."
+    }
+  }
+}

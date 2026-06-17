@@ -1,0 +1,500 @@
+{
+  "nav": {
+    "lang_aria": "Select language",
+    "login": "Sign In",
+    "login_aria": "Sign In",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact",
+    "plan": "Planning (OKRs)",
+    "workshops": "Workshops & Mentoring",
+    "equity": "Pay Equity",
+    "recruitment": "Recruitment",
+    "cta_diagnostic": "Schedule Diagnostic",
+    "cta_workshop": "Get a Quote",
+    "cta_activate": "Start Process",
+    "cta_analysis": "Request Analysis"
+  },
+  "footer": {
+    "tagline": "Conscious human transformation for people, leaders and organizations.",
+    "ecosystem": "Part of the Andanas Group ecosystem.",
+    "copyright": "© 2026 Consciencia Creativa. All rights reserved.",
+    "copyright_index": "© 2026 Consciencia Creativa. Strategic Transformation & Human Wellbeing.",
+    "services_heading": "Services",
+    "company_heading": "Company",
+    "legal_heading": "Legal",
+    "plan": "Strategic Planning",
+    "workshops": "Workshops & Mentoring",
+    "equity": "Pay Equity",
+    "recruitment": "Recruitment",
+    "about": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "whatsapp": {
+    "label": "Chat on WhatsApp",
+    "label_plan": "Talk on WhatsApp"
+  },
+  "index": {
+    "title": "Consciencia Creativa | Conscious Human Transformation",
+    "hero": {
+      "h1": "Evolve without losing yourself.",
+      "subtitle": "A space for conscious wellbeing, human transformation and emotional leadership for people and organizations that want to grow with more clarity, balance and humanity.",
+      "cta1": "I want to start",
+      "cta2": "Explore services"
+    },
+    "purpose": {
+      "eyebrow": "Our Purpose",
+      "h2": "We believe in a more human way to grow.",
+      "body": "We live in a fast-paced, emotionally exhausting world. Amid that constant pressure, it's easy to disconnect from yourself, from wellbeing, and from purpose. Consciencia Creativa is born as an invitation to evolve differently: more conscious, more human, more sustainable. Because wellbeing shouldn't be a reward at the end of the road — it should be part of the journey itself."
+    },
+    "services": {
+      "h2": "Spaces to transform, reconnect and evolve",
+      "s1_title": "Strategic Planning",
+      "s1_body": "OKR and KPI-based framework for measurable growth. We align executive vision with operational execution to deliver high-impact results.",
+      "s1_link": "See methodology and solutions",
+      "s2_title": "Workshops & Experiences",
+      "s2_body": "Leadership mentoring, DISC assessments and Burnout prevention programs designed to build resilient teams.",
+      "s2_link": "Explore experiences",
+      "s3_title": "Pay Competitiveness & Equity",
+      "s3_body": "Smart compensation analysis and salary gap reduction for a fair, competitive and attractive organizational culture.",
+      "s3_link": "See compensation analysis",
+      "s4_title": "Recruitment & Human Potential",
+      "s4_body": "Strategic recruitment and future-ready talent preparation. We identify technical skills and the cultural alignment needed for mutual success.",
+      "s4_link": "Learn about our selection process"
+    },
+    "b2b": {
+      "tag": "B2B",
+      "h3": "For Companies",
+      "body": "We optimize your business engine through cutting-edge management, planning and talent acquisition systems.",
+      "link": "Request a business proposal →"
+    },
+    "b2c": {
+      "tag": "B2C",
+      "h3": "For Professionals",
+      "body": "We design your strategic career path and prepare you to lead with purpose and reach the position you desire.",
+      "link": "See individual preparation →"
+    },
+    "cta": {
+      "h2": "Maybe this is the moment to return to yourself.",
+      "body": "If you're looking for more clarity, balance, wellbeing or a more conscious way to grow, this space is for you. Schedule a free diagnostic session and let's take the first step together.",
+      "benefit1": "Initial diagnosis with no commitment",
+      "benefit2": "Flexible scheduling",
+      "service_label": "Service of interest",
+      "opt_plan": "Strategic Planning (OKRs & KPIs)",
+      "opt_workshops": "Workshops & Mentoring",
+      "opt_equity": "Pay Equity Analysis",
+      "opt_recruitment": "Recruitment & Human Potential",
+      "btn": "Schedule Free Diagnostic",
+      "success": "Request sent! We'll contact you soon.",
+      "sending": "Sending…",
+      "name_label": "Full Name",
+      "company_label": "Company / Organization",
+      "email_label": "Contact Email",
+      "name_placeholder": "E.g. John Smith",
+      "company_placeholder": "Your company (or 'Freelance')",
+      "email_placeholder": "john@company.com"
+    }
+  },
+  "about": {
+    "title": "About Us | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Who we are",
+      "h1_main": "Humanity.",
+      "h1_sub": "Consciousness. Strategy.",
+      "subtitle": "Consciencia Creativa integrates conscious wellbeing, human leadership, emotional intelligence and organizational evolution to build more human ways of living, working and leading."
+    },
+    "purpose": {
+      "eyebrow": "Our Purpose",
+      "h2": "Transformation starts within.",
+      "body1": "We live in a fast-paced, hyperproductive and emotionally exhausting world — one where many people feel constant pressure to perform, advance and manage multiple responsibilities at once.",
+      "body2": "Consciencia Creativa is born as an invitation to evolve in a different way. More conscious. More human. More sustainable.",
+      "body3": "We believe it is possible to grow professionally without disconnecting emotionally. That it is possible to lead from humanity. And that wellbeing shouldn't be a reward at the end of the road — it should be part of the journey itself."
+    },
+    "mission_title": "Mission",
+    "mission_body": "To accompany people and organizations in evolving with more clarity, humanity and balance, integrating emotional wellbeing, conscious leadership and sustainable professional growth.",
+    "vision_title": "Vision",
+    "vision_body": "To build an ecosystem where wellbeing, technology, human transformation and innovation coexist harmoniously, creating new ways of living, working and leading in today's world.",
+    "values": {
+      "eyebrow": "What defines us",
+      "h2": "Our Values",
+      "v1_title": "Consciousness",
+      "v1_body": "We don't believe in growth based solely on pressure or constant demand. We believe that when a person understands themselves better, they lead better, work better and live better.",
+      "v2_title": "Humanity",
+      "v2_body": "We integrate human sensitivity, emotional depth and emotional intelligence into every process. Wellbeing isn't a luxury — it's part of the path to real success.",
+      "v3_title": "Evolution",
+      "v3_body": "We accompany real processes of change: reconnecting with oneself, developing emotional tools, strengthening wellbeing and evolving from authenticity."
+    },
+    "method": {
+      "eyebrow": "How we work",
+      "h2": "How we guide your evolution",
+      "subtitle": "A four-step process designed so that transformation is deep, real and sustainable — not just on paper, but in daily life and work.",
+      "s1_title": "Diagnosis",
+      "s1_body": "We listen, analyze data and understand the real state of the organization before proposing any solution.",
+      "s2_title": "Co-creation",
+      "s2_body": "We design solutions together with your team, not for your team. This ensures genuine adoption and real commitment.",
+      "s3_title": "Implementation",
+      "s3_body": "We accompany the rollout in daily operations, managing resistance to change and adjusting in real time.",
+      "s4_title": "Follow-up",
+      "s4_body": "We monitor results and deliver a documented process so the organization can operate autonomously."
+    },
+    "stats": {
+      "companies": "Organizations transformed",
+      "experience": "Years of experience",
+      "areas": "Consulting areas",
+      "deliverables": "Projects with measurable deliverables"
+    },
+    "team": {
+      "eyebrow": "The team",
+      "h2": "The people behind Consciencia Creativa",
+      "m1_role": "Co-Founder & Technology Director",
+      "m1_bio": "Software engineer with over 10 years of experience in technology development for companies across multiple sectors. He leads the digital architecture of Consciencia Creativa, integrating automation tools, business intelligence and data analytics to turn consulting into measurable, scalable solutions.",
+      "m1_tag1": "Digital Transformation",
+      "m1_tag2": "Business Intelligence",
+      "m1_tag3": "Automation",
+      "m2_role": "Co-Founder & Human Talent Specialist",
+      "m2_bio": "With over 15 years turning human talent into the real engine of business, Ana Isabel leads the design and implementation of organizational development strategies. A specialist in executive coaching, diversity & inclusion and change management, she is an active member of the international HR Directors organization (DCH) and certified in Behavioral Sciences by Universidad EIA.",
+      "m2_tag1": "Executive Coaching",
+      "m2_tag2": "Diversity & Inclusion",
+      "m2_tag3": "Change Management"
+    },
+    "andanas": {
+      "eyebrow": "Part of a broader vision",
+      "h2": "A vision built between humanity and technology",
+      "body": "Consciencia Creativa is part of Andanas Group, a human, creative and technological ecosystem developed by Ana Isabel Ramírez and Andrés Rubiano del Chiaro with a profound idea: to create solutions, experiences and spaces that integrate human consciousness, wellbeing, innovation and technology in a more authentic, strategic and sustainable way.",
+      "col1_title": "Ana Isabel leads",
+      "col1_body": "Human transformation · Conscious wellbeing · Leadership · Organizational culture · Emotional intelligence · Personal and professional evolution",
+      "col2_title": "Andrés contributes",
+      "col2_body": "Technology vision · Systems thinking · Innovation · Digital strategy · Solution architecture · Automation · Digital transformation"
+    },
+    "cta": {
+      "h2": "Maybe this is the moment to return to yourself.",
+      "body": "If you're looking for more clarity, balance, wellbeing or a more conscious way to grow, this space is for you.",
+      "btn": "Let's talk"
+    }
+  },
+  "talleres": {
+    "title": "Leadership Workshops & Experiences | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Human Development & Organizational Health",
+      "h1_main": "High-performance teams,",
+      "h1_sub": "Burnout-free.",
+      "subtitle": "We develop the potential of your leaders and protect the mental health of your team through transformative mentoring, team dynamics and the DISC profiling methodology.",
+      "cta": "Design a workshop for my company"
+    },
+    "experiences": {
+      "eyebrow": "Our Experiences",
+      "h2": "Tailored solutions for your company culture",
+      "c1_title": "DISC Assessment & Workshops",
+      "c1_body": "Discover your team's behavioral profiles (Dominance, Influence, Steadiness, Compliance). Optimize internal communication, reduce misunderstandings and assign tasks based on each person's innate strengths.",
+      "c1_tag": "Ideal for: Integration & Communication",
+      "c2_title": "Burnout Prevention",
+      "c2_body": "Workshops focused on wellbeing, energy management and chronic stress. Teaches teams to set healthy boundaries and helps companies build psychologically safe environments without losing productivity.",
+      "c2_tag": "Ideal for: Workplace Climate & Retention",
+      "c3_title": "Leadership Mentoring",
+      "c3_body": "Personalized individual or group accompaniment for leaders and middle managers. We develop emotional intelligence, assertive feedback, conflict resolution and effective delegation methodologies.",
+      "c3_tag": "Ideal for: Middle Management & Executives"
+    },
+    "impact": {
+      "eyebrow": "Business Impact",
+      "h2": "Why does human wellbeing impact profitability?",
+      "body1": "A misaligned or stressed team makes more operational errors, serves clients poorly and creates a tense environment that drives out top talent.",
+      "body2": "Our methodologies are structured around playful dynamics and scientifically validated tools that ensure learning doesn't stay in a classroom — it changes habits the very next day.",
+      "bullet1": "Practical Workshops: Zero boring theory; 100% experiential learning applicable to real corporate environments.",
+      "bullet2": "Post-Workshop Report: We deliver a general diagnosis to HR about the alerts and strengths identified in the group.",
+      "m1_label": "Global Methodology",
+      "m1_body": "Psychometric assessments that map the behavioral DNA of your leaders.",
+      "m2_label": "Estimated Turnover Reduction",
+      "m2_body": "Decrease in workforce departures through timely Burnout prevention.",
+      "m3_label": "Close Mentoring",
+      "m3_body": "Personalized approach that accelerates the development of soft skills.",
+      "m4_label": "Co-Designed",
+      "m4_body": "We adapt each dynamic to the group size and specific culture of your sector."
+    },
+    "form": {
+      "h2": "Start your organization's cultural transformation",
+      "body": "Tell us about your team's current needs and we'll design a conceptual workshop proposal tailored to your company.",
+      "bullet1": "In-person or virtual format depending on your location.",
+      "bullet2": "Materials and executive reports included.",
+      "name_label": "Requester Name",
+      "email_label": "Company Email",
+      "focus_label": "Workshop Focus",
+      "size_label": "Estimated Group Size",
+      "size_placeholder": "E.g. 15 people",
+      "opt_disc": "DISC Assessment & Communication",
+      "opt_burnout": "Burnout Prevention & Wellbeing",
+      "opt_mentoring": "Executive Leadership Mentoring",
+      "opt_undefined": "I haven't defined it yet",
+      "btn": "Request a Thematic Quote",
+      "success_title": "Request Received!",
+      "success_body": "Your workshop or experience request has been successfully submitted. We'll contact you shortly to schedule a brief introductory call."
+    }
+  },
+  "planeacion": {
+    "title": "Smart Planning: OKRs and KPIs | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Advanced Execution Consulting",
+      "h1_main": "Stop measuring tasks.",
+      "h1_sub": "Start directing impact.",
+      "subtitle": "We align your board's objectives with your teams' day-to-day through the design and implementation of OKR and KPI systems with a human focus.",
+      "cta": "Design my company's strategy"
+    },
+    "problems": {
+      "eyebrow": "The business symptom",
+      "h2": "Why do traditional planning processes fail?",
+      "p1_title": "Disconnected strategies",
+      "p1_body": "Leadership has a clear goal, but operational teams move in different directions without knowing how their daily tasks impact the business.",
+      "p2_title": "Vanity metrics",
+      "p2_body": "An overload of metrics that measure \"effort\" or \"hours\" but don't reflect real results in profitability, efficiency or market growth.",
+      "p3_title": "Rigid methodologies",
+      "p3_body": "Forcibly copying Google's OKR model creates frustration, team resistance and organizational analysis paralysis."
+    },
+    "proposal": {
+      "eyebrow": "Our Unique Proposal",
+      "h2": "Metric + Human Fusion: OKRs that teams actually adopt",
+      "body1": "We're not just software or spreadsheet consultants. At Consciencia Creativa we understand that behind every indicator (KPI) or key result (OKR) are people who need motivation, clarity and mental health to achieve them.",
+      "body2": "We combine analytical data rigor with effective communication dynamics to eradicate institutional resistance to change.",
+      "stat1_body": "Goal achievement success rate compared to static annual planning.",
+      "stat2_body": "Alignment of department heads under an agile quarterly rhythm.",
+      "box_h4": "How do we directly impact your business?",
+      "kpi_title": "KPIs (Key Performance Indicators)",
+      "kpi_body": "Define the health and stability of your daily operations. They tell you what's working today and where performance gaps exist.",
+      "okr_title": "OKRs (Objectives and Key Results)",
+      "okr_body": "Drive transformation and innovation. They focus 100% of business energy toward the quarter's disruptive goal.",
+      "ritmo_title": "Sustainable Operating Rhythm",
+      "ritmo_body": "We design short weekly review ceremonies so that objectives don't die in a forgotten file."
+    },
+    "stages": {
+      "h2": "Strategic Design Phases",
+      "subtitle": "We ensure a smooth, high-commitment transition for your company.",
+      "s1_title": "Diagnosis & Vision",
+      "s1_body": "We analyze the current state of your metrics, accountability culture and management bottlenecks.",
+      "s2_title": "Framework Co-creation",
+      "s2_body": "Working sessions with the C-Level team to draft annual and institutional Objectives, cascading them to each area.",
+      "s3_title": "Adoption Workshops",
+      "s3_body": "Theoretical and practical training for middle managers and staff, reducing fear of \"control\" and turning it into autonomy.",
+      "s4_title": "Follow-up Ritual",
+      "s4_body": "We institutionalize weekly check-ins and quarterly reviews (CFRs) to pivot quickly based on the market."
+    },
+    "form": {
+      "h2": "Ready to align your teams toward real growth?",
+      "body": "Request a free 30-minute strategic session. We'll evaluate your current goal system and give you 3 immediate improvement recommendations.",
+      "bullet1": "Designed for CEOs, Directors and HR Leaders.",
+      "bullet2": "100% personalized approach for your commercial sector.",
+      "name_label": "Name",
+      "email_label": "Corporate Email",
+      "size_label": "Company Size",
+      "opt_1_15": "1 to 15 employees",
+      "opt_16_50": "16 to 50 employees",
+      "opt_51_200": "51 to 200 employees",
+      "opt_200plus": "More than 200 employees",
+      "btn": "Request a Consulting Session",
+      "success_title": "Information Received!",
+      "success_body": "Thank you for your interest. Your request has been successfully registered and you will be contacted shortly by our team to schedule the session."
+    }
+  },
+  "contacto": {
+    "title": "Contact | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "We're here to listen",
+      "h1": "Let's talk.",
+      "subtitle": "Tell us about your challenge. We'll help you find the way."
+    },
+    "channels": {
+      "h2": "Contact channels",
+      "wa_title": "WhatsApp",
+      "wa_desc": "+57 304 593 5556",
+      "wa_link": "Response within 2 hours →",
+      "email_title": "Email",
+      "email_link": "Send email →",
+      "li_title": "LinkedIn",
+      "li_desc": "Consciencia Creativa",
+      "li_link": "View profile →"
+    },
+    "hours": {
+      "h3": "Business hours",
+      "weekdays": "Monday to Friday",
+      "weekdays_hours": "8:00 am – 6:00 pm",
+      "saturday": "Saturdays",
+      "saturday_hours": "9:00 am – 1:00 pm",
+      "timezone": "Time zone",
+      "timezone_val": "Colombia (UTC-5)"
+    },
+    "form": {
+      "h2": "Tell us your challenge",
+      "name_label": "Full Name",
+      "name_placeholder": "Your full name",
+      "company_label": "Company / Organization",
+      "company_placeholder": "Your company",
+      "email_label": "Contact Email",
+      "email_placeholder": "email@company.com",
+      "phone_label": "Phone / WhatsApp",
+      "phone_placeholder": "+57 300 000 0000",
+      "area_label": "Area of interest",
+      "message_label": "Tell us briefly about your challenge or need",
+      "message_placeholder": "Briefly describe your company or team's current challenge...",
+      "opt_plan": "Strategic Planning (OKRs & KPIs)",
+      "opt_workshops": "Leadership Workshops & Mentoring",
+      "opt_disc": "DISC Assessments & Team Diagnosis",
+      "opt_equity": "Pay Equity & Compensation",
+      "opt_recruitment": "Recruitment & Talent Selection",
+      "opt_undefined": "I haven't defined it yet",
+      "btn": "Send Message",
+      "privacy": "Your data is confidential and will not be shared with third parties.",
+      "success_title": "Message Sent!",
+      "success_body": "Thank you for writing to us. We will contact you shortly to coordinate a diagnostic session."
+    },
+    "faq": {
+      "h2": "Frequently asked questions",
+      "q1": "Do you work with startups or only large companies?",
+      "a1": "We work with organizations of all sizes: from startups with 10 people to corporations with more than 500 employees. Size doesn't determine the value of the intervention — the leaders' openness to change does.",
+      "q2": "What cities and countries do you operate in?",
+      "a2": "Our main base is Colombia, operating in Bogotá, Medellín and Cali. However, we serve clients across Latin America virtually. In-person workshops are available in Colombian cities and with agreed travel to other countries.",
+      "q3": "Are the workshops in-person or virtual?",
+      "a3": "We offer both formats. In-person workshops have greater impact for team dynamics and DISC sessions. Strategic planning consultancies and individual mentoring work perfectly in virtual format. We co-design the format based on your needs.",
+      "q4": "How long does a typical project last?",
+      "a4": "It depends on scope. A DISC workshop session can be done in a single day. A complete OKR strategic planning process takes 4 to 8 weeks. A pay equity analysis typically requires 3 to 6 weeks. We always define timelines and deliverables before starting."
+    }
+  },
+  "reclutamiento": {
+    "title": "Recruitment & Human Potential | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Strategic Talent Attraction & Selection",
+      "h1_main": "The right talent,",
+      "h1_sub": "in the right role, from day one.",
+      "subtitle": "We recruit based on competencies, culture and growth potential. We don't just fill vacancies — we build the team your company needs for the next stage.",
+      "cta": "Activate selection process"
+    },
+    "cost": {
+      "eyebrow": "The cost of a bad hire",
+      "h2": "A bad hire costs between 3 and 6 times the annual salary of the position",
+      "c1_title": "Poor cultural fit",
+      "c1_body": "Technically brilliant candidates who don't adapt to the organizational culture, generating team conflicts and departures within the first 90 days.",
+      "c2_title": "Generic profiles",
+      "c2_body": "Vague job postings that attract volume but not quality, overwhelming the HR team with irrelevant resumes and extending hiring time.",
+      "c3_title": "Weak onboarding",
+      "c3_body": "The investment in hiring is lost if the candidate's first month isn't structured to ensure their adaptation and success in the role."
+    },
+    "approach": {
+      "eyebrow": "Our Approach",
+      "h2": "Behavior-based selection, not just resumes",
+      "body1": "We integrate the DISC methodology and competency-based interviews to evaluate not just what the candidate knows, but how they act under pressure, how they communicate with their team and how they face role challenges.",
+      "body2": "The final result is a documented shortlist with a comparative report that allows management to make an informed, technically supported decision.",
+      "stat1_body": "Reduction in early turnover (first 6 months) with our process.",
+      "stat2_body": "Faster time to fill key vacancies compared to traditional internal processes.",
+      "box_h4": "What's included in the process?",
+      "p1_title": "Strategic Role Profile",
+      "p1_body": "We define the behavioral DNA and soft skills required for success, beyond technical responsibilities.",
+      "p2_title": "DISC Assessment for Candidates",
+      "p2_body": "We map the behavioral profile of finalists and cross-reference it with the existing team's dynamics.",
+      "p3_title": "Competency-Based Interviews",
+      "p3_body": "STAR methodology to evaluate with concrete evidence, eliminating decisions based solely on subjective impressions."
+    },
+    "stages": {
+      "h2": "Selection Process Phases",
+      "subtitle": "From profile definition to negotiation and onboarding.",
+      "s1_title": "Ideal Profile Design",
+      "s1_body": "Working session with the role's leader to define technical, soft skills and cultural fit of the ideal candidate.",
+      "s2_title": "Search & Filtering",
+      "s2_body": "Strategic posting, active LinkedIn search and pre-selection based on previously defined objective criteria.",
+      "s3_title": "Psychometric Assessment",
+      "s3_body": "DISC and reasoning tests for finalist candidates, with a team compatibility report.",
+      "s4_title": "Shortlist & Support",
+      "s4_body": "Presentation of the top 3 candidates with a comparative report and support during salary negotiation and onboarding."
+    },
+    "form": {
+      "h2": "Tell us about the vacancy you need to fill",
+      "body": "Share the position details and we'll design a selection process proposal tailored to your organization.",
+      "bullet1": "We cover operational, middle management and executive positions.",
+      "bullet2": "Includes DISC assessment and competency-based interviews.",
+      "name_label": "Requester Name",
+      "name_placeholder": "Your name",
+      "email_label": "Company Email",
+      "position_label": "Position to Fill",
+      "position_placeholder": "E.g. Commercial Manager",
+      "level_label": "Position Level",
+      "opt_op": "Operational / Analyst",
+      "opt_coord": "Coordinator / Supervisor",
+      "opt_mgr": "Manager / Director",
+      "opt_exec": "C-Level / VP",
+      "btn": "Activate Selection Process",
+      "sending": "Sending…",
+      "success_title": "Request Received!",
+      "success_body": "We've received your request. We'll contact you shortly to coordinate the start of the selection process."
+    }
+  },
+  "equidad": {
+    "title": "Pay Equity & Compensation | Consciencia Creativa",
+    "hero": {
+      "eyebrow": "Compensation Strategy & Equity",
+      "h1_main": "Pay fairly.",
+      "h1_sub": "Retain your best talent.",
+      "subtitle": "We design competitive and equitable salary structures based on market data, eliminating the gaps that generate frustration and turnover in your team.",
+      "cta": "Request salary analysis"
+    },
+    "hidden_cost": {
+      "eyebrow": "The hidden cost of inequity",
+      "h2": "Why is your company losing talent without understanding why?",
+      "c1_title": "Salary compression",
+      "c1_body": "New hires earn the same or more than experienced employees, generating silent resentment and unexpected departures of key talent.",
+      "c2_title": "Lack of transparency",
+      "c2_body": "Without a clear salary band structure, negotiations become arbitrary, generating mistrust and perceptions of favoritism in the organization.",
+      "c3_title": "Market misalignment",
+      "c3_body": "Salary scales don't keep pace with the market, causing the company to lose high-potential candidates to local and international competitors."
+    },
+    "proposal": {
+      "eyebrow": "Our Proposal",
+      "h2": "Internal equity + external competitiveness: the formula for retaining talent",
+      "body1": "We combine role valuation methodologies with real market benchmarking to create a salary structure that feels fair internally and attractive to the candidates you want to hire.",
+      "body2": "The result: less turnover, clearer performance conversations and an employee value proposition aligned with their growth ambitions.",
+      "stat1_body": "Reduction in voluntary turnover in the first year post-implementation.",
+      "stat2_body": "Benchmarking with real market data from your sector and industry.",
+      "box_h4": "Analysis components",
+      "c1_title": "Role Valuation",
+      "c1_body": "Points and levels methodology to objectively classify each position by impact, complexity and autonomy.",
+      "c2_title": "External Benchmarking",
+      "c2_body": "Comparison of your scales with market salary surveys for your sector, region and company size.",
+      "c3_title": "Salary Bands",
+      "c3_body": "Design of minimum-mid-maximum ranges that allow growth within the role and link salary to performance."
+    },
+    "process": {
+      "h2": "Analysis Process",
+      "subtitle": "Four stages for objective and sustainable compensation.",
+      "s1_title": "Role Inventory",
+      "s1_body": "Survey and documentation of all profiles and their actual responsibilities, distinguishing between the role and the person filling it.",
+      "s2_title": "Valuation & Leveling",
+      "s2_body": "Objective classification of each role using criteria of organizational impact, technical complexity and autonomy.",
+      "s3_title": "Market Benchmarking",
+      "s3_body": "Cross-reference of your current scales with market data for your sector, city and company size to identify critical gaps.",
+      "s4_title": "Bands & Adjustment Plan",
+      "s4_body": "Delivery of the final structure with a gradual implementation plan, without traumatic fiscal impact for the company."
+    },
+    "form": {
+      "h2": "Are your salaries retaining or repelling talent?",
+      "body": "Request a review of your current structure. We'll deliver an equity diagnosis highlighting the most critical gaps to address.",
+      "bullet1": "Aimed at HR managers, CEOs and financial directors.",
+      "bullet2": "Confidential and personalized for your company and sector.",
+      "name_label": "Name",
+      "name_placeholder": "Your name",
+      "email_label": "Corporate Email",
+      "sector_label": "Sector / Industry",
+      "opt_tech": "Technology / Software",
+      "opt_mfg": "Manufacturing & Industry",
+      "opt_health": "Health & Life Sciences",
+      "opt_finance": "Financial Services",
+      "opt_retail": "Commerce & Retail",
+      "opt_edu": "Education",
+      "opt_other": "Other",
+      "positions_label": "Approximate number of positions",
+      "opt_less10": "Less than 10 positions",
+      "opt_10_30": "10 to 30 positions",
+      "opt_31_80": "31 to 80 positions",
+      "opt_80plus": "More than 80 positions",
+      "btn": "Request Salary Analysis",
+      "sending": "Sending…",
+      "success_title": "Request Received!",
+      "success_body": "We've received your interest. Our team will contact you shortly to coordinate the information gathering."
+    }
+  }
+}

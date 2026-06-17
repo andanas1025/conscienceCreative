@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Contacto | Consciencia Creativa</title>
+    <title data-i18n="contacto.title">Contacto | Consciencia Creativa</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -70,20 +70,55 @@
     <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto py-4">
         <a href="index.html" class="text-headline-md font-headline-md font-bold text-primary">Consciencia Creativa</a>
         <div class="hidden md:flex items-center gap-8">
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="index.html">Servicios</a>
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="quienes-somos.html">Quiénes Somos</a>
-            <a class="text-secondary font-semibold border-b-2 border-secondary" href="#">Contacto</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="index.html" data-i18n="nav.services">Servicios</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="quienes-somos.html" data-i18n="nav.about">Quiénes Somos</a>
+            <a class="text-secondary font-semibold border-b-2 border-secondary" href="#" data-i18n="nav.contact">Contacto</a>
             <div class="w-px h-5 bg-outline-variant"></div>
+            <!-- Language Switcher -->
+            <div class="relative" id="lang-switcher">
+              <button id="lang-switcher-btn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false"
+                      data-i18n-attr="aria-label:nav.lang_aria"
+                      class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary border border-outline-variant rounded-lg px-3 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
+                <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">language</span>
+                <span class="lang-current-label text-xs font-bold">ES</span>
+                <span class="material-symbols-outlined lang-chevron" style="font-size:14px">expand_more</span>
+              </button>
+              <div id="lang-menu" role="menu"
+                   class="absolute right-0 top-full mt-2 bg-white border border-outline-variant/60 rounded-xl shadow-xl py-1 min-w-[148px] z-[200]"
+                   style="display:none">
+                <button data-lang-option="es" onclick="setLang('es')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇨🇴 <span>Español</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+                <button data-lang-option="en" onclick="setLang('en')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇺🇸 <span>English</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+                <button data-lang-option="pt" onclick="setLang('pt')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇧🇷 <span>Português</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+              </div>
+            </div>
             <button onclick="openAuthModal('login')" class="flex items-center gap-1.5 text-on-surface-variant font-medium hover:text-primary border border-outline-variant rounded-lg px-4 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
                 <span class="material-symbols-outlined" style="font-size:17px;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 20">person</span>
-                Iniciar Sesión
+                <span data-i18n="nav.login">Iniciar Sesión</span>
             </button>
-            <a href="#form-contacto" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200">
+            <a href="#form-contacto" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200" data-i18n="nav.cta_diagnostic">
                 Agendar Diagnóstico
             </a>
         </div>
-        <div class="md:hidden flex items-center">
-            <button onclick="openAuthModal('login')" class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors" aria-label="Iniciar Sesión">
+        <div class="md:hidden flex items-center gap-2">
+            <button onclick="cycleLang()"
+                    class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors font-bold text-xs"
+                    data-i18n-attr="aria-label:nav.lang_aria" aria-label="Seleccionar idioma">
+              <span class="lang-current-label">ES</span>
+            </button>
+            <button onclick="openAuthModal('login')" class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors"
+                    data-i18n-attr="aria-label:nav.login_aria" aria-label="Iniciar Sesión">
                 <span class="material-symbols-outlined">person</span>
             </button>
         </div>
@@ -94,9 +129,9 @@
     <section class="py-20 bg-primary text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#436653_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="w-full px-margin-desktop max-w-container-max mx-auto relative z-10 text-center">
-            <span class="text-secondary bg-white/10 px-4 py-1.5 rounded-full text-label-sm font-semibold uppercase tracking-wider mb-6 inline-block">Estamos para escucharle</span>
-            <h1 class="font-display-lg text-4xl md:text-5xl text-white mb-4 leading-tight">Hablemos.</h1>
-            <p class="font-body-lg text-xl text-white/80 max-w-2xl mx-auto">
+            <span class="text-secondary bg-white/10 px-4 py-1.5 rounded-full text-label-sm font-semibold uppercase tracking-wider mb-6 inline-block" data-i18n="contacto.hero.eyebrow">Estamos para escucharle</span>
+            <h1 class="font-display-lg text-4xl md:text-5xl text-white mb-4 leading-tight" data-i18n="contacto.hero.h1">Hablemos.</h1>
+            <p class="font-body-lg text-xl text-white/80 max-w-2xl mx-auto" data-i18n="contacto.hero.subtitle">
                 Cuéntenos cuál es su reto. Le ayudamos a encontrar el camino.
             </p>
         </div>
@@ -108,7 +143,7 @@
 
                 <div class="lg:col-span-2 space-y-8">
                     <div>
-                        <h2 class="font-headline-lg text-2xl text-primary mb-6">Canales de contacto</h2>
+                        <h2 class="font-headline-lg text-2xl text-primary mb-6" data-i18n="contacto.channels.h2">Canales de contacto</h2>
                         <div class="space-y-5">
                             <a href="https://wa.me/573045935556?text=Hola!%20Vengo%20de%20la%20web%20de%20Consciencia%20Creativa%20y%20quisiera%20recibir%20informaci%C3%B3n."
                                target="_blank" rel="noopener noreferrer"
@@ -117,9 +152,9 @@
                                     <span class="material-symbols-outlined text-white text-xl">chat</span>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-primary font-headline-md">WhatsApp</p>
-                                    <p class="text-sm text-on-surface-variant">+57 304 593 5556</p>
-                                    <p class="text-xs text-secondary font-semibold mt-1 group-hover:underline">Respuesta en menos de 2 horas →</p>
+                                    <p class="font-semibold text-primary font-headline-md" data-i18n="contacto.channels.wa_title">WhatsApp</p>
+                                    <p class="text-sm text-on-surface-variant" data-i18n="contacto.channels.wa_desc">+57 304 593 5556</p>
+                                
                                 </div>
                             </a>
 
@@ -129,9 +164,9 @@
                                     <span class="material-symbols-outlined text-secondary text-xl">mail</span>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-primary font-headline-md">Email</p>
+                                    <p class="font-semibold text-primary font-headline-md" data-i18n="contacto.channels.email_title">Email</p>
                                     <p class="text-sm text-on-surface-variant">andanasrubram@gmail.com</p>
-                                    <p class="text-xs text-secondary font-semibold mt-1 group-hover:underline">Enviar correo →</p>
+                                    <p class="text-xs text-secondary font-semibold mt-1 group-hover:underline" data-i18n="contacto.channels.email_link">Enviar correo →</p>
                                 </div>
                             </a>
 
@@ -142,82 +177,92 @@
                                     <span class="material-symbols-outlined text-secondary text-xl">work</span>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-primary font-headline-md">LinkedIn</p>
-                                    <p class="text-sm text-on-surface-variant">Consciencia Creativa</p>
-                                    <p class="text-xs text-secondary font-semibold mt-1 group-hover:underline">Ver perfil →</p>
+                                    <p class="font-semibold text-primary font-headline-md" data-i18n="contacto.channels.li_title">LinkedIn</p>
+                                    <p class="text-sm text-on-surface-variant" data-i18n="contacto.channels.li_desc">Consciencia Creativa</p>
+                                    <p class="text-xs text-secondary font-semibold mt-1 group-hover:underline" data-i18n="contacto.channels.li_link">Ver perfil →</p>
                                 </div>
                             </a>
                         </div>
                     </div>
 
                     <div class="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30">
-                        <h3 class="font-headline-md text-lg text-primary mb-4">Horario de atención</h3>
+                        <h3 class="font-headline-md text-lg text-primary mb-4" data-i18n="contacto.hours.h3">Horario de atención</h3>
                         <div class="space-y-3 text-sm font-body-md">
                             <div class="flex justify-between">
-                                <span class="text-on-surface-variant">Lunes a Viernes</span>
-                                <span class="font-semibold text-primary">8:00 am – 6:00 pm</span>
+                                <span class="text-on-surface-variant" data-i18n="contacto.hours.weekdays">Lunes a Viernes</span>
+                                <span class="font-semibold text-primary" data-i18n="contacto.hours.weekdays_hours">8:00 am – 6:00 pm</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-on-surface-variant">Sábados</span>
-                                <span class="font-semibold text-primary">9:00 am – 1:00 pm</span>
+                                <span class="text-on-surface-variant" data-i18n="contacto.hours.saturday">Sábados</span>
+                                <span class="font-semibold text-primary" data-i18n="contacto.hours.saturday_hours">9:00 am – 1:00 pm</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-on-surface-variant">Zona horaria</span>
-                                <span class="font-semibold text-primary">Colombia (UTC-5)</span>
+                                <span class="text-on-surface-variant" data-i18n="contacto.hours.timezone">Zona horaria</span>
+                                <span class="font-semibold text-primary" data-i18n="contacto.hours.timezone_val">Colombia (UTC-5)</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div id="form-contacto" class="lg:col-span-3">
-                    <h2 class="font-headline-lg text-2xl text-primary mb-6">Cuéntenos su reto</h2>
+                    <h2 class="font-headline-lg text-2xl text-primary mb-6" data-i18n="contacto.form.h2">Cuéntenos su reto</h2>
                     <div id="mensaje-exito-contacto" class="hidden bg-secondary-container border border-secondary/30 rounded-2xl p-10 text-center">
                         <span class="material-symbols-outlined text-secondary text-5xl mb-4 block">task_alt</span>
-                        <h4 class="font-headline-md text-xl text-primary mb-2">¡Mensaje Enviado!</h4>
-                        <p class="text-sm text-on-surface-variant">Gracias por escribirnos. Nos pondremos en contacto con usted a la brevedad para coordinar una sesión diagnóstica.</p>
+                        <h4 class="font-headline-md text-xl text-primary mb-2" data-i18n="contacto.form.success_title">¡Mensaje Enviado!</h4>
+                        <p class="text-sm text-on-surface-variant" data-i18n="contacto.form.success_body">Gracias por escribirnos. Nos pondremos en contacto con usted a la brevedad para coordinar una sesión diagnóstica.</p>
                     </div>
                     <form id="form-contacto-form" action="https://formspree.io/f/mpqnadpy" method="POST" class="space-y-5 bg-surface-container-low p-8 rounded-2xl border border-outline-variant/30">
                         <input type="hidden" name="_replyto" value="andanasrubram@gmail.com">
                         <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto - Consciencia Creativa">
                         <div class="grid md:grid-cols-2 gap-5">
                             <div>
-                                <label class="block font-label-sm text-on-surface-variant mb-2">Nombre Completo</label>
-                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Nombre" placeholder="Su nombre completo" type="text" required/>
+                                <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="contacto.form.name_label">Nombre Completo</label>
+                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm"
+                                       data-i18n-attr="placeholder:contacto.form.name_placeholder"
+                                       name="Nombre" placeholder="Su nombre completo" type="text" required/>
                             </div>
                             <div>
-                                <label class="block font-label-sm text-on-surface-variant mb-2">Empresa / Organización</label>
-                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Empresa" placeholder="Su empresa" type="text"/>
+                                <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="contacto.form.company_label">Empresa / Organización</label>
+                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm"
+                                       data-i18n-attr="placeholder:contacto.form.company_placeholder"
+                                       name="Empresa" placeholder="Su empresa" type="text"/>
                             </div>
                         </div>
                         <div class="grid md:grid-cols-2 gap-5">
                             <div>
-                                <label class="block font-label-sm text-on-surface-variant mb-2">Email de Contacto</label>
-                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Email" placeholder="correo@empresa.com" type="email" required/>
+                                <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="contacto.form.email_label">Email de Contacto</label>
+                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm"
+                                       data-i18n-attr="placeholder:contacto.form.email_placeholder"
+                                       name="Email" placeholder="correo@empresa.com" type="email" required/>
                             </div>
                             <div>
-                                <label class="block font-label-sm text-on-surface-variant mb-2">Teléfono / WhatsApp</label>
-                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Teléfono" placeholder="+57 300 000 0000" type="tel"/>
+                                <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="contacto.form.phone_label">Teléfono / WhatsApp</label>
+                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm"
+                                       data-i18n-attr="placeholder:contacto.form.phone_placeholder"
+                                       name="Teléfono" placeholder="+57 300 000 0000" type="tel"/>
                             </div>
                         </div>
                         <div>
-                            <label class="block font-label-sm text-on-surface-variant mb-2">Área de interés</label>
+                            <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="contacto.form.area_label">Área de interés</label>
                             <select class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm" name="Servicio de Interés">
-                                <option>Planeación Estratégica (OKRs & KPIs)</option>
-                                <option>Talleres y Mentorías de Liderazgo</option>
-                                <option>Pruebas DISC y Diagnóstico de Equipos</option>
-                                <option>Equidad Salarial y Compensación</option>
-                                <option>Reclutamiento y Selección de Talento</option>
-                                <option>Aún no lo tengo definido</option>
+                                <option data-i18n="contacto.form.opt_plan">Planeación Estratégica (OKRs & KPIs)</option>
+                                <option data-i18n="contacto.form.opt_workshops">Talleres y Mentorías de Liderazgo</option>
+                                <option data-i18n="contacto.form.opt_disc">Pruebas DISC y Diagnóstico de Equipos</option>
+                                <option data-i18n="contacto.form.opt_equity">Equidad Salarial y Compensación</option>
+                                <option data-i18n="contacto.form.opt_recruitment">Reclutamiento y Selección de Talento</option>
+                                <option data-i18n="contacto.form.opt_undefined">Aún no lo tengo definido</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block font-label-sm text-on-surface-variant mb-2">Cuéntenos brevemente su reto o necesidad</label>
-                            <textarea class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm resize-none" name="Mensaje" placeholder="Describa en pocas palabras el reto actual de su empresa o equipo..." rows="4"></textarea>
+                            <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="contacto.form.message_label">Cuéntenos brevemente su reto o necesidad</label>
+                            <textarea class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3 text-sm resize-none"
+                                      data-i18n-attr="placeholder:contacto.form.message_placeholder"
+                                      name="Mensaje" placeholder="Describa en pocas palabras el reto actual de su empresa o equipo..." rows="4"></textarea>
                         </div>
-                        <button id="btn-contacto" class="w-full bg-tertiary text-white py-4 rounded-xl font-body-md font-semibold shadow-lg shadow-tertiary/20 hover:brightness-110 hover:translate-y-[-2px] transition-all" type="submit">
+                        <button id="btn-contacto" class="w-full bg-tertiary text-white py-4 rounded-xl font-body-md font-semibold shadow-lg shadow-tertiary/20 hover:brightness-110 hover:translate-y-[-2px] transition-all" type="submit" data-i18n="contacto.form.btn">
                             Enviar Mensaje
                         </button>
-                        <p class="text-xs text-on-surface-variant text-center">Sus datos son confidenciales y no serán compartidos con terceros.</p>
+                        <p class="text-xs text-on-surface-variant text-center" data-i18n="contacto.form.privacy">Sus datos son confidenciales y no serán compartidos con terceros.</p>
                     </form>
                 </div>
             </div>
@@ -227,42 +272,42 @@
     <section class="py-24 bg-surface-container-low">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="text-center mb-12">
-                <h2 class="font-headline-lg text-2xl text-primary">Preguntas frecuentes</h2>
+                <h2 class="font-headline-lg text-2xl text-primary" data-i18n="contacto.faq.h2">Preguntas frecuentes</h2>
             </div>
             <div class="max-w-3xl mx-auto space-y-4">
                 <details class="bg-white rounded-xl border border-outline-variant/40 group">
                     <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-semibold text-primary">
-                        ¿Trabajan con startups o solo con empresas grandes?
+                        <span data-i18n="contacto.faq.q1">¿Trabajan con startups o solo con empresas grandes?</span>
                         <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed">
+                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed" data-i18n="contacto.faq.a1">
                         Trabajamos con organizaciones de todos los tamaños: desde startups con 10 personas hasta corporaciones con más de 500 colaboradores. El tamaño no determina el valor de la intervención; sí lo hace la disposición al cambio de los líderes.
                     </div>
                 </details>
                 <details class="bg-white rounded-xl border border-outline-variant/40 group">
                     <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-semibold text-primary">
-                        ¿En qué ciudades y países operan?
+                        <span data-i18n="contacto.faq.q2">¿En qué ciudades y países operan?</span>
                         <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed">
+                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed" data-i18n="contacto.faq.a2">
                         Nuestra base principal es Colombia, con operación en Bogotá, Medellín y Cali. Sin embargo, atendemos clientes de toda Latinoamérica de forma virtual. Los talleres presenciales están disponibles en ciudades colombianas y con desplazamiento acordado para otros países.
                     </div>
                 </details>
                 <details class="bg-white rounded-xl border border-outline-variant/40 group">
                     <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-semibold text-primary">
-                        ¿Los talleres son presenciales o virtuales?
+                        <span data-i18n="contacto.faq.q3">¿Los talleres son presenciales o virtuales?</span>
                         <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed">
+                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed" data-i18n="contacto.faq.a3">
                         Ofrecemos ambas modalidades. Los talleres presenciales tienen mayor impacto en dinámicas de equipo y sesiones DISC. Las consultorías de planeación estratégica y las mentorías individuales funcionan perfectamente en formato virtual. Co-diseñamos el formato según sus necesidades.
                     </div>
                 </details>
                 <details class="bg-white rounded-xl border border-outline-variant/40 group">
                     <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-semibold text-primary">
-                        ¿Cuánto dura un proyecto típico?
+                        <span data-i18n="contacto.faq.q4">¿Cuánto dura un proyecto típico?</span>
                         <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed">
+                    <div class="px-6 pb-6 text-on-surface-variant font-body-md leading-relaxed" data-i18n="contacto.faq.a4">
                         Depende del alcance. Una sesión de talleres DISC puede realizarse en un solo día. Un proceso completo de planeación estratégica con OKRs dura entre 4 y 8 semanas. Un análisis de equidad salarial típicamente requiere 3 a 6 semanas. Siempre definimos tiempos y entregables antes de iniciar.
                     </div>
                 </details>
@@ -275,10 +320,10 @@
     <div class="w-full px-margin-desktop py-12 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
             <span class="text-xl font-bold text-primary font-headline-md block">Consciencia Creativa</span>
-            <p class="text-sm text-on-surface-variant">Transformación humana consciente para personas, líderes y organizaciones.</p>
-            <p class="text-xs text-on-surface-variant mt-1">Parte del ecosistema Andanas Group.</p>
+            <p class="text-sm text-on-surface-variant" data-i18n="footer.tagline">Transformación humana consciente para personas, líderes y organizaciones.</p>
+            <p class="text-xs text-on-surface-variant mt-1" data-i18n="footer.ecosystem">Parte del ecosistema Andanas Group.</p>
         </div>
-        <p class="font-label-md text-xs text-on-surface-variant">© 2026 Consciencia Creativa. Todos los derechos reservados.</p>
+        <p class="font-label-md text-xs text-on-surface-variant" data-i18n="footer.copyright">© 2026 Consciencia Creativa. Todos los derechos reservados.</p>
     </div>
 </footer>
 
@@ -312,6 +357,7 @@
     });
 </script>
 
+  <script src="i18n.js" data-base="locales/"></script>
   <script src="auth.js"></script>
 </body>
 </html>

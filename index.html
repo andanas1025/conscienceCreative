@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Consciencia Creativa | Transformación humana consciente</title>
+    <title data-i18n="index.title">Consciencia Creativa | Transformación humana consciente</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -114,20 +114,57 @@
     <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto py-4">
         <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Consciencia Creativa</span>
         <div class="hidden md:flex items-center gap-8">
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="#servicios">Servicios</a>
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="quienes-somos.html">Quiénes Somos</a>
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="contacto.html">Contacto</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="#servicios" data-i18n="nav.services">Servicios</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="quienes-somos.html" data-i18n="nav.about">Quiénes Somos</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="contacto.html" data-i18n="nav.contact">Contacto</a>
             <div class="w-px h-5 bg-outline-variant"></div>
+            <!-- Language Switcher -->
+            <div class="relative" id="lang-switcher">
+              <button id="lang-switcher-btn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false"
+                      data-i18n-attr="aria-label:nav.lang_aria"
+                      class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary border border-outline-variant rounded-lg px-3 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
+                <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">language</span>
+                <span class="lang-current-label text-xs font-bold">ES</span>
+                <span class="material-symbols-outlined lang-chevron" style="font-size:14px">expand_more</span>
+              </button>
+              <div id="lang-menu" role="menu"
+                   class="absolute right-0 top-full mt-2 bg-white border border-outline-variant/60 rounded-xl shadow-xl py-1 min-w-[148px] z-[200]"
+                   style="display:none">
+                <button data-lang-option="es" onclick="setLang('es')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇨🇴 <span>Español</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+                <button data-lang-option="en" onclick="setLang('en')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇺🇸 <span>English</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+                <button data-lang-option="pt" onclick="setLang('pt')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇧🇷 <span>Português</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+              </div>
+            </div>
             <button onclick="openAuthModal('login')" class="flex items-center gap-1.5 text-on-surface-variant font-medium hover:text-primary border border-outline-variant rounded-lg px-4 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
                 <span class="material-symbols-outlined" style="font-size:17px;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 20">person</span>
-                Iniciar Sesión
+                <span data-i18n="nav.login">Iniciar Sesión</span>
             </button>
-            <a href="contacto.html" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200">
+            <a href="contacto.html" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200" data-i18n="nav.cta_diagnostic">
                 Agendar Diagnóstico
             </a>
         </div>
         <div class="md:hidden flex items-center gap-2">
-            <button onclick="openAuthModal('login')" class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors" aria-label="Iniciar Sesión">
+            <!-- Mobile language cycle button -->
+            <button onclick="cycleLang()"
+                    class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors font-bold text-xs"
+                    data-i18n-attr="aria-label:nav.lang_aria"
+                    aria-label="Seleccionar idioma">
+              <span class="lang-current-label">ES</span>
+            </button>
+            <button onclick="openAuthModal('login')" class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors"
+                    data-i18n-attr="aria-label:nav.login_aria" aria-label="Iniciar Sesión">
                 <span class="material-symbols-outlined">person</span>
             </button>
             <button class="text-primary flex items-center justify-center w-9 h-9">
@@ -145,17 +182,17 @@
         </div>
         <div class="relative z-10 w-full px-margin-desktop max-w-container-max mx-auto py-24">
             <div class="max-w-2xl">
-                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6">
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6" data-i18n="index.hero.h1">
                     Evoluciona sin perderte a ti.
                 </h1>
-                <p class="font-body-lg text-body-lg text-white/90 mb-10 leading-relaxed">
+                <p class="font-body-lg text-body-lg text-white/90 mb-10 leading-relaxed" data-i18n="index.hero.subtitle">
                     Un espacio de bienestar consciente, transformación humana y liderazgo emocional para personas y organizaciones que quieren crecer con más claridad, equilibrio y humanidad.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="contacto.html" class="bg-tertiary text-white px-8 py-4 rounded-xl font-body-md font-semibold hover:brightness-110 active:translate-y-[-2px] transition-all duration-300 text-center">
+                    <a href="contacto.html" class="bg-tertiary text-white px-8 py-4 rounded-xl font-body-md font-semibold hover:brightness-110 active:translate-y-[-2px] transition-all duration-300 text-center" data-i18n="index.hero.cta1">
                         Quiero comenzar
                     </a>
-                    <a href="#servicios" class="border-2 border-white text-white px-8 py-4 rounded-xl font-body-md font-semibold hover:bg-white/10 transition-all duration-300 text-center">
+                    <a href="#servicios" class="border-2 border-white text-white px-8 py-4 rounded-xl font-body-md font-semibold hover:bg-white/10 transition-all duration-300 text-center" data-i18n="index.hero.cta2">
                         Explorar servicios
                     </a>
                 </div>
@@ -167,11 +204,11 @@
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="grid md:grid-cols-2 gap-gutter items-center">
                 <div>
-                    <span class="text-secondary font-label-sm uppercase tracking-widest mb-4 block">Nuestro Propósito</span>
-                    <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Creemos en una forma más humana de crecer.</h2>
+                    <span class="text-secondary font-label-sm uppercase tracking-widest mb-4 block" data-i18n="index.purpose.eyebrow">Nuestro Propósito</span>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-8" data-i18n="index.purpose.h2">Creemos en una forma más humana de crecer.</h2>
                 </div>
                 <div>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed" data-i18n="index.purpose.body">
                         Vivimos en un mundo acelerado y emocionalmente agotador. En medio de esa presión constante, es fácil desconectarse de uno mismo, del bienestar y del propósito. Consciencia Creativa nace como una invitación a evolucionar de manera distinta: más consciente, más humana, más sostenible. Porque el bienestar no debería ser un premio al final del camino, sino parte del camino mismo.
                     </p>
                 </div>
@@ -182,39 +219,39 @@
     <section id="servicios" class="py-24 bg-surface-container-low">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="text-center mb-16">
-                <h2 class="font-headline-lg text-headline-lg text-primary">Espacios para transformar, reconectar y evolucionar</h2>
+                <h2 class="font-headline-lg text-headline-lg text-primary" data-i18n="index.services.h2">Espacios para transformar, reconectar y evolucionar</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
                 <div class="md:col-span-7 bg-white p-10 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-outline-variant hover:translate-y-[-4px] transition-transform duration-300">
     <span class="material-symbols-outlined text-secondary text-4xl mb-6">insights</span>
-    <h3 class="font-headline-md text-headline-md text-primary mb-4">Planeación Estratégica</h3>
-    <p class="font-body-md text-body-md text-on-surface-variant mb-4">Estructura basada en OKRs y KPIs para un crecimiento medible. Alineamos la visión ejecutiva con la ejecución operativa para garantizar resultados de alto impacto.</p>
+    <h3 class="font-headline-md text-headline-md text-primary mb-4" data-i18n="index.services.s1_title">Planeación Estratégica</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-4" data-i18n="index.services.s1_body">Estructura basada en OKRs y KPIs para un crecimiento medible. Alineamos la visión ejecutiva con la ejecución operativa para garantizar resultados de alto impacto.</p>
     <a href="planeacion.html" class="text-secondary font-semibold inline-flex items-center gap-2 hover:underline">
-        Ver metodología y soluciones <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        <span data-i18n="index.services.s1_link">Ver metodología y soluciones</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
     </a>
 </div>
                 <div class="md:col-span-5 bg-white p-10 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-outline-variant hover:translate-y-[-4px] transition-transform duration-300">
     <span class="material-symbols-outlined text-secondary text-4xl mb-6">psychology</span>
-    <h3 class="font-headline-md text-headline-md text-primary mb-4">Talleres y Experiencias</h3>
-    <p class="font-body-md text-body-md text-on-surface-variant mb-4">Mentorías de liderazgo, pruebas DISC y programas de prevención de Burnout diseñados para construir equipos resilientes.</p>
+    <h3 class="font-headline-md text-headline-md text-primary mb-4" data-i18n="index.services.s2_title">Talleres y Experiencias</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-4" data-i18n="index.services.s2_body">Mentorías de liderazgo, pruebas DISC y programas de prevención de Burnout diseñados para construir equipos resilientes.</p>
     <a href="talleres.html" class="text-secondary font-semibold inline-flex items-center gap-2 hover:underline">
-        Conocer experiencias <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        <span data-i18n="index.services.s2_link">Conocer experiencias</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
     </a>
 </div>
                 <div class="md:col-span-5 bg-white p-10 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-outline-variant hover:translate-y-[-4px] transition-transform duration-300">
                     <span class="material-symbols-outlined text-secondary text-4xl mb-6">balance</span>
-                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Competitividad y Equidad Salarial</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant mb-4">Análisis de compensación inteligente y reducción de brechas salariales para una cultura organizacional justa, competitiva y atractiva.</p>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4" data-i18n="index.services.s3_title">Competitividad y Equidad Salarial</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-4" data-i18n="index.services.s3_body">Análisis de compensación inteligente y reducción de brechas salariales para una cultura organizacional justa, competitiva y atractiva.</p>
                     <a href="equidad-salarial.html" class="text-secondary font-semibold inline-flex items-center gap-2 hover:underline">
-                        Ver análisis de compensación <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        <span data-i18n="index.services.s3_link">Ver análisis de compensación</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </a>
                 </div>
                 <div class="md:col-span-7 bg-white p-10 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-outline-variant hover:translate-y-[-4px] transition-transform duration-300">
                     <span class="material-symbols-outlined text-secondary text-4xl mb-6">groups</span>
-                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Reclutamiento y Potencial Humano</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant mb-4">Reclutamiento estratégico y preparación de talento para el futuro. Identificamos habilidades técnicas y la alineación cultural necesaria para el éxito mutuo.</p>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4" data-i18n="index.services.s4_title">Reclutamiento y Potencial Humano</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-4" data-i18n="index.services.s4_body">Reclutamiento estratégico y preparación de talento para el futuro. Identificamos habilidades técnicas y la alineación cultural necesaria para el éxito mutuo.</p>
                     <a href="reclutamiento.html" class="text-secondary font-semibold inline-flex items-center gap-2 hover:underline">
-                        Conocer el proceso de selección <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        <span data-i18n="index.services.s4_link">Conocer el proceso de selección</span> <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </a>
                 </div>
             </div>
@@ -230,9 +267,9 @@
                     </div>
                     <div class="relative z-10">
                         <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm mb-6 inline-block">B2B</span>
-                        <h3 class="font-headline-lg text-headline-lg text-white mb-6">Para Empresas</h3>
-                        <p class="font-body-lg text-body-lg text-white/80 mb-8">Optimizamos el motor de tu negocio a través de sistemas de gestión, planeación y atracción de talento humano de vanguardia.</p>
-                        <a href="contacto.html" class="text-white border-b-2 border-secondary-fixed pb-1 font-label-md hover:text-secondary-fixed transition-colors">Solicitar propuesta empresarial →</a>
+                        <h3 class="font-headline-lg text-headline-lg text-white mb-6" data-i18n="index.b2b.h3">Para Empresas</h3>
+                        <p class="font-body-lg text-body-lg text-white/80 mb-8" data-i18n="index.b2b.body">Optimizamos el motor de tu negocio a través de sistemas de gestión, planeación y atracción de talento humano de vanguardia.</p>
+                        <a href="contacto.html" class="text-white border-b-2 border-secondary-fixed pb-1 font-label-md hover:text-secondary-fixed transition-colors" data-i18n="index.b2b.link">Solicitar propuesta empresarial →</a>
                     </div>
                 </div>
                 <div class="relative bg-secondary-fixed p-16 flex flex-col justify-center min-h-[400px]">
@@ -241,9 +278,9 @@
                     </div>
                     <div class="relative z-10">
                         <span class="bg-primary-container text-white px-3 py-1 rounded-full text-label-sm font-label-sm mb-6 inline-block">B2C</span>
-                        <h3 class="font-headline-lg text-headline-lg text-primary mb-6">Para Profesionales</h3>
-                        <p class="font-body-lg text-body-lg text-on-secondary-container mb-8">Diseñamos tu trayectoria estratégica y te preparamos para que lideres con propósito y accedas al puesto deseado.</p>
-                        <a href="contacto.html" class="text-primary border-b-2 border-primary pb-1 font-label-md hover:opacity-70 transition-opacity">Ver preparación individual →</a>
+                        <h3 class="font-headline-lg text-headline-lg text-primary mb-6" data-i18n="index.b2c.h3">Para Profesionales</h3>
+                        <p class="font-body-lg text-body-lg text-on-secondary-container mb-8" data-i18n="index.b2c.body">Diseñamos tu trayectoria estratégica y te preparamos para que lideres con propósito y accedas al puesto deseado.</p>
+                        <a href="contacto.html" class="text-primary border-b-2 border-primary pb-1 font-label-md hover:opacity-70 transition-opacity" data-i18n="index.b2c.link">Ver preparación individual →</a>
                     </div>
                 </div>
             </div>
@@ -254,52 +291,58 @@
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="bg-white rounded-[2rem] p-8 md:p-16 shadow-[0px_12px_32px_rgba(10,25,47,0.08)] flex flex-col lg:flex-row gap-16 border border-outline-variant/30">
                 <div class="lg:w-1/2">
-                    <h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary mb-6">Tal vez este sea el momento de volver a ti.</h2>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Si estás buscando más claridad, equilibrio, bienestar o una forma más consciente de crecer, este espacio es para ti. Agenda una sesión diagnóstica gratuita y demos juntos el primer paso.</p>
+                    <h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary mb-6" data-i18n="index.cta.h2">Tal vez este sea el momento de volver a ti.</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10" data-i18n="index.cta.body">Si estás buscando más claridad, equilibrio, bienestar o una forma más consciente de crecer, este espacio es para ti. Agenda una sesión diagnóstica gratuita y demos juntos el primer paso.</p>
                     <div class="space-y-6">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 bg-mint-soft rounded-full flex items-center justify-center text-secondary">
                                 <span class="material-symbols-outlined">verified</span>
                             </div>
-                            <span class="font-label-md text-on-surface">Diagnóstico inicial sin compromiso</span>
+                            <span class="font-label-md text-on-surface" data-i18n="index.cta.benefit1">Diagnóstico inicial sin compromiso</span>
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 bg-mint-soft rounded-full flex items-center justify-center text-secondary">
                                 <span class="material-symbols-outlined">event_available</span>
                             </div>
-                            <span class="font-label-md text-on-surface">Flexibilidad de horarios</span>
+                            <span class="font-label-md text-on-surface" data-i18n="index.cta.benefit2">Flexibilidad de horarios</span>
                         </div>
                     </div>
                 </div>
                 <div class="lg:w-1/2 bg-surface-container-low p-8 rounded-2xl">
                     <form id="form-diagnostico" class="grid grid-cols-1 gap-6" action="https://formspree.io/f/mpqnadpy" method="POST">
                         <div>
-                            <label class="block font-label-sm text-on-surface-variant mb-2">Nombre Completo</label>
-                            <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="Ej. Juan Pérez" type="text" name="Nombre" required/>
+                            <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="index.cta.name_label">Nombre Completo</label>
+                            <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3"
+                                   data-i18n-attr="placeholder:index.cta.name_placeholder"
+                                   placeholder="Ej. Juan Pérez" type="text" name="Nombre" required/>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block font-label-sm text-on-surface-variant mb-2">Empresa / Organización</label>
-                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="Tu compañía (o 'Independiente')" type="text" name="Empresa"/>
+                                <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="index.cta.company_label">Empresa / Organización</label>
+                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3"
+                                       data-i18n-attr="placeholder:index.cta.company_placeholder"
+                                       placeholder="Tu compañía (o 'Independiente')" type="text" name="Empresa"/>
                             </div>
                             <div>
-                                <label class="block font-label-sm text-on-surface-variant mb-2">Email de Contacto</label>
-                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" placeholder="juan@empresa.com" type="email" name="Email" required/>
+                                <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="index.cta.email_label">Email de Contacto</label>
+                                <input class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3"
+                                       data-i18n-attr="placeholder:index.cta.email_placeholder"
+                                       placeholder="juan@empresa.com" type="email" name="Email" required/>
                             </div>
                         </div>
                         <div>
-                            <label class="block font-label-sm text-on-surface-variant mb-2">Servicio de interés</label>
+                            <label class="block font-label-sm text-on-surface-variant mb-2" data-i18n="index.cta.service_label">Servicio de interés</label>
                             <select class="w-full rounded-lg border border-outline-variant bg-white focus:ring-secondary focus:border-secondary transition-all py-3" name="Servicio de Interés">
-                                <option>Planeación Estratégica (OKRs & KPIs)</option>
-                                <option>Talleres y Mentorías</option>
-                                <option>Análisis de Equidad Salarial</option>
-                                <option>Reclutamiento y Potencial Humano</option>
+                                <option data-i18n="index.cta.opt_plan">Planeación Estratégica (OKRs & KPIs)</option>
+                                <option data-i18n="index.cta.opt_workshops">Talleres y Mentorías</option>
+                                <option data-i18n="index.cta.opt_equity">Análisis de Equidad Salarial</option>
+                                <option data-i18n="index.cta.opt_recruitment">Reclutamiento y Potencial Humano</option>
                             </select>
                         </div>
                         <div id="msg-diagnostico" class="hidden text-center p-4 bg-secondary/10 rounded-xl">
-                            <p class="text-sm font-semibold text-secondary">¡Solicitud enviada! Le contactaremos pronto.</p>
+                            <p class="text-sm font-semibold text-secondary" data-i18n="index.cta.success">¡Solicitud enviada! Le contactaremos pronto.</p>
                         </div>
-                        <button id="btn-diagnostico" class="w-full bg-tertiary text-white py-4 rounded-xl font-body-md font-semibold shadow-lg shadow-tertiary/20 hover:brightness-110 hover:translate-y-[-2px] transition-all" type="submit">
+                        <button id="btn-diagnostico" class="w-full bg-tertiary text-white py-4 rounded-xl font-body-md font-semibold shadow-lg shadow-tertiary/20 hover:brightness-110 hover:translate-y-[-2px] transition-all" type="submit" data-i18n="index.cta.btn">
                             Agendar Diagnóstico Gratuito
                         </button>
                     </form>
@@ -313,33 +356,34 @@
     <div class="w-full px-margin-desktop py-12 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter">
         <div class="max-w-xs">
             <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed block mb-4">Consciencia Creativa</span>
-            <p class="font-body-md text-body-md text-on-surface-variant">Transformación humana consciente para personas, líderes y organizaciones.</p>
+            <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="footer.tagline">Transformación humana consciente para personas, líderes y organizaciones.</p>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
             <div class="flex flex-col gap-4">
-                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter">Servicios</span>
-                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="planeacion.html">Planeación Estratégica</a>
-                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="talleres.html">Talleres y Mentorías</a>
-                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="equidad-salarial.html">Equidad Salarial</a>
-                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="reclutamiento.html">Reclutamiento</a>
+                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter" data-i18n="footer.services_heading">Servicios</span>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="planeacion.html" data-i18n="footer.plan">Planeación Estratégica</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="talleres.html" data-i18n="footer.workshops">Talleres y Mentorías</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="equidad-salarial.html" data-i18n="footer.equity">Equidad Salarial</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="reclutamiento.html" data-i18n="footer.recruitment">Reclutamiento</a>
             </div>
             <div class="flex flex-col gap-4">
-                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter">Compañía</span>
-                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="quienes-somos.html">Quiénes Somos</a>
-                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="contacto.html">Contacto</a>
+                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter" data-i18n="footer.company_heading">Compañía</span>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="quienes-somos.html" data-i18n="footer.about">Quiénes Somos</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="contacto.html" data-i18n="footer.contact">Contacto</a>
             </div>
             <div class="flex flex-col gap-4">
-                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter">Legal</span>
-                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Política de Privacidad</a>
-                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Términos de Servicio</a>
+                <span class="font-label-sm text-on-surface-variant uppercase tracking-tighter" data-i18n="footer.legal_heading">Legal</span>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#" data-i18n="footer.privacy">Política de Privacidad</a>
+                <a class="font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#" data-i18n="footer.terms">Términos de Servicio</a>
             </div>
         </div>
     </div>
     <div class="w-full px-margin-desktop py-8 border-t border-outline-variant/30 max-w-container-max mx-auto text-center">
-        <p class="font-label-md text-label-md text-on-surface-variant">© 2026 Consciencia Creativa. Transformación Estratégica y Bienestar Humano.</p>
+        <p class="font-label-md text-label-md text-on-surface-variant" data-i18n="footer.copyright_index">© 2026 Consciencia Creativa. Transformación Estratégica y Bienestar Humano.</p>
     </div>
 </footer>
 
+  <script src="i18n.js" data-base="locales/"></script>
   <script src="auth.js"></script>
   <script>
     const formDiagnostico = document.getElementById('form-diagnostico');
@@ -347,8 +391,11 @@
       e.preventDefault();
       const btn = document.getElementById('btn-diagnostico');
       const msg = document.getElementById('msg-diagnostico');
+      const t = window.__i18nCache || {};
+      const sending  = (t.index && t.index.cta && t.index.cta.sending)  || 'Enviando…';
+      const btnLabel = (t.index && t.index.cta && t.index.cta.btn)       || 'Agendar Diagnóstico Gratuito';
       btn.disabled = true;
-      btn.textContent = 'Enviando…';
+      btn.textContent = sending;
       try {
         const res = await fetch(formDiagnostico.action, {
           method: 'POST',
@@ -361,11 +408,11 @@
           btn.classList.add('hidden');
         } else {
           btn.disabled = false;
-          btn.textContent = 'Agendar Diagnóstico Gratuito';
+          btn.textContent = btnLabel;
         }
       } catch {
         btn.disabled = false;
-        btn.textContent = 'Agendar Diagnóstico Gratuito';
+        btn.textContent = btnLabel;
       }
     });
   </script>

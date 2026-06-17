@@ -9,7 +9,8 @@
       "Read(//tmp/**)",
       "Bash(awk '{print $NF}')",
       "Bash(python3)",
-      "WebFetch(domain:co.linkedin.com)"
+      "WebFetch(domain:co.linkedin.com)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp"
     ]
   }
 }

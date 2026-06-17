@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Equidad Salarial y Compensación | Consciencia Creativa</title>
+    <title data-i18n="equidad.title">Equidad Salarial y Compensación | Consciencia Creativa</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -60,6 +60,7 @@
             vertical-align: middle;
         }
     </style>
+    <script src="i18n.js" data-base="locales/"></script>
 </head>
 <body class="bg-background text-on-background font-body-md relative">
 
@@ -67,29 +68,61 @@
    target="_blank" rel="noopener noreferrer"
    class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 group">
     <span class="material-symbols-outlined text-2xl">chat</span>
-    <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-out font-label-md text-sm font-semibold whitespace-nowrap">
-        Consultar por WhatsApp
-    </span>
+    <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-out font-label-md text-sm font-semibold whitespace-nowrap"
+          data-i18n="whatsapp.label">Consultar por WhatsApp</span>
 </a>
 
 <nav class="bg-surface-container-lowest shadow-[0px_12px_32px_rgba(10,25,47,0.08)] top-0 sticky z-50">
     <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto py-4">
         <a href="index.html" class="text-headline-md font-headline-md font-bold text-primary">Consciencia Creativa</a>
         <div class="hidden md:flex items-center gap-8">
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="planeacion.html">Planeación (OKRs)</a>
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="talleres.html">Talleres y Mentorías</a>
-            <a class="text-secondary font-semibold border-b-2 border-secondary" href="#">Equidad Salarial</a>
-            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="reclutamiento.html">Reclutamiento</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="planeacion.html" data-i18n="nav.plan">Planeación (OKRs)</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="talleres.html" data-i18n="nav.workshops">Talleres y Mentorías</a>
+            <a class="text-secondary font-semibold border-b-2 border-secondary" href="#" data-i18n="nav.equity">Equidad Salarial</a>
+            <a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="reclutamiento.html" data-i18n="nav.recruitment">Reclutamiento</a>
             <div class="w-px h-5 bg-outline-variant"></div>
+            <!-- Language Switcher -->
+            <div class="relative" id="lang-switcher">
+              <button id="lang-switcher-btn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false"
+                      data-i18n-attr="aria-label:nav.lang_aria"
+                      class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary border border-outline-variant rounded-lg px-3 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
+                <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">language</span>
+                <span class="lang-current-label text-xs font-bold">ES</span>
+                <span class="material-symbols-outlined lang-chevron" style="font-size:14px">expand_more</span>
+              </button>
+              <div id="lang-menu" role="menu"
+                   class="absolute right-0 top-full mt-2 bg-white border border-outline-variant/60 rounded-xl shadow-xl py-1 min-w-[148px] z-[200]"
+                   style="display:none">
+                <button data-lang-option="es" onclick="setLang('es')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇨🇴 <span>Español</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+                <button data-lang-option="en" onclick="setLang('en')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇺🇸 <span>English</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+                <button data-lang-option="pt" onclick="setLang('pt')" role="menuitem"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-surface-container-low transition-colors flex items-center justify-between">
+                  <span class="flex items-center gap-2">🇧🇷 <span>Português</span></span>
+                  <span class="material-symbols-outlined text-secondary lang-check" style="font-size:15px;display:none">check</span>
+                </button>
+              </div>
+            </div>
             <button onclick="openAuthModal('login')" class="flex items-center gap-1.5 text-on-surface-variant font-medium hover:text-primary border border-outline-variant rounded-lg px-4 py-2 text-label-md hover:bg-surface-container-low hover:border-primary transition-all duration-200">
                 <span class="material-symbols-outlined" style="font-size:17px;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 20">person</span>
-                Iniciar Sesión
+                <span data-i18n="nav.login">Iniciar Sesión</span>
             </button>
-            <a href="#contacto-equidad" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200">
-                Solicitar Análisis
-            </a>
+            <a href="#contacto-equidad" class="bg-tertiary text-white px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 active:translate-y-[-2px] transition-all duration-200"
+               data-i18n="nav.cta_analysis">Solicitar Análisis</a>
         </div>
-        <div class="md:hidden flex items-center">
+        <div class="md:hidden flex items-center gap-2">
+            <button onclick="cycleLang()"
+                    class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors font-bold text-xs"
+                    data-i18n-attr="aria-label:nav.lang_aria" aria-label="Seleccionar idioma">
+              <span class="lang-current-label">ES</span>
+            </button>
             <button onclick="openAuthModal('login')" class="flex items-center justify-center w-9 h-9 rounded-lg text-primary hover:bg-surface-container-low transition-colors" aria-label="Iniciar Sesión">
                 <span class="material-symbols-outlined">person</span>
             </button>
@@ -102,16 +135,17 @@
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#436653_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="w-full px-margin-desktop max-w-container-max mx-auto relative z-10">
             <div class="max-w-3xl">
-                <span class="text-secondary bg-white/10 px-4 py-1.5 rounded-full text-label-sm font-semibold uppercase tracking-wider mb-6 inline-block">Estrategia de Compensación & Equidad</span>
+                <span class="text-secondary bg-white/10 px-4 py-1.5 rounded-full text-label-sm font-semibold uppercase tracking-wider mb-6 inline-block"
+                      data-i18n="equidad.hero.eyebrow">Estrategia de Compensación & Equidad</span>
                 <h1 class="font-display-lg text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
-                    Pague de forma justa.<br><span class="text-white/80">Retenga el mejor talento.</span>
+                    <span data-i18n="equidad.hero.h1_main">Pague de forma justa.</span><br><span class="text-white/80" data-i18n="equidad.hero.h1_sub">Retenga el mejor talento.</span>
                 </h1>
-                <p class="font-body-lg text-xl text-white/80 mb-10 max-w-2xl">
+                <p class="font-body-lg text-xl text-white/80 mb-10 max-w-2xl"
+                   data-i18n="equidad.hero.subtitle">
                     Diseñamos estructuras salariales competitivas y equitativas basadas en datos de mercado, eliminando las brechas que generan frustración y rotación en su equipo.
                 </p>
-                <a href="#contacto-equidad" class="inline-block bg-tertiary text-white px-8 py-4 rounded-xl font-body-md font-semibold hover:brightness-110 active:translate-y-[-2px] transition-all duration-300">
-                    Solicitar análisis salarial
-                </a>
+                <a href="#contacto-equidad" class="inline-block bg-tertiary text-white px-8 py-4 rounded-xl font-body-md font-semibold hover:brightness-110 active:translate-y-[-2px] transition-all duration-300"
+                   data-i18n="equidad.hero.cta">Solicitar análisis salarial</a>
             </div>
         </div>
     </section>
@@ -119,24 +153,26 @@
     <section class="py-24 bg-surface-container-low">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="max-w-3xl mx-auto text-center mb-16">
-                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">El costo oculto de la inequidad</span>
-                <h2 class="font-headline-lg text-3xl md:text-4xl text-primary font-bold">¿Por qué su empresa pierde talento sin entender por qué?</h2>
+                <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block"
+                      data-i18n="equidad.hidden_cost.eyebrow">El costo oculto de la inequidad</span>
+                <h2 class="font-headline-lg text-3xl md:text-4xl text-primary font-bold"
+                    data-i18n="equidad.hidden_cost.h2">¿Por qué su empresa pierde talento sin entender por qué?</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-gutter">
                 <div class="bg-white p-8 rounded-2xl border border-outline-variant/50">
                     <span class="material-symbols-outlined text-tertiary text-3xl mb-4">compress</span>
-                    <h3 class="font-headline-md text-xl text-primary mb-3">Compresión salarial</h3>
-                    <p class="text-on-surface-variant font-body-md">Los nuevos entrantes ganan lo mismo o más que empleados con años de experiencia, generando resentimiento silencioso y salidas inesperadas de talento clave.</p>
+                    <h3 class="font-headline-md text-xl text-primary mb-3" data-i18n="equidad.hidden_cost.c1_title">Compresión salarial</h3>
+                    <p class="text-on-surface-variant font-body-md" data-i18n="equidad.hidden_cost.c1_body">Los nuevos entrantes ganan lo mismo o más que empleados con años de experiencia, generando resentimiento silencioso y salidas inesperadas de talento clave.</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl border border-outline-variant/50">
                     <span class="material-symbols-outlined text-tertiary text-3xl mb-4">visibility_off</span>
-                    <h3 class="font-headline-md text-xl text-primary mb-3">Falta de transparencia</h3>
-                    <p class="text-on-surface-variant font-body-md">Sin una estructura de bandas salariales clara, las negociaciones se vuelven arbitrarias, generando desconfianza y percepción de favoritismo en la organización.</p>
+                    <h3 class="font-headline-md text-xl text-primary mb-3" data-i18n="equidad.hidden_cost.c2_title">Falta de transparencia</h3>
+                    <p class="text-on-surface-variant font-body-md" data-i18n="equidad.hidden_cost.c2_body">Sin una estructura de bandas salariales clara, las negociaciones se vuelven arbitrarias, generando desconfianza y percepción de favoritismo en la organización.</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl border border-outline-variant/50">
                     <span class="material-symbols-outlined text-tertiary text-3xl mb-4">trending_down</span>
-                    <h3 class="font-headline-md text-xl text-primary mb-3">Desfase de mercado</h3>
-                    <p class="text-on-surface-variant font-body-md">Las escalas salariales no se actualizan al ritmo del mercado, haciendo que la empresa pierda candidatos de alto potencial ante la competencia local e internacional.</p>
+                    <h3 class="font-headline-md text-xl text-primary mb-3" data-i18n="equidad.hidden_cost.c3_title">Desfase de mercado</h3>
+                    <p class="text-on-surface-variant font-body-md" data-i18n="equidad.hidden_cost.c3_body">Las escalas salariales no se actualizan al ritmo del mercado, haciendo que la empresa pierda candidatos de alto potencial ante la competencia local e internacional.</p>
                 </div>
             </div>
         </div>
@@ -146,46 +182,50 @@
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block">Nuestra Propuesta</span>
-                    <h2 class="font-headline-lg text-3xl md:text-4xl text-primary mb-6">Equidad interna + competitividad externa: la fórmula para retener talento</h2>
-                    <p class="text-on-surface-variant text-lg mb-6 leading-relaxed">
+                    <span class="text-secondary font-label-sm uppercase tracking-widest mb-3 block"
+                          data-i18n="equidad.proposal.eyebrow">Nuestra Propuesta</span>
+                    <h2 class="font-headline-lg text-3xl md:text-4xl text-primary mb-6"
+                        data-i18n="equidad.proposal.h2">Equidad interna + competitividad externa: la fórmula para retener talento</h2>
+                    <p class="text-on-surface-variant text-lg mb-6 leading-relaxed"
+                       data-i18n="equidad.proposal.body1">
                         Combinamos metodologías de valoración de cargos con benchmarking de mercado real para crear una estructura salarial percibida como justa internamente y atractiva para los candidatos que desea atraer.
                     </p>
-                    <p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+                    <p class="text-on-surface-variant text-lg mb-8 leading-relaxed"
+                       data-i18n="equidad.proposal.body2">
                         El resultado: menos rotación, conversaciones de desempeño más claras y una propuesta de valor al empleado coherente con sus ambiciones de crecimiento.
                     </p>
                     <div class="grid grid-cols-2 gap-6">
                         <div class="border-l-4 border-secondary pl-4">
                             <span class="block text-2xl font-bold text-primary font-headline-md">-35%</span>
-                            <span class="text-sm text-on-surface-variant">Reducción de rotación voluntaria en el primer año post-implementación.</span>
+                            <span class="text-sm text-on-surface-variant" data-i18n="equidad.proposal.stat1_body">Reducción de rotación voluntaria en el primer año post-implementación.</span>
                         </div>
                         <div class="border-l-4 border-secondary pl-4">
                             <span class="block text-2xl font-bold text-primary font-headline-md">100%</span>
-                            <span class="text-sm text-on-surface-variant">Benchmarking con datos reales del mercado de su sector e industria.</span>
+                            <span class="text-sm text-on-surface-variant" data-i18n="equidad.proposal.stat2_body">Benchmarking con datos reales del mercado de su sector e industria.</span>
                         </div>
                     </div>
                 </div>
                 <div class="bg-surface-container-low p-8 rounded-3xl space-y-6">
-                    <h4 class="font-headline-md text-xl text-primary mb-4">Componentes del análisis</h4>
+                    <h4 class="font-headline-md text-xl text-primary mb-4" data-i18n="equidad.proposal.box_h4">Componentes del análisis</h4>
                     <div class="flex gap-4 bg-white p-5 rounded-xl shadow-sm">
                         <span class="material-symbols-outlined text-secondary">workspaces</span>
                         <div>
-                            <h5 class="font-semibold text-primary">Valoración de Cargos</h5>
-                            <p class="text-sm text-on-surface-variant mt-1">Metodología de puntos y niveles para clasificar objetivamente cada posición según impacto, complejidad y autonomía.</p>
+                            <h5 class="font-semibold text-primary" data-i18n="equidad.proposal.c1_title">Valoración de Cargos</h5>
+                            <p class="text-sm text-on-surface-variant mt-1" data-i18n="equidad.proposal.c1_body">Metodología de puntos y niveles para clasificar objetivamente cada posición según impacto, complejidad y autonomía.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 bg-white p-5 rounded-xl shadow-sm">
                         <span class="material-symbols-outlined text-secondary">bar_chart</span>
                         <div>
-                            <h5 class="font-semibold text-primary">Benchmarking Externo</h5>
-                            <p class="text-sm text-on-surface-variant mt-1">Comparación de sus escalas con encuestas salariales de mercado del sector, la región y el tamaño de empresa.</p>
+                            <h5 class="font-semibold text-primary" data-i18n="equidad.proposal.c2_title">Benchmarking Externo</h5>
+                            <p class="text-sm text-on-surface-variant mt-1" data-i18n="equidad.proposal.c2_body">Comparación de sus escalas con encuestas salariales de mercado del sector, la región y el tamaño de empresa.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 bg-white p-5 rounded-xl shadow-sm">
                         <span class="material-symbols-outlined text-secondary">linear_scale</span>
                         <div>
-                            <h5 class="font-semibold text-primary">Bandas Salariales</h5>
-                            <p class="text-sm text-on-surface-variant mt-1">Diseño de rangos mínimo-medio-máximo que permiten crecer dentro del cargo y vinculan el salario al desempeño.</p>
+                            <h5 class="font-semibold text-primary" data-i18n="equidad.proposal.c3_title">Bandas Salariales</h5>
+                            <p class="text-sm text-on-surface-variant mt-1" data-i18n="equidad.proposal.c3_body">Diseño de rangos mínimo-medio-máximo que permiten crecer dentro del cargo y vinculan el salario al desempeño.</p>
                         </div>
                     </div>
                 </div>
@@ -196,29 +236,29 @@
     <section class="py-24 bg-surface-container-low">
         <div class="w-full px-margin-desktop max-w-container-max mx-auto">
             <div class="text-center mb-16">
-                <h2 class="font-headline-lg text-3xl text-primary">Proceso de Análisis</h2>
-                <p class="text-on-surface-variant mt-2">Cuatro etapas para una compensación objetiva y sostenible.</p>
+                <h2 class="font-headline-lg text-3xl text-primary" data-i18n="equidad.process.h2">Proceso de Análisis</h2>
+                <p class="text-on-surface-variant mt-2" data-i18n="equidad.process.subtitle">Cuatro etapas para una compensación objetiva y sostenible.</p>
             </div>
             <div class="grid md:grid-cols-4 gap-gutter">
                 <div class="bg-white p-6 rounded-xl border border-outline-variant/40 relative">
                     <span class="absolute top-4 right-4 font-bold text-4xl text-secondary opacity-30">01</span>
-                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4">Inventario de Cargos</h4>
-                    <p class="text-sm text-on-surface-variant">Levantamiento y documentación de todos los perfiles y sus responsabilidades reales, diferenciando el cargo del titular.</p>
+                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4" data-i18n="equidad.process.s1_title">Inventario de Cargos</h4>
+                    <p class="text-sm text-on-surface-variant" data-i18n="equidad.process.s1_body">Levantamiento y documentación de todos los perfiles y sus responsabilidades reales, diferenciando el cargo del titular.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-outline-variant/40 relative">
                     <span class="absolute top-4 right-4 font-bold text-4xl text-secondary opacity-30">02</span>
-                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4">Valoración y Niveling</h4>
-                    <p class="text-sm text-on-surface-variant">Clasificación objetiva de cada cargo usando criterios de impacto organizacional, complejidad técnica y autonomía.</p>
+                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4" data-i18n="equidad.process.s2_title">Valoración y Niveling</h4>
+                    <p class="text-sm text-on-surface-variant" data-i18n="equidad.process.s2_body">Clasificación objetiva de cada cargo usando criterios de impacto organizacional, complejidad técnica y autonomía.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-outline-variant/40 relative">
                     <span class="absolute top-4 right-4 font-bold text-4xl text-secondary opacity-30">03</span>
-                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4">Benchmarking de Mercado</h4>
-                    <p class="text-sm text-on-surface-variant">Cruce de sus escalas actuales con datos de mercado de su sector, ciudad y tamaño de empresa para identificar brechas críticas.</p>
+                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4" data-i18n="equidad.process.s3_title">Benchmarking de Mercado</h4>
+                    <p class="text-sm text-on-surface-variant" data-i18n="equidad.process.s3_body">Cruce de sus escalas actuales con datos de mercado de su sector, ciudad y tamaño de empresa para identificar brechas críticas.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-outline-variant/40 relative">
                     <span class="absolute top-4 right-4 font-bold text-4xl text-secondary opacity-30">04</span>
-                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4">Bandas y Plan de Ajuste</h4>
-                    <p class="text-sm text-on-surface-variant">Entrega de la estructura final con un plan de implementación gradual, sin impacto fiscal traumático para la empresa.</p>
+                    <h4 class="font-headline-md text-lg text-primary mb-3 mt-4" data-i18n="equidad.process.s4_title">Bandas y Plan de Ajuste</h4>
+                    <p class="text-sm text-on-surface-variant" data-i18n="equidad.process.s4_body">Entrega de la estructura final con un plan de implementación gradual, sin impacto fiscal traumático para la empresa.</p>
                 </div>
             </div>
         </div>
@@ -229,52 +269,62 @@
             <div class="max-w-4xl mx-auto bg-primary text-white rounded-[2rem] p-8 md:p-16 shadow-xl">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-3">
-                        <h2 class="font-display-lg text-3xl md:text-4xl text-white mb-4">¿Sus salarios retienen o expulsan talento?</h2>
-                        <p class="text-white/80 font-body-lg mb-6">Solicite una revisión de su estructura actual. Le entregaremos un diagnóstico de equidad con las brechas más críticas a corregir.</p>
+                        <h2 class="font-display-lg text-3xl md:text-4xl text-white mb-4"
+                            data-i18n="equidad.form.h2">¿Sus salarios retienen o expulsan talento?</h2>
+                        <p class="text-white/80 font-body-lg mb-6"
+                           data-i18n="equidad.form.body">Solicite una revisión de su estructura actual. Le entregaremos un diagnóstico de equidad con las brechas más críticas a corregir.</p>
                         <div class="space-y-3 text-sm text-white/90">
-                            <p class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">check_circle</span> Dirigido a gerentes de RRHH, CEOs y directores financieros.</p>
-                            <p class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">check_circle</span> Confidencial y personalizado para su empresa y sector.</p>
+                            <p class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">check_circle</span> <span data-i18n="equidad.form.bullet1">Dirigido a gerentes de RRHH, CEOs y directores financieros.</span></p>
+                            <p class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">check_circle</span> <span data-i18n="equidad.form.bullet2">Confidencial y personalizado para su empresa y sector.</span></p>
                         </div>
                     </div>
                     <div class="md:col-span-2 bg-white text-on-background p-6 rounded-2xl min-h-[360px] flex flex-col justify-center">
                         <div id="mensaje-exito-equidad" class="hidden text-center p-4">
                             <span class="material-symbols-outlined text-secondary text-5xl mb-4 block">task_alt</span>
-                            <h4 class="font-headline-md text-xl text-primary mb-2">¡Solicitud Recibida!</h4>
-                            <p class="text-sm text-on-surface-variant">Hemos recibido su interés. Nuestro equipo se pondrá en contacto a la brevedad para coordinar el levantamiento de información.</p>
+                            <h4 class="font-headline-md text-xl text-primary mb-2" data-i18n="equidad.form.success_title">¡Solicitud Recibida!</h4>
+                            <p class="text-sm text-on-surface-variant" data-i18n="equidad.form.success_body">Hemos recibido su interés. Nuestro equipo se pondrá en contacto a la brevedad para coordinar el levantamiento de información.</p>
                         </div>
                         <form id="form-equidad" action="https://formspree.io/f/mpqnadpy" method="POST" class="space-y-4">
                             <input type="hidden" name="_replyto" value="andanasrubram@gmail.com">
                             <input type="hidden" name="_subject" value="Nuevo Prospecto: Equidad Salarial - Consciencia Creativa">
                             <div>
-                                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Nombre</label>
-                                <input class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Nombre" placeholder="Su nombre" type="text" required/>
+                                <label class="block text-xs font-semibold text-on-surface-variant mb-1"
+                                       data-i18n="equidad.form.name_label">Nombre</label>
+                                <input class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Nombre"
+                                       data-i18n-attr="placeholder:equidad.form.name_placeholder"
+                                       placeholder="Su nombre" type="text" required/>
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email Corporativo</label>
-                                <input class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Email" placeholder="nombre@empresa.com" type="email" required/>
+                                <label class="block text-xs font-semibold text-on-surface-variant mb-1"
+                                       data-i18n="equidad.form.email_label">Email Corporativo</label>
+                                <input class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Email"
+                                       placeholder="nombre@empresa.com" type="email" required/>
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-on-surface-variant mb-1">Sector / Industria</label>
+                                <label class="block text-xs font-semibold text-on-surface-variant mb-1"
+                                       data-i18n="equidad.form.sector_label">Sector / Industria</label>
                                 <select class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Sector">
-                                    <option>Tecnología / Software</option>
-                                    <option>Manufactura e Industria</option>
-                                    <option>Salud y Ciencias de la Vida</option>
-                                    <option>Servicios Financieros</option>
-                                    <option>Comercio y Retail</option>
-                                    <option>Educación</option>
-                                    <option>Otro</option>
+                                    <option data-i18n="equidad.form.opt_tech">Tecnología / Software</option>
+                                    <option data-i18n="equidad.form.opt_mfg">Manufactura e Industria</option>
+                                    <option data-i18n="equidad.form.opt_health">Salud y Ciencias de la Vida</option>
+                                    <option data-i18n="equidad.form.opt_finance">Servicios Financieros</option>
+                                    <option data-i18n="equidad.form.opt_retail">Comercio y Retail</option>
+                                    <option data-i18n="equidad.form.opt_edu">Educación</option>
+                                    <option data-i18n="equidad.form.opt_other">Otro</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-on-surface-variant mb-1">N.° aproximado de cargos</label>
+                                <label class="block text-xs font-semibold text-on-surface-variant mb-1"
+                                       data-i18n="equidad.form.positions_label">N.° aproximado de cargos</label>
                                 <select class="w-full text-sm rounded-lg border-outline-variant bg-background p-2.5" name="Número de Cargos">
-                                    <option>Menos de 10 cargos</option>
-                                    <option>10 a 30 cargos</option>
-                                    <option>31 a 80 cargos</option>
-                                    <option>Más de 80 cargos</option>
+                                    <option data-i18n="equidad.form.opt_less10">Menos de 10 cargos</option>
+                                    <option data-i18n="equidad.form.opt_10_30">10 a 30 cargos</option>
+                                    <option data-i18n="equidad.form.opt_31_80">31 a 80 cargos</option>
+                                    <option data-i18n="equidad.form.opt_80plus">Más de 80 cargos</option>
                                 </select>
                             </div>
-                            <button id="btn-enviar-equidad" class="w-full bg-tertiary text-white py-3 rounded-lg font-label-md text-sm font-semibold hover:brightness-110 transition-all shadow-md" type="submit">
+                            <button id="btn-enviar-equidad" class="w-full bg-tertiary text-white py-3 rounded-lg font-label-md text-sm font-semibold hover:brightness-110 transition-all shadow-md" type="submit"
+                                    data-i18n="equidad.form.btn">
                                 Solicitar Análisis Salarial
                             </button>
                         </form>
@@ -289,10 +339,10 @@
     <div class="w-full px-margin-desktop py-12 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
             <span class="text-xl font-bold text-primary font-headline-md block">Consciencia Creativa</span>
-            <p class="text-sm text-on-surface-variant">Transformación humana consciente para personas, líderes y organizaciones.</p>
-            <p class="text-xs text-on-surface-variant mt-1">Parte del ecosistema Andanas Group.</p>
+            <p class="text-sm text-on-surface-variant" data-i18n="footer.tagline">Transformación humana consciente para personas, líderes y organizaciones.</p>
+            <p class="text-xs text-on-surface-variant mt-1" data-i18n="footer.ecosystem">Parte del ecosistema Andanas Group.</p>
         </div>
-        <p class="font-label-md text-xs text-on-surface-variant">© 2026 Consciencia Creativa. Todos los derechos reservados.</p>
+        <p class="font-label-md text-xs text-on-surface-variant" data-i18n="footer.copyright">© 2026 Consciencia Creativa. Todos los derechos reservados.</p>
     </div>
 </footer>
 
@@ -302,8 +352,11 @@
     formEquidad.addEventListener('submit', async function(e) {
         e.preventDefault();
         const btn = document.getElementById('btn-enviar-equidad');
+        const t = window.__i18nCache || {};
+        const sending = (t.equidad && t.equidad.form && t.equidad.form.sending) || 'Enviando…';
+        const btnLabel = (t.equidad && t.equidad.form && t.equidad.form.btn) || 'Solicitar Análisis Salarial';
         btn.disabled = true;
-        btn.innerText = 'Enviando...';
+        btn.innerText = sending;
         try {
             const res = await fetch(formEquidad.action, {
                 method: formEquidad.method,
@@ -316,12 +369,12 @@
             } else {
                 alert('Hubo un inconveniente. Por favor, inténtalo de nuevo.');
                 btn.disabled = false;
-                btn.innerText = 'Solicitar Análisis Salarial';
+                btn.innerText = btnLabel;
             }
         } catch {
             alert('Error de conexión. Inténtalo de nuevo más tarde.');
             btn.disabled = false;
-            btn.innerText = 'Solicitar Análisis Salarial';
+            btn.innerText = btnLabel;
         }
     });
 </script>
